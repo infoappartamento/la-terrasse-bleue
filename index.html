@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>La Terrasse Bleue — Juan-les-Pins · Côte d'Azur</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #04111E;
+  --card:     #0A2540;
+  --card2:    #0D3157;
+  --accent:   #1A7FC1;
+  --accent2:  #00B4D8;
+  --gold:     #F0C040;
+  --text:     #FFFFFF;
+  --text-dim: rgba(255,255,255,0.55);
+  --border:   rgba(255,255,255,0.08);
+  --cream:    #EAF4FC;
+  --dark-txt: #0A1929;
+  --nav-h:    68px;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.app {
+  max-width: 430px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── SCREENS ── */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+}
+.screen.active {
+  display: flex;
+  animation: fadeUp .3s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════ LANDING ══════════════ */
+#landing { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+.landing-header {
+  padding: 52px 24px 36px;
+  text-align: center;
+  background: linear-gradient(180deg, #071B2F 0%, var(--bg) 100%);
+}
+.landing-logo {
+  width: 120px; height: 120px; border-radius: 50%;
+  margin: 0 auto 22px;
+  box-shadow: 0 0 0 1px rgba(212,176,60,.25), 0 12px 48px rgba(212,176,60,.2), 0 4px 20px rgba(0,0,0,.5);
+  overflow: hidden; display: block; flex-shrink: 0;
+}
+.landing-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: var(--accent2); text-transform: uppercase; margin-bottom: 8px;
+}
+.landing-title { font-size: 27px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; }
+.landing-sub   { font-size: 14px; color: var(--text-dim); }
+
+.apt-card {
+  margin: 0 16px 16px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 22px 20px 18px;
+  position: relative; overflow: hidden;
+}
+.apt-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,180,216,.09) 0%, transparent 60%);
+  pointer-events: none;
+}
+.apt-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #0A1929; background: var(--gold);
+  border-radius: 20px; padding: 3px 11px; margin-bottom: 12px;
+}
+.apt-name     { font-size: 21px; font-weight: 800; margin-bottom: 3px; }
+.apt-subtitle { font-size: 13px; color: var(--text-dim); font-style: italic; margin-bottom: 12px; }
+.apt-addr     { font-size: 12px; color: var(--accent2); margin-bottom: 20px; }
+
+.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lang-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 14px 10px; border-radius: 12px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  color: var(--text); font-size: 14px; font-weight: 600;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background .18s, border-color .18s; line-height: 1.4;
+  text-align: center; flex-direction: column;
+}
+.lang-btn:active { background: rgba(26,127,193,.25); border-color: var(--accent); }
+.lang-flag { font-size: 20px; }
+
+/* ══════════════ GUIDE ══════════════ */
+#guide { background: var(--cream); color: var(--dark-txt); }
+
+.guide-topbar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; background: var(--card);
+  border-bottom: 1px solid var(--border); color: var(--text); flex-shrink: 0;
+}
+.back-btn {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: none; color: var(--text);
+  font-size: 16px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.guide-topbar-title { font-size: 15px; font-weight: 600; flex: 1; }
+.guide-topbar-sub   { font-size: 11px; color: rgba(255,255,255,.5); }
+
+.tab-area { flex: 1; overflow: hidden; position: relative; }
+.tab-content {
+  position: absolute; inset: 0; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; display: none;
+  padding-bottom: calc(var(--nav-h) + 16px);
+}
+.tab-content.active { display: block; animation: fadeUp .25s ease; }
+
+/* Bottom Nav */
+.bottom-nav {
+  height: var(--nav-h); background: #fff;
+  border-top: 1px solid rgba(0,0,0,.08);
+  display: flex; align-items: stretch; flex-shrink: 0;
+  box-shadow: 0 -4px 16px rgba(0,0,0,.06);
+}
+.nav-btn {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  border: none; background: none; cursor: pointer;
+  color: #94A3B8; font-size: 10px; font-weight: 600;
+  padding: 8px 4px; -webkit-tap-highlight-color: transparent;
+  transition: color .18s;
+}
+.nav-btn .nav-icon { font-size: 20px; transition: transform .18s; }
+.nav-btn.active { color: var(--accent); }
+.nav-btn.active .nav-icon { transform: translateY(-2px); }
+
+/* ── Page Header ── */
+.page-header { padding: 28px 20px 16px; background: var(--card); color: var(--text); }
+.page-header .eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent2); margin-bottom: 4px;
+}
+.page-header h2 { font-size: 26px; font-weight: 800; }
+
+/* Hero Stats */
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border); border-top: 1px solid var(--border);
+}
+.stat-item { background: var(--card2); padding: 14px 10px; text-align: center; color: var(--text); }
+.stat-icon  { font-size: 18px; margin-bottom: 2px; }
+.stat-label { font-size: 9px; color: var(--text-dim); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.stat-value { font-size: 13px; font-weight: 700; margin-top: 1px; }
+
+/* Welcome Card */
+.welcome-card {
+  margin: 16px; padding: 20px;
+  background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.welcome-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--dark-txt); }
+.welcome-card p  { font-size: 13.5px; line-height: 1.65; color: #4A5568; }
+
+/* Explore Grid */
+.explore-section { margin: 0 16px 16px; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #64748B; padding: 20px 0 8px;
+}
+.explore-sub { font-size: 11.5px; color: #64748B; margin-bottom: 12px; margin-top: -6px; }
+.explore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.explore-item {
+  background: #fff; border-radius: 14px; padding: 16px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05); cursor: pointer;
+  -webkit-tap-highlight-color: transparent; transition: transform .15s;
+  border: 1.5px solid transparent;
+}
+.explore-item:active { transform: scale(.97); border-color: var(--accent2); }
+.explore-item .ei-icon  { font-size: 22px; margin-bottom: 8px; }
+.explore-item .ei-title { font-size: 13px; font-weight: 700; color: var(--dark-txt); }
+.explore-item .ei-sub   { font-size: 11px; color: #64748B; margin-top: 2px; line-height: 1.4; }
+
+/* Contact Bar */
+.contact-bar {
+  margin: 0 16px 16px; background: #fff; border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06); padding: 16px 18px;
+  display: flex; align-items: center; gap: 14px;
+}
+.cb-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0; color: #fff;
+}
+.cb-info { flex: 1; }
+.cb-lbl  { font-size: 11px; color: #64748B; }
+.cb-name { font-size: 15px; font-weight: 700; color: var(--dark-txt); }
+.call-btn {
+  background: var(--accent); color: #fff; border: none;
+  border-radius: 22px; padding: 9px 18px; font-size: 13px; font-weight: 700;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  text-decoration: none; display: inline-block; white-space: nowrap;
+}
+
+/* Section Card */
+.section-card {
+  margin: 16px 16px 0; background: #fff; border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06); overflow: hidden;
+}
+.sc-header {
+  padding: 16px 18px 12px; border-bottom: 1px solid rgba(0,0,0,.05);
+  display: flex; align-items: center; gap: 10px;
+}
+.sc-header h3 { font-size: 15px; font-weight: 700; color: var(--dark-txt); }
+.sc-body { padding: 16px 18px; }
+
+/* Time grid */
+.time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.time-item { background: var(--cream); border-radius: 12px; padding: 12px; text-align: center; }
+.ti-lbl { font-size: 10px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: .08em; }
+.ti-val { font-size: 22px; font-weight: 800; color: var(--accent); margin-top: 2px; }
+
+.info-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,.05); font-size: 13.5px;
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.ir-label { color: #64748B; font-size: 12.5px; }
+.ir-value { font-weight: 600; color: var(--dark-txt); text-align: right; }
+
+/* Maps buttons */
+.maps-big-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 13px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; font-size: 14px; font-weight: 700; border: none;
+  cursor: pointer; margin-top: 14px; -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+.maps-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 5px 0;
+}
+
+/* Arrival steps */
+.arrival-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; padding: 4px 0; -webkit-tap-highlight-color: transparent;
+}
+.arrival-toggle-label { font-size: 13.5px; font-weight: 600; color: var(--dark-txt); }
+.arrival-toggle-btn {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font-size: 18px; font-weight: 600; display: flex;
+  align-items: center; justify-content: center; background: none; cursor: pointer; flex-shrink: 0;
+}
+.arrival-steps { margin-top: 14px; }
+.arrival-step { display: flex; gap: 14px; margin-bottom: 16px; }
+.step-num {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+}
+.step-text { font-size: 13px; line-height: 1.55; color: var(--dark-txt); }
+
+/* WiFi Card */
+.wifi-card {
+  margin: 16px 16px 0; border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  padding: 18px 20px; color: #fff; box-shadow: 0 6px 24px rgba(26,127,193,.35);
+}
+.wifi-label   { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.wifi-network { font-size: 17px; font-weight: 700; margin: 4px 0; }
+.wifi-pwd-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.wifi-pwd-lbl { font-size: 11px; opacity: .75; }
+.wifi-pwd-val { font-size: 16px; font-weight: 800; letter-spacing: .05em; }
+
+/* Rules */
+.rule-item {
+  display: flex; gap: 14px; padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,.05); align-items: flex-start;
+}
+.rule-item:last-child { border-bottom: none; padding-bottom: 0; }
+.rule-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(26,127,193,.1); color: var(--accent);
+  font-size: 11px; font-weight: 700; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.rule-title { font-size: 13.5px; font-weight: 700; color: var(--dark-txt); margin-bottom: 2px; }
+.rule-desc  { font-size: 12.5px; color: #64748B; line-height: 1.45; }
+
+/* Space cards */
+.space-card {
+  background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin: 12px 16px 0; padding: 18px;
+}
+.space-card:first-child { margin-top: 16px; }
+.space-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.space-icon  { font-size: 24px; }
+.space-title { font-size: 15px; font-weight: 700; color: var(--dark-txt); }
+.space-desc  { font-size: 13px; color: #4A5568; line-height: 1.55; margin-bottom: 12px; }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+  background: var(--cream); color: var(--accent);
+  border: 1px solid rgba(26,127,193,.2); border-radius: 20px;
+  padding: 4px 11px; font-size: 11.5px; font-weight: 600;
+}
+
+/* Services */
+.svc-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.svc-item:last-child { border-bottom: none; padding-bottom: 0; }
+.svc-icon-wrap {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(26,127,193,.1); display: flex;
+  align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+.svc-title { font-size: 13.5px; font-weight: 700; color: var(--dark-txt); }
+.svc-desc  { font-size: 12.5px; color: #64748B; margin-top: 1px; }
+
+/* Place cards */
+.place-card {
+  background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin: 12px 16px 0; padding: 18px;
+}
+.place-card:first-child { margin-top: 16px; }
+.place-title { font-size: 15px; font-weight: 700; color: var(--dark-txt); margin-bottom: 6px; }
+.place-desc  { font-size: 13px; color: #4A5568; line-height: 1.55; margin-bottom: 8px; }
+.place-how   {
+  font-size: 12px; color: #64748B; background: var(--cream);
+  padding: 8px 12px; border-radius: 10px; margin-bottom: 10px; line-height: 1.45;
+}
+
+/* Restaurant cards */
+.resto-card {
+  background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin: 12px 16px 0; padding: 18px;
+}
+.resto-card:first-child { margin-top: 16px; }
+.resto-name  { font-size: 15px; font-weight: 700; color: var(--dark-txt); margin-bottom: 2px; }
+.resto-type  { font-size: 12px; color: #64748B; margin-bottom: 6px; }
+.resto-desc  { font-size: 13px; color: #4A5568; line-height: 1.55; margin-bottom: 10px; }
+.resto-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.badge {
+  background: var(--cream); color: var(--accent);
+  border: 1px solid rgba(26,127,193,.2); border-radius: 20px;
+  padding: 3px 10px; font-size: 11px; font-weight: 600;
+}
+.badge.price { background: rgba(240,192,64,.1); color: #966B00; border-color: rgba(240,192,64,.35); }
+
+.super-card {
+  margin: 12px 16px 0; padding: 16px 18px; background: #fff;
+  border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  font-size: 13.5px; color: #4A5568; line-height: 1.55;
+}
+
+/* Movement / Info items */
+.mov-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.mov-item:last-child { border-bottom: none; padding-bottom: 0; }
+.mov-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(26,127,193,.1); display: flex;
+  align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+.mov-title { font-size: 13.5px; font-weight: 700; color: var(--dark-txt); margin-bottom: 3px; }
+.mov-desc  { font-size: 13px; color: #4A5568; line-height: 1.55; }
+
+/* SOS */
+.sos-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.05); gap: 10px;
+}
+.sos-item:last-child { border-bottom: none; }
+.sos-name { font-size: 14px; font-weight: 700; color: var(--dark-txt); }
+.sos-desc { font-size: 12px; color: #64748B; }
+.sos-num {
+  background: #DC2626; color: #fff; border: none; border-radius: 20px;
+  padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+  white-space: nowrap; text-decoration: none; display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Checkout steps */
+.checkout-step {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.checkout-step:last-child { border-bottom: none; }
+.cs-num {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.cs-title { font-size: 13.5px; font-weight: 700; color: var(--dark-txt); margin-bottom: 2px; }
+.cs-desc  { font-size: 13px; color: #4A5568; line-height: 1.45; }
+
+/* Bye Card */
+.bye-card {
+  margin: 16px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--card), var(--card2));
+  padding: 22px 20px; color: var(--text); text-align: center;
+}
+.bye-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.bye-card p  { font-size: 13px; line-height: 1.65; opacity: .85; }
+
+.spacer-bottom { height: 16px; }
+.sec-lbl {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #64748B; padding: 20px 16px 8px;
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ══════════════ LANDING ══════════════ -->
+  <div id="landing" class="screen active">
+    <div class="landing-header">
+      <div class="landing-logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#030D18"/>
+              <stop offset="100%" stop-color="#081E35"/>
+            </linearGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5E27A"/>
+              <stop offset="50%" stop-color="#D4A828"/>
+              <stop offset="100%" stop-color="#A67C00"/>
+            </linearGradient>
+            <linearGradient id="goldH" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#A67C00"/>
+              <stop offset="50%" stop-color="#F5E27A"/>
+              <stop offset="100%" stop-color="#A67C00"/>
+            </linearGradient>
+            <radialGradient id="sunR" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFF0A0"/>
+              <stop offset="100%" stop-color="#C8920A"/>
+            </radialGradient>
+            <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D4A828" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#D4A828" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="c"><circle cx="50" cy="50" r="50"/></clipPath>
+          </defs>
+
+          <!-- Background -->
+          <circle cx="50" cy="50" r="50" fill="url(#bg)"/>
+
+          <!-- Subtle inner vignette -->
+          <circle cx="50" cy="50" r="50" fill="radial-gradient" opacity="0.3"/>
+
+          <!-- Outer gold ring -->
+          <circle cx="50" cy="50" r="47.5" fill="none" stroke="url(#goldH)" stroke-width="0.9"/>
+          <!-- Inner gold ring -->
+          <circle cx="50" cy="50" r="44.5" fill="none" stroke="url(#goldH)" stroke-width="0.35" opacity="0.6"/>
+
+          <!-- Sun halo -->
+          <circle cx="50" cy="41" r="13" fill="url(#halo)"/>
+
+          <!-- Sun disk -->
+          <circle cx="50" cy="41" r="7.5" fill="url(#sunR)"/>
+          <!-- Sun rim -->
+          <circle cx="50" cy="41" r="7.5" fill="none" stroke="#F5E27A" stroke-width="0.4" opacity="0.8"/>
+
+          <!-- Sun rays — alternating long/short, Art Deco style -->
+          <g stroke="url(#gold)" stroke-linecap="round" clip-path="url(#c)">
+            <!-- 8 major rays -->
+            <line x1="50" y1="25.5" x2="50" y2="29.5"   stroke-width="0.9"/>
+            <line x1="50" y1="52.5" x2="50" y2="56.5"   stroke-width="0.9"/>
+            <line x1="33.5" y1="41" x2="37.5" y2="41"   stroke-width="0.9"/>
+            <line x1="62.5" y1="41" x2="66.5" y2="41"   stroke-width="0.9"/>
+            <line x1="38.6" y1="29.6" x2="41.4" y2="32.4" stroke-width="0.9"/>
+            <line x1="58.6" y1="49.6" x2="61.4" y2="52.4" stroke-width="0.9"/>
+            <line x1="61.4" y1="29.6" x2="58.6" y2="32.4" stroke-width="0.9"/>
+            <line x1="41.4" y1="49.6" x2="38.6" y2="52.4" stroke-width="0.9"/>
+            <!-- 8 minor rays -->
+            <line x1="50" y1="22"   x2="50" y2="24.5"   stroke-width="0.45" opacity="0.55"/>
+            <line x1="50" y1="57.5" x2="50" y2="60"     stroke-width="0.45" opacity="0.55"/>
+            <line x1="30"  y1="41"  x2="32.5" y2="41"   stroke-width="0.45" opacity="0.55"/>
+            <line x1="67.5" y1="41" x2="70"  y2="41"    stroke-width="0.45" opacity="0.55"/>
+            <line x1="35.8" y1="26.8" x2="37.7" y2="28.7" stroke-width="0.45" opacity="0.55"/>
+            <line x1="62.3" y1="53.3" x2="64.2" y2="55.2" stroke-width="0.45" opacity="0.55"/>
+            <line x1="64.2" y1="26.8" x2="62.3" y2="28.7" stroke-width="0.45" opacity="0.55"/>
+            <line x1="37.7" y1="53.3" x2="35.8" y2="55.2" stroke-width="0.45" opacity="0.55"/>
+          </g>
+
+          <!-- Horizon line -->
+          <line x1="14" y1="59" x2="86" y2="59" stroke="url(#goldH)" stroke-width="0.55" opacity="0.9"/>
+
+          <!-- Three elegant waves -->
+          <path d="M14 63.5 Q24 60.5 34 63.5 Q44 66.5 54 63.5 Q64 60.5 74 63.5 Q80 65 86 63.5"
+                fill="none" stroke="url(#goldH)" stroke-width="0.75" stroke-linecap="round" opacity="0.9"/>
+          <path d="M14 68.5 Q26 65.5 38 68.5 Q50 71.5 62 68.5 Q74 65.5 86 68.5"
+                fill="none" stroke="url(#goldH)" stroke-width="0.6"  stroke-linecap="round" opacity="0.6"/>
+          <path d="M14 73.5 Q28 70.5 42 73.5 Q56 76.5 70 73.5 Q80 71  86 73.5"
+                fill="none" stroke="url(#goldH)" stroke-width="0.45" stroke-linecap="round" opacity="0.35"/>
+
+          <!-- Sailboat — minimal elegant -->
+          <g clip-path="url(#c)">
+            <line x1="22" y1="58.8" x2="22" y2="47" stroke="url(#gold)" stroke-width="0.5"/>
+            <path d="M22 47 L16 58.8 Z" fill="none" stroke="url(#gold)" stroke-width="0.6" opacity="0.85"/>
+            <path d="M22 49 L28 58.8 Z" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.6"/>
+            <path d="M15 59.2 Q22 57.8 29 59.2" fill="none" stroke="url(#gold)" stroke-width="0.65" stroke-linecap="round"/>
+          </g>
+
+          <!-- Palm trunk -->
+          <path d="M78 92 Q75.5 79 72.5 67 Q71.5 61 73.5 55.5"
+                fill="none" stroke="url(#gold)" stroke-width="1.1" stroke-linecap="round" clip-path="url(#c)"/>
+
+          <!-- Palm fronds — thin elegant -->
+          <g fill="none" stroke-linecap="round" clip-path="url(#c)">
+            <path d="M73.5 55.5 Q63 48.5 57.5 52"   stroke="url(#gold)" stroke-width="0.75"/>
+            <path d="M73.5 55.5 Q66 44   69 37.5"   stroke="url(#gold)" stroke-width="0.75"/>
+            <path d="M73.5 55.5 Q79 44   87 42"     stroke="url(#gold)" stroke-width="0.75"/>
+            <path d="M73.5 55.5 Q82 50   89.5 52.5" stroke="url(#gold)" stroke-width="0.75"/>
+            <path d="M73.5 55.5 Q71 45   73.5 38.5" stroke="url(#gold)" stroke-width="0.75"/>
+            <path d="M73.5 55.5 Q62 53   57 58"     stroke="url(#gold)" stroke-width="0.6" opacity="0.7"/>
+          </g>
+
+          <!-- Bottom ornament: dots -->
+          <g fill="url(#gold)" opacity="0.55" clip-path="url(#c)">
+            <circle cx="38" cy="83" r="0.6"/>
+            <circle cx="42" cy="83" r="0.6"/>
+            <circle cx="46" cy="83" r="0.6"/>
+            <circle cx="50" cy="83" r="0.8"/>
+            <circle cx="54" cy="83" r="0.6"/>
+            <circle cx="58" cy="83" r="0.6"/>
+            <circle cx="62" cy="83" r="0.6"/>
+          </g>
+
+          <!-- Top diamond ornament -->
+          <polygon points="50,5.5 51.2,7.5 50,9.5 48.8,7.5" fill="url(#gold)" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="landing-eyebrow">Juan-les-Pins · Côte d'Azur</div>
+      <div class="landing-title">La Terrasse Bleue</div>
+      <div class="landing-sub">La tua guida di benvenuto</div>
+    </div>
+
+    <div class="apt-card">
+      <div class="apt-badge">✦ Côte d'Azur</div>
+      <div class="apt-name">La Terrasse Bleue</div>
+      <div class="apt-subtitle">Appartamento · Juan-les-Pins · Côte d'Azur</div>
+      <div class="apt-addr">📍 Blvd. Poincaré 93, Juan-les-Pins · Antibes · France</div>
+      <div class="lang-grid">
+        <button class="lang-btn" onclick="openGuide('it')">
+          <span class="lang-flag">🇮🇹</span>
+          <span>Italiano</span>
+          <small style="font-weight:400;opacity:.65;font-size:11px;">Guida Ospiti ›</small>
+        </button>
+        <button class="lang-btn" onclick="openGuide('en')">
+          <span class="lang-flag">🇬🇧</span>
+          <span>English</span>
+          <small style="font-weight:400;opacity:.65;font-size:11px;">Guest Guide ›</small>
+        </button>
+      </div>
+    </div>
+    <div style="height:32px;"></div>
+  </div>
+
+  <!-- ══════════════ GUIDE ══════════════ -->
+  <div id="guide" class="screen">
+    <div class="guide-topbar">
+      <button class="back-btn" onclick="backToLanding()">←</button>
+      <div>
+        <div class="guide-topbar-title">✦ Juan-les-Pins · Côte d'Azur</div>
+        <div class="guide-topbar-sub">La Terrasse Bleue</div>
+      </div>
+    </div>
+
+    <div class="tab-area">
+
+      <!-- ── TAB: HOME ── -->
+      <div id="tab-home" class="tab-content">
+        <div class="page-header">
+          <div class="eyebrow" id="ph-home-eye">Benvenuti a</div>
+          <h2 id="ph-home-title">Juan-les-Pins 🌊</h2>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-icon">🗝️</div>
+            <div class="stat-label" id="s-checkin-lbl">Check-in</div>
+            <div class="stat-value">16:00</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🚪</div>
+            <div class="stat-label" id="s-checkout-lbl">Check-out</div>
+            <div class="stat-value">10:00</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🧭</div>
+            <div class="stat-label" id="s-maps-lbl">Naviga</div>
+            <div class="stat-value" style="font-size:11px;cursor:pointer;" onclick="openMaps()">
+              <span style="color:var(--accent2);font-weight:700;">Maps ↗</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome-card">
+          <h3 id="wc-title">Benvenuti! 🌊</h3>
+          <p id="wc-text">Ciao e benvenuti! ☀️<br><br>Siamo felicissimi di ospitarvi alla nostra <em>La Terrasse Bleue</em> di Juan-les-Pins, una delle perle della Côte d'Azur. Juan-les-Pins è famosa per le sue spiagge di sabbia fine, la vita notturna vivace e il leggendario festival Jazz à Juan.<br><br>La casa è in posizione ideale per esplorare tutta la Riviera Francese: Antibes, Cannes e Nizza sono facilmente raggiungibili in treno o in auto.<br><br>Durante il soggiorno saremo sempre disponibili per qualsiasi esigenza, consiglio su ristoranti, spiagge o attività nei dintorni.<br><br>Vi auguriamo una vacanza indimenticabile sulla Côte d'Azur! 💙<br>À bientôt!</p>
+        </div>
+
+        <div class="explore-section">
+          <div class="section-label" id="exp-title">Esplora la guida</div>
+          <div class="explore-sub" id="exp-sub">Tutto quello che ti serve in un tap</div>
+          <div class="explore-grid">
+            <div class="explore-item" onclick="switchTab('soggiorno')">
+              <div class="ei-icon">🛋️</div>
+              <div class="ei-title" id="nav-soggiorno">Il tuo soggiorno</div>
+              <div class="ei-sub"   id="nav-soggiorno-sub">Check-in, WiFi, regole e spazi</div>
+            </div>
+            <div class="explore-item" onclick="switchTab('luoghi')">
+              <div class="ei-icon">🗺️</div>
+              <div class="ei-title" id="nav-luoghi">Luoghi da vedere</div>
+              <div class="ei-sub"   id="nav-luoghi-sub">Spiagge, Cap d'Antibes e altro</div>
+            </div>
+            <div class="explore-item" onclick="switchTab('mangiare')">
+              <div class="ei-icon">🍽️</div>
+              <div class="ei-title" id="nav-mangiare">Dove mangiare</div>
+              <div class="ei-sub"   id="nav-mangiare-sub">Ristoranti e bar consigliati</div>
+            </div>
+            <div class="explore-item" onclick="switchTab('muoversi')">
+              <div class="ei-icon">🆘</div>
+              <div class="ei-title" id="nav-muoversi">Info & Emergenze</div>
+              <div class="ei-sub"   id="nav-muoversi-sub">Numeri utili e check-out</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-bar">
+          <div class="cb-avatar">🏠</div>
+          <div class="cb-info">
+            <div class="cb-lbl" id="cb-lbl">Contatta il tuo host</div>
+            <div class="cb-name">Lorenzo</div>
+          </div>
+          <a href="tel:+393202599675" class="call-btn" id="cb-btn-txt">📞 Chiama</a>
+        </div>
+        <div class="spacer-bottom"></div>
+      </div>
+
+      <!-- ── TAB: SOGGIORNO ── -->
+      <div id="tab-soggiorno" class="tab-content">
+        <div class="page-header">
+          <div class="eyebrow" id="ph-sog-eye">Il tuo</div>
+          <h2 id="ph-sog-title">Soggiorno</h2>
+        </div>
+
+        <div class="section-card">
+          <div class="sc-header"><span>🕐</span><h3 id="lbl-times">Check-in & Check-out</h3></div>
+          <div class="sc-body">
+            <div class="time-grid">
+              <div class="time-item">
+                <div class="ti-lbl" id="lbl-ci">Check-in</div>
+                <div class="ti-val">16:00</div>
+              </div>
+              <div class="time-item">
+                <div class="ti-lbl" id="lbl-co">Check-out</div>
+                <div class="ti-val">10:00</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="ir-label" id="lbl-guests">Ospiti massimi</span>
+              <span class="ir-value" id="max-ospiti">4 persone</span>
+            </div>
+            <div class="info-row">
+              <span class="ir-label" id="lbl-addr">Indirizzo</span>
+              <span class="ir-value">Blvd. Poincaré 93, Juan-les-Pins</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="sc-header"><span>📍</span><h3 id="lbl-reach">Come raggiungerci</h3></div>
+          <div class="sc-body">
+            <p id="txt-reach" style="font-size:13.5px;color:#4A5568;line-height:1.55;margin-bottom:14px;">Siamo al <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Apri Maps per le indicazioni dalla tua posizione.</p>
+            <div class="arrival-toggle-row" onclick="toggleArrival()">
+              <span class="arrival-toggle-label">Istruzioni passo per passo</span>
+              <button id="arrival-toggle-btn" class="arrival-toggle-btn">+</button>
+            </div>
+            <div id="arrival-steps-it" class="arrival-steps" style="display:none;">
+              <div class="arrival-step">
+                <div class="step-num">1</div>
+                <div class="step-text"><strong>Arriva al Boulevard Poincaré 93</strong><br>Il navigatore ti porterà direttamente sull'indirizzo a Juan-les-Pins.</div>
+              </div>
+              <div class="arrival-step">
+                <div class="step-num">2</div>
+                <div class="step-text"><strong>Cerca l'ingresso al civico 93</strong><br>[DESCRIZIONE INGRESSO — es. cancello, portone, colore, ecc.]</div>
+              </div>
+              <div class="arrival-step">
+                <div class="step-num">3</div>
+                <div class="step-text"><strong>Apri il locker chiavi</strong><br>Il codice viene comunicato in chat privata prima dell'arrivo.</div>
+              </div>
+            </div>
+            <div id="arrival-steps-en" class="arrival-steps" style="display:none;">
+              <div class="arrival-step">
+                <div class="step-num">1</div>
+                <div class="step-text"><strong>Arrive at Boulevard Poincaré 93</strong><br>Your GPS will bring you directly to the address in Juan-les-Pins.</div>
+              </div>
+              <div class="arrival-step">
+                <div class="step-num">2</div>
+                <div class="step-text"><strong>Find the entrance at number 93</strong><br>[ENTRANCE DESCRIPTION — e.g. gate colour, door type, etc.]</div>
+              </div>
+              <div class="arrival-step">
+                <div class="step-num">3</div>
+                <div class="step-text"><strong>Open the key locker</strong><br>The code will be shared via private chat before arrival.</div>
+              </div>
+            </div>
+            <a href="#" onclick="openMaps();return false;" class="maps-big-btn" id="maps-reach-txt">🧭 Apri su Maps</a>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="sc-header"><span>🔑</span><h3 id="lbl-access">Come accedere</h3></div>
+          <div class="sc-body">
+            <p id="txt-access" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Troverete le chiavi nel locker all'ingresso. Il codice vi verrà comunicato in privato prima dell'arrivo.</p>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="sc-header"><span>🅿️</span><h3 id="lbl-parking">Parcheggio</h3></div>
+          <div class="sc-body">
+            <p id="txt-parking" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Parcheggio privato coperto incluso. Posto auto riservato esclusivamente agli ospiti della casa.</p>
+          </div>
+        </div>
+
+        <div class="wifi-card">
+          <div class="wifi-label">📡 WiFi</div>
+          <div class="wifi-network">[NOME RETE WIFI]</div>
+          <div class="wifi-pwd-row">
+            <div class="wifi-pwd-lbl" id="wifi-pwd-lbl">Password WiFi</div>
+            <div class="wifi-pwd-val" id="wifi-tip">[PASSWORD]</div>
+          </div>
+        </div>
+
+        <div class="section-card" style="margin-top:16px;">
+          <div class="sc-header"><span>📋</span><h3 id="lbl-rules">Regole della Casa</h3></div>
+          <div class="sc-body">
+            <div class="rule-item">
+              <div class="rule-num">1</div>
+              <div><div class="rule-title" id="r1t">Silenzio Notturno</div>
+              <div class="rule-desc"  id="r1d">Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto, per rispetto dei vicini.</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">2</div>
+              <div><div class="rule-title" id="r2t">Niente Fumo</div>
+              <div class="rule-desc"  id="r2d">Vietato fumare all'interno. Consentito solo sul balcone o terrazzo.</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">3</div>
+              <div><div class="rule-title" id="r3t">Animali Domestici</div>
+              <div class="rule-desc"  id="r3d">Ammessi previa comunicazione all'host.</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">4</div>
+              <div><div class="rule-title" id="r4t">Ospiti Esterni</div>
+              <div class="rule-desc"  id="r4d">È possibile portare visitatori previa comunicazione all'host.</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">5</div>
+              <div><div class="rule-title" id="r5t">Raccolta Differenziata</div>
+              <div class="rule-desc"  id="r5d">[Istruzioni raccolta rifiuti del Comune di Antibes-Juan-les-Pins.]</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">6</div>
+              <div><div class="rule-title" id="r6t">Risparmio Energetico</div>
+              <div class="rule-desc"  id="r6d">Ricorda di spegnere luci e condizionatori quando non li usi! 🌿</div></div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">7</div>
+              <div><div class="rule-title" id="r7t">Deposito Bagagli</div>
+              <div class="rule-desc"  id="r7d">Non si effettua deposito bagagli al check-in e al check-out.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-lbl">Gli spazi</div>
+
+        <div class="space-card">
+          <div class="space-header">
+            <div class="space-icon">🛌</div>
+            <div class="space-title" id="sp1-name">Camere da Letto</div>
+          </div>
+          <div class="space-desc" id="camera-desc">1 camera matrimoniale + soggiorno con divano letto matrimoniale e poltrona che diventa letto singolo. Fino a 5 ospiti.</div>
+          <div class="tags">
+            <span class="tag" id="tag-ac">Aria condizionata</span>
+            <span class="tag" id="tag-heat">Riscaldamento</span>
+            <span class="tag" id="tag-tv">Smart TV</span>
+          </div>
+        </div>
+
+        <div class="space-card">
+          <div class="space-header">
+            <div class="space-icon">🍳</div>
+            <div class="space-title" id="sp2-name">Cucina</div>
+          </div>
+          <div class="space-desc" id="sp2-desc">Completamente attrezzata con piatti e utensili. <strong>Caffè e tè</strong> inclusi. Welcome kit di benvenuto. 🎁</div>
+          <div class="tags">
+            <span class="tag" id="tag-coffee">Macchinetta caffè</span>
+            <span class="tag" id="tag-dw">Lavastoviglie</span>
+            <span class="tag" id="tag-wm">Lavatrice</span>
+          </div>
+        </div>
+
+        <div class="space-card">
+          <div class="space-header">
+            <div class="space-icon">🚿</div>
+            <div class="space-title" id="sp3-name">Bagno</div>
+          </div>
+          <div class="space-desc" id="sp3-desc">[DESCRIZIONE BAGNO — es. bagno con doccia, asciugacapelli e tutti i comfort.]</div>
+          <div class="tags">
+            <span class="tag" id="tag-shower">Doccia</span>
+            <span class="tag" id="tag-hairdryer">Asciugacapelli</span>
+            <span class="tag" id="tag-iron">Ferro da stiro</span>
+          </div>
+        </div>
+
+        <div class="space-card">
+          <div class="space-header">
+            <div class="space-icon">🌅</div>
+            <div class="space-title" id="sp4-name">Terrazzo / Balcone</div>
+          </div>
+          <div class="space-desc" id="sp4-desc">Terrazzo spazioso con tavolo e sedie, perfetto per colazioni, pranzi e cene all'aperto godendosi il clima della Côte d'Azur. Un vero punto di forza della casa!</div>
+        </div>
+
+        <div class="section-card" style="margin-top:16px;">
+          <div class="sc-header"><span>✨</span><h3 id="lbl-extras">Servizi Extra</h3></div>
+          <div class="sc-body">
+            <div class="svc-item">
+              <div class="svc-icon-wrap">🧺</div>
+              <div><div class="svc-title" id="svc1t">Cambio Biancheria</div>
+              <div class="svc-desc"  id="svc1d"><strong>€[XX]</strong> solo cambio biancheria</div></div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon-wrap">🧹</div>
+              <div><div class="svc-title" id="svc2t">Biancheria + Pulizia</div>
+              <div class="svc-desc"  id="svc2d"><strong>€[XX]</strong> cambio biancheria e pulizia completa</div></div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon-wrap">✨</div>
+              <div><div class="svc-title" id="svc3t">Solo Pulizia Aggiuntiva</div>
+              <div class="svc-desc"  id="svc3d"><strong>€[XX]</strong> pulizia senza cambio biancheria</div></div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon-wrap">🎁</div>
+              <div><div class="svc-title" id="svc4t">Welcome Kit</div>
+              <div class="svc-desc"  id="svc4d">Incluso nel soggiorno — già pronto in cucina! 🎁</div></div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon-wrap">⏰</div>
+              <div><div class="svc-title" id="svc5t">Check-in Anticipato</div>
+              <div class="svc-desc"  id="svc5d"><strong>€[XX] per ogni ora di anticipo</strong> — da concordare con l'host in anticipo.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="spacer-bottom"></div>
+      </div>
+
+      <!-- ── TAB: LUOGHI ── -->
+      <div id="tab-luoghi" class="tab-content">
+        <div class="page-header">
+          <div class="eyebrow" id="ph-luoghi-eye">Esplora Juan-les-Pins</div>
+          <h2 id="ph-luoghi-title">Luoghi</h2>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">🏖️ Spiaggia di Juan-les-Pins</div>
+          <div class="place-desc" id="pl1-desc">La famosa spiaggia di sabbia fine del centro di Juan-les-Pins. Perfetta per nuotare, prendere il sole e vivere l'atmosfera vibrante della Côte d'Azur.</div>
+          <div class="place-how" id="pl1-how">🚶 ~3 min a piedi da Boulevard Poincaré 93 · Il cuore dell'estate a Juan-les-Pins!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">⛵ Cap d'Antibes</div>
+          <div class="place-desc" id="pl2-desc">Il promontorio più esclusivo della Costa Azzurra, con calette nascoste e il Sentier du Littoral — un sentiero costiero panoramico da non perdere.</div>
+          <div class="place-how" id="pl2-how">🚲 ~15 min in bici o 5 min in auto da casa · Panorami da cartolina!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">🏰 Antibes — Vieille Ville</div>
+          <div class="place-desc" id="pl3-desc">Il centro storico di Antibes è un gioiello medievale con mercati provenzali, il Museo Picasso e le antiche mura che si affacciano sul mare.</div>
+          <div class="place-how" id="pl3-how">🚌 ~10 min in bus o 20 min in bici · Il Marché Provençal è uno spettacolo!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">🎷 Jazz à Juan</div>
+          <div class="place-desc" id="pl4-desc">Il leggendario festival Jazz à Juan (luglio) si tiene proprio qui, nel Pinède Gould. Uno degli eventi musicali più prestigiosi d'Europa, con artisti di fama mondiale.</div>
+          <div class="place-how" id="pl4-how">🚶 ~8 min a piedi dalla casa · Juan-les-Pins capitale mondiale del jazz!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">🌆 Cannes</div>
+          <div class="place-desc" id="pl5-desc">La città del cinema e del glamour è a soli 15 minuti. La Croisette, il Palais des Festivals, le boutique di lusso e le spiagge la rendono imperdibile.</div>
+          <div class="place-how" id="pl5-how">🚶+🚂 10 min a piedi fino alla stazione, poi 15 min in treno · Gita imperdibile!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+
+        <div class="place-card">
+          <div class="place-title">🏙️ Nizza</div>
+          <div class="place-desc" id="pl6-desc">La capitale della Costa Azzurra è a 30 minuti. La Promenade des Anglais, il Vieux-Nice, i mercati dei fiori e i musei la rendono una città straordinaria.</div>
+          <div class="place-how" id="pl6-how">🚶+🚂 10 min a piedi fino alla stazione, poi 30 min in treno · Una giornata intera non basterà!</div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Indicazioni</a>
+        </div>
+        <div class="spacer-bottom"></div>
+      </div>
+
+      <!-- ── TAB: MANGIARE ── -->
+      <div id="tab-mangiare" class="tab-content">
+        <div class="page-header">
+          <div class="eyebrow" id="ph-man-eye">Consigli dell'host</div>
+          <h2 id="ph-man-title">Mangiare</h2>
+        </div>
+
+        <div class="resto-card">
+          <div class="resto-name">Le Perroquet</div>
+          <div class="resto-type" id="rt1">Cucina francese · Seafood · €€€</div>
+          <div class="resto-desc" id="rd1">Storico ristorante di Juan-les-Pins, sul lungomare. Ottimi piatti di pesce e frutti di mare in un'atmosfera romantica con vista sul mare. ⭐ 4.5</div>
+          <div class="resto-badges">
+            <span class="badge">🐟 Pesce</span>
+            <span class="badge price">€€€</span>
+            <span class="badge">🌊 Vista mare</span>
+          </div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Vai qui</a>
+        </div>
+
+        <div class="resto-card">
+          <div class="resto-name">La Passagère</div>
+          <div class="resto-type" id="rt2">Haute cuisine · Méditerranéenne · €€€€</div>
+          <div class="resto-desc" id="rd2">Ristorante raffinato all'interno dell'Hôtel Belles Rives, l'ex villa di F. Scott Fitzgerald. Cucina mediterranea d'autore con vista straordinaria sul golfo. ⭐ 4.8</div>
+          <div class="resto-badges">
+            <span class="badge">⭐ Raffinato</span>
+            <span class="badge price">€€€€</span>
+            <span class="badge">🏛️ Storico</span>
+          </div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Vai qui</a>
+        </div>
+
+        <div class="resto-card">
+          <div class="resto-name">Chez Juliette</div>
+          <div class="resto-type" id="rt3">Provenzale · Terrasse · €€</div>
+          <div class="resto-desc" id="rd3">Cucina provenzale autentica in un ambiente accogliente. La bouillabaisse e i piatti di pesce locale sono imperdibili. Molto amato dai locali. ⭐ 4.3</div>
+          <div class="resto-badges">
+            <span class="badge">🥘 Provenzale</span>
+            <span class="badge price">€€</span>
+            <span class="badge">🌿 Locale</span>
+          </div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Vai qui</a>
+        </div>
+
+        <div class="resto-card">
+          <div class="resto-name">Café de la Mer</div>
+          <div class="resto-type" id="rt4">Bar · Colazione · Aperitivo · €</div>
+          <div class="resto-desc" id="rd4">Il bar perfetto per iniziare la giornata con croissant e café au lait con vista sul mare. Ottimo anche per l'aperitivo serale. ⭐ 4.6</div>
+          <div class="resto-badges">
+            <span class="badge">☕ Colazione</span>
+            <span class="badge price">€</span>
+            <span class="badge">🥂 Aperitivo</span>
+          </div>
+          <a href="#" class="maps-btn" onclick="return false;">🧭 Vai qui</a>
+        </div>
+
+        <div class="super-card">
+          <strong id="lbl-super">🛒 Supermercato</strong><br>
+          <span id="txt-super"><strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. A pochi passi dalla casa, comodissimo per la spesa quotidiana. ⭐ 4.2</span><br><br>
+          <a href="https://www.google.com/maps/search/Auchan+Supermarché+Juan-les-Pins+Boulevard+Poincaré" target="_blank" class="maps-btn">🧭 Vai qui</a>
+        </div>
+        <div class="spacer-bottom"></div>
+      </div>
+
+      <!-- ── TAB: MUOVERSI / INFO ── -->
+      <div id="tab-muoversi" class="tab-content">
+        <div class="page-header">
+          <div class="eyebrow" id="ph-mov-eye">Numeri Utili & Check-out</div>
+          <h2 id="ph-mov-title">Info Utili</h2>
+        </div>
+
+        <div class="section-card">
+          <div class="sc-header"><span>🏠</span><h3>Info Casa</h3></div>
+          <div class="sc-body">
+            <div class="mov-item">
+              <div class="mov-icon">⚡</div>
+              <div>
+                <div class="mov-title" id="mv1t">Quadro Elettrico</div>
+                <div class="mov-desc"  id="mv1d">[POSIZIONE QUADRO ELETTRICO — es. nel corridoio, nell'armadietto in cucina, ecc.]</div>
+              </div>
+            </div>
+            <div class="mov-item">
+              <div class="mov-icon">💧</div>
+              <div>
+                <div class="mov-title" id="mv2t">Valvola Acqua</div>
+                <div class="mov-desc"  id="mv2d">[POSIZIONE VALVOLA ACQUA — es. sotto il lavello, nel vano contatori, ecc.]</div>
+              </div>
+            </div>
+            <div class="mov-item">
+              <div class="mov-icon">🚂</div>
+              <div>
+                <div class="mov-title" id="mv3t">Come muoversi</div>
+                <div class="mov-desc"  id="mv3d">Juan-les-Pins è ottimamente collegata. Il treno collega <strong>Cannes (15 min)</strong>, <strong>Antibes (5 min)</strong> e <strong>Nizza (30 min)</strong>. Bus locali per tutta la costa. In estate consigliamo la bicicletta! 🚲</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card" style="margin-top:16px;">
+          <div class="sc-header"><span>🆘</span><h3 id="lbl-sos">Emergenze</h3></div>
+          <div class="sc-body">
+            <div class="sos-item">
+              <div>
+                <div class="sos-name" id="sos1n">Pronto Soccorso (SAMU)</div>
+                <div class="sos-desc" id="sos1d">Centre Hospitalier d'Antibes — 10 min in auto</div>
+              </div>
+              <a href="tel:15" class="sos-num">📞 15</a>
+            </div>
+            <div class="sos-item">
+              <div>
+                <div class="sos-name" id="sos2n">Police / Gendarmerie</div>
+                <div class="sos-desc" id="sos2d">Forze dell'ordine — emergenze</div>
+              </div>
+              <a href="tel:17" class="sos-num">📞 17</a>
+            </div>
+            <div class="sos-item">
+              <div>
+                <div class="sos-name" id="sos3n">Pompiers</div>
+                <div class="sos-desc" id="sos3d">Incendi, allagamenti, emergenze strutturali</div>
+              </div>
+              <a href="tel:18" class="sos-num">📞 18</a>
+            </div>
+            <div class="sos-item">
+              <div>
+                <div class="sos-name" id="sos4n">Numero Unico Europeo</div>
+                <div class="sos-desc" id="sos4d">Tutte le emergenze — funziona in tutta l'UE</div>
+              </div>
+              <a href="tel:112" class="sos-num">📞 112</a>
+            </div>
+            <div class="sos-item">
+              <div>
+                <div class="sos-name" id="sos5n">Farmacia</div>
+                <div class="sos-desc" id="sos5d">[Nome e indirizzo farmacia vicina]</div>
+              </div>
+              <a href="tel:+393202599675" class="sos-num">📞 Info</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-lbl" id="lbl-contacts">📞 Contatti Host</div>
+
+        <div class="contact-bar">
+          <div class="cb-avatar">🏠</div>
+          <div class="cb-info">
+            <div class="cb-lbl" id="cb2-lbl">Il tuo host</div>
+            <div class="cb-name">Lorenzo</div>
+          </div>
+          <a href="tel:+393202599675" class="call-btn" id="cb2-btn">📞 Chiama</a>
+        </div>
+
+        <div class="contact-bar" style="margin-top:0;">
+          <div class="cb-avatar">👤</div>
+          <div class="cb-info">
+            <div class="cb-lbl" id="cb3-lbl">Secondo contatto</div>
+            <div class="cb-name">[SECONDO CONTATTO]</div>
+          </div>
+          <a href="tel:+393202599675" class="call-btn" id="cb3-btn">📞 Chiama</a>
+        </div>
+
+        <div class="section-card" style="margin-top:8px;">
+          <div class="sc-header"><span>👋</span><h3 id="lbl-checkout">Check-out</h3></div>
+          <div class="sc-body">
+            <div class="checkout-step">
+              <div class="cs-num">1</div>
+              <div><div class="cs-title" id="st1t">Bagagli</div>
+              <div class="cs-desc"  id="st1d">Controlla armadi, bagno, balcone e cucina prima di uscire. <strong>Non si fornisce deposito bagagli.</strong></div></div>
+            </div>
+            <div class="checkout-step">
+              <div class="cs-num">2</div>
+              <div><div class="cs-title" id="st2t">Luci & Clima</div>
+              <div class="cs-desc"  id="st2d">Spegni luci, aria condizionata e tutti gli elettrodomestici.</div></div>
+            </div>
+            <div class="checkout-step">
+              <div class="cs-num">3</div>
+              <div><div class="cs-title" id="st3t">Porte & Finestre</div>
+              <div class="cs-desc"  id="st3d">Chiudi tutte le porte e le finestre prima di andartene.</div></div>
+            </div>
+            <div class="checkout-step">
+              <div class="cs-num">4</div>
+              <div><div class="cs-title" id="st4t">Chiavi</div>
+              <div class="cs-desc"  id="st4d"><strong>Riconsegna le chiavi</strong> seguendo le istruzioni ricevute all'arrivo.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bye-card">
+          <h3 id="bye-title">Buon soggiorno a Juan-les-Pins! 💙</h3>
+          <p id="bye-text">Speriamo che il vostro soggiorno sulla Côte d'Azur sia stato indimenticabile! ☀️<br><br>Vi ricordiamo che il check-out è previsto entro le 10:00.<br><br>⭐ Se vi siete trovati bene, ci farebbe molto piacere ricevere una vostra recensione su Airbnb o Booking!<br><br>Merci et à bientôt! 🌊</p>
+        </div>
+        <div class="spacer-bottom"></div>
+      </div>
+
+    </div><!-- /tab-area -->
+
+    <!-- ── BOTTOM NAV ── -->
+    <div class="bottom-nav">
+      <button class="nav-btn active" onclick="switchTab('home')">
+        <span class="nav-icon">🏠</span><span id="nav-lbl-home">Home</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('soggiorno')">
+        <span class="nav-icon">🛏️</span><span id="nav-lbl-sog">Soggiorno</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('luoghi')">
+        <span class="nav-icon">🗺️</span><span id="nav-lbl-luo">Luoghi</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('mangiare')">
+        <span class="nav-icon">🍽️</span><span id="nav-lbl-man">Mangiare</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('muoversi')">
+        <span class="nav-icon">🆘</span><span id="nav-lbl-mov">Info</span>
+      </button>
+    </div>
+  </div><!-- /guide -->
+
+</div><!-- /app -->
+
+<script>
+const T = {
+  it: {
+    'ph-home-eye':'Benvenuti a','ph-home-title':'Juan-les-Pins 🌊',
+    'wc-title':'Benvenuti! 🌊',
+    'wc-text':'Ciao e benvenuti! ☀️<br><br>Siamo felicissimi di ospitarvi alla nostra <em>La Terrasse Bleue</em> di Juan-les-Pins, una delle perle della Côte d\'Azur. Juan-les-Pins è famosa per le sue spiagge di sabbia fine, la vita notturna vivace e il leggendario festival Jazz à Juan.<br><br>La casa è in posizione ideale per esplorare tutta la Riviera Francese: Antibes, Cannes e Nizza sono facilmente raggiungibili in treno o in auto.<br><br>Durante il soggiorno saremo sempre disponibili per qualsiasi esigenza, consiglio su ristoranti, spiagge o attività nei dintorni.<br><br>Vi auguriamo una vacanza indimenticabile sulla Côte d\'Azur! 💙<br>À bientôt!',
+    'exp-title':'Esplora la guida','exp-sub':'Tutto quello che ti serve in un tap',
+    'nav-soggiorno':'Il tuo soggiorno','nav-soggiorno-sub':'Check-in, WiFi, regole e spazi',
+    'nav-luoghi':'Luoghi da vedere','nav-luoghi-sub':'Spiagge, Cap d\'Antibes e altro',
+    'nav-mangiare':'Dove mangiare','nav-mangiare-sub':'Ristoranti e bar consigliati',
+    'nav-muoversi':'Info & Emergenze','nav-muoversi-sub':'Numeri utili e check-out',
+    'cb-lbl':'Contatta il tuo host','cb-btn-txt':'📞 Chiama',
+    'ph-sog-eye':'Il tuo','ph-sog-title':'Soggiorno',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
+    'lbl-guests':'Ospiti massimi','lbl-addr':'Città','max-ospiti':'5 persone',
+    'lbl-reach':'Come raggiungerci',
+    'txt-reach':'Siamo al <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Apri Maps per le indicazioni dalla tua posizione.',
+    'maps-reach-txt':'🧭 Apri su Maps',
+    'lbl-access':'Come accedere',
+    'txt-access':'Troverete le chiavi nel locker all\'ingresso. Il codice vi verrà comunicato in privato prima dell\'arrivo.',
+    'lbl-parking':'Parcheggio',
+    'txt-parking':'Parcheggio <strong>privato coperto</strong> incluso. Posto auto riservato esclusivamente agli ospiti della casa.',
+    'wifi-pwd-lbl':'Password WiFi','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'Regole della Casa',
+    'r1t':'Silenzio Notturno','r1d':'Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto.',
+    'r2t':'Niente Fumo','r2d':'Vietato fumare all\'interno. Consentito solo sul balcone o terrazzo.',
+    'r3t':'Animali Domestici','r3d':'Ammessi previa comunicazione all\'host.',
+    'r4t':'Ospiti Esterni','r4d':'È possibile portare visitatori previa comunicazione all\'host.',
+    'r5t':'Raccolta Differenziata','r5d':'[Istruzioni raccolta rifiuti del Comune di Antibes-Juan-les-Pins.]',
+    'r6t':'Risparmio Energetico','r6d':'Ricorda di spegnere luci e condizionatori quando non li usi! 🌿',
+    'r7t':'Deposito Bagagli','r7d':'Non si effettua deposito bagagli al check-in e al check-out.',
+    'sp1-name':'Camere da Letto',
+    'camera-desc':'1 camera matrimoniale + soggiorno con <strong>divano letto matrimoniale</strong> e <strong>poltrona che diventa letto singolo</strong>. Fino a 5 ospiti.',
+    'sp2-name':'Cucina','sp2-desc':'Completamente attrezzata. <strong>Caffè e tè</strong> inclusi. Welcome kit di benvenuto. 🎁',
+    'sp3-name':'Bagno','sp3-desc':'[DESCRIZIONE BAGNO]',
+    'sp4-name':'Terrazzo / Balcone','sp4-desc':'Terrazzo spazioso con tavolo e sedie, perfetto per colazioni, pranzi e cene all\'aperto godendosi il clima della Côte d\'Azur. Un vero punto di forza della casa!',
+    'tag-ac':'Aria condizionata','tag-heat':'Riscaldamento','tag-tv':'Smart TV',
+    'tag-coffee':'Macchinetta caffè','tag-shower':'Doccia','tag-hairdryer':'Asciugacapelli',
+    'tag-iron':'Ferro da stiro','tag-dw':'Lavastoviglie','tag-wm':'Lavatrice',
+    'lbl-extras':'Servizi Extra',
+    'svc1t':'Cambio Biancheria','svc1d':'<strong>€[XX]</strong> solo cambio biancheria',
+    'svc2t':'Biancheria + Pulizia','svc2d':'<strong>€[XX]</strong> cambio biancheria e pulizia completa',
+    'svc3t':'Solo Pulizia Aggiuntiva','svc3d':'<strong>€[XX]</strong> pulizia senza cambio biancheria',
+    'svc4t':'Welcome Kit','svc4d':'Incluso nel soggiorno — già pronto in cucina! 🎁',
+    'svc5t':'Check-in Anticipato','svc5d':'<strong>€[XX] per ogni ora di anticipo</strong> — da concordare con l\'host in anticipo.',
+    'ph-luoghi-eye':'Esplora Juan-les-Pins','ph-luoghi-title':'Luoghi',
+    'pl1-desc':'La famosa spiaggia di sabbia fine del centro di Juan-les-Pins. Perfetta per nuotare, prendere il sole e vivere l\'atmosfera della Côte d\'Azur.',
+    'pl1-how':'🚶 ~5 min a piedi da Boulevard Poincaré 93 · Il cuore dell\'estate a Juan-les-Pins!',
+    'pl2-desc':'Il promontorio più esclusivo della Costa Azzurra, con calette nascoste e il Sentier du Littoral — sentiero costiero panoramico da non perdere.',
+    'pl2-how':'🚲 ~15 min in bici o 5 min in auto da casa · Panorami da cartolina!',
+    'pl3-desc':'Il centro storico di Antibes è un gioiello medievale con mercati provenzali, il Museo Picasso e le antiche mura sul mare.',
+    'pl3-how':'🚌 ~10 min in bus o 20 min in bici da Boulevard Poincaré · Il Marché Provençal è uno spettacolo!',
+    'pl4-desc':'Il leggendario festival Jazz à Juan (luglio) si tiene qui al Pinède Gould. Uno degli eventi musicali più prestigiosi d\'Europa.',
+    'pl4-how':'🚶 ~8 min a piedi dalla casa · Juan-les-Pins capitale mondiale del jazz!',
+    'pl5-desc':'La città del cinema è a soli 15 minuti in treno. La Croisette, il Palais des Festivals e le spiagge la rendono imperdibile.',
+    'pl5-how':'🚶+🚂 10 min a piedi fino alla stazione, poi 15 min in treno · Gita imperdibile!',
+    'pl6-desc':'La capitale della Costa Azzurra è a 30 minuti in treno. La Promenade des Anglais, il Vieux-Nice e i mercati dei fiori sono da non perdere.',
+    'pl6-how':'🚶+🚂 10 min a piedi fino alla stazione, poi 30 min in treno · Una giornata intera non basterà!',
+    'ph-man-eye':'Consigli dell\'host','ph-man-title':'Mangiare',
+    'rt1':'Cucina francese · Seafood · €€€','rd1':'Storico ristorante sul lungomare. Ottimi piatti di pesce e frutti di mare con vista sul mare. ⭐ 4.5',
+    'rt2':'Haute cuisine · Méditerranéenne · €€€€','rd2':'Ristorante raffinato all\'interno dell\'Hôtel Belles Rives, l\'ex villa di F. Scott Fitzgerald. Cucina d\'autore. ⭐ 4.8',
+    'rt3':'Provenzale · Terrasse · €€','rd3':'Cucina provenzale autentica. Bouillabaisse e piatti di pesce locale imperdibili. Molto amato dai locali. ⭐ 4.3',
+    'rt4':'Bar · Colazione · Aperitivo · €','rd4':'Il bar perfetto per la colazione con croissant e café au lait. Ottimo anche per l\'aperitivo serale. ⭐ 4.6',
+    'lbl-super':'🛒 Supermercato','txt-super':'<strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. A pochi passi dalla casa, comodissimo per la spesa quotidiana. ⭐ 4.2<br><br><a href="https://www.google.com/maps/search/Auchan+Supermarché+Juan-les-Pins+Boulevard+Poincaré" target="_blank" class="maps-btn">🧭 Vai qui</a>',
+    'ph-mov-eye':'Numeri Utili & Check-out','ph-mov-title':'Info Utili',
+    'mv1t':'Quadro Elettrico','mv1d':'[POSIZIONE QUADRO ELETTRICO]',
+    'mv2t':'Valvola Acqua','mv2d':'[POSIZIONE VALVOLA ACQUA]',
+    'mv3t':'Come muoversi','mv3d':'La <strong>Gare de Juan-les-Pins</strong> è a ~10 min a piedi da Boulevard Poincaré 93. Da lì: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nizza (30 min)</strong>. Bus locali lungo tutta la costa. In estate consigliamo la bicicletta! 🚲',
+    'lbl-sos':'🆘 Emergenze',
+    'sos1n':'Pronto Soccorso (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min in auto',
+    'sos2n':'Police / Gendarmerie','sos2d':'Forze dell\'ordine — emergenze',
+    'sos3n':'Pompiers','sos3d':'Incendi, allagamenti, emergenze strutturali',
+    'sos4n':'Numero Unico Europeo','sos4d':'Tutte le emergenze — funziona in tutta l\'UE',
+    'sos5n':'Farmacia','sos5d':'[Nome e indirizzo farmacia vicina]',
+    'lbl-contacts':'📞 Contatti Host',
+    'cb2-lbl':'Il tuo host','cb2-btn':'📞 Chiama',
+    'cb3-lbl':'Secondo contatto','cb3-btn':'📞 Chiama',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Bagagli','st1d':'Controlla armadi, bagno, balcone e cucina prima di uscire. <strong>Non si fornisce deposito bagagli.</strong>',
+    'st2t':'Luci & Clima','st2d':'Spegni luci, aria condizionata e tutti gli elettrodomestici.',
+    'st3t':'Porte & Finestre','st3d':'Chiudi tutte le porte e le finestre prima di andartene.',
+    'st4t':'Chiavi','st4d':'<strong>Riconsegna le chiavi</strong> seguendo le istruzioni ricevute all\'arrivo.',
+    'bye-title':'Buon soggiorno a Juan-les-Pins! 💙',
+    'bye-text':'Speriamo che il vostro soggiorno sulla Côte d\'Azur sia stato indimenticabile! ☀️<br><br>Vi ricordiamo che il check-out è previsto entro le 10:00.<br><br>⭐ Se vi siete trovati bene, ci farebbe molto piacere ricevere una vostra recensione su Airbnb o Booking!<br><br>Merci et à bientôt! 🌊',
+    'nav-lbl-home':'Home','nav-lbl-sog':'Soggiorno','nav-lbl-luo':'Luoghi','nav-lbl-man':'Mangiare','nav-lbl-mov':'Info',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Naviga'
+  },
+  en: {
+    'ph-home-eye':'Welcome to','ph-home-title':'Juan-les-Pins 🌊',
+    'wc-title':'Welcome! 🌊',
+    'wc-text':'Hi and welcome! ☀️<br><br>We are so happy to have you at our seaside home in Juan-les-Pins, one of the jewels of the Côte d\'Azur. Juan-les-Pins is famous for its fine sandy beaches, vibrant nightlife and the legendary Jazz à Juan festival.<br><br>The house is ideally located to explore the entire French Riviera: Antibes, Cannes and Nice are easily reachable by train or car.<br><br>During your stay we are always available for any need, tips on restaurants, beaches or activities nearby.<br><br>We wish you an unforgettable holiday on the Côte d\'Azur! 💙<br>À bientôt!',
+    'exp-title':'Explore the guide','exp-sub':'Everything you need in one tap',
+    'nav-soggiorno':'Your stay','nav-soggiorno-sub':'Check-in, WiFi, rules and spaces',
+    'nav-luoghi':'Places to visit','nav-luoghi-sub':'Beaches, Cap d\'Antibes and more',
+    'nav-mangiare':'Where to eat','nav-mangiare-sub':'Recommended restaurants and bars',
+    'nav-muoversi':'Info & Emergencies','nav-muoversi-sub':'Useful numbers and check-out',
+    'cb-lbl':'Contact your host','cb-btn-txt':'📞 Call',
+    'ph-sog-eye':'Your','ph-sog-title':'Stay',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
+    'lbl-guests':'Max guests','lbl-addr':'City','max-ospiti':'5 guests',
+    'lbl-reach':'How to reach us',
+    'txt-reach':'We are at <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Open Maps for directions from your location.',
+    'maps-reach-txt':'🧭 Open on Maps',
+    'lbl-access':'How to access',
+    'txt-access':'You will find the keys in the locker at the entrance. The code will be shared privately before your arrival.',
+    'lbl-parking':'Parking',
+    'txt-parking':'<strong>Private covered parking</strong> included. Reserved spot exclusively for guests.',
+    'wifi-pwd-lbl':'WiFi Password','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'House Rules',
+    'r1t':'Quiet Hours','r1d':'From 11:00 PM to 8:00 AM please keep noise levels low, out of respect for neighbours.',
+    'r2t':'No Smoking','r2d':'No smoking indoors. Allowed only on the balcony or terrace.',
+    'r3t':'Pets','r3d':'Allowed with prior communication to the host.',
+    'r4t':'External Guests','r4d':'Visitors are welcome with prior communication to the host.',
+    'r5t':'Waste Disposal','r5d':'[Local waste disposal instructions for Antibes-Juan-les-Pins municipality.]',
+    'r6t':'Energy Saving','r6d':'Please turn off lights and air conditioning when not in use! 🌿',
+    'r7t':'Luggage Storage','r7d':'Left-luggage storage is not available at check-in or check-out.',
+    'sp1-name':'Bedrooms',
+    'camera-desc':'1 double bedroom + living room with <strong>sofa bed (double)</strong> and <strong>armchair that converts to a single bed</strong>. Up to 5 guests.',
+    'sp2-name':'Kitchen','sp2-desc':'Fully equipped. <strong>Coffee and tea</strong> included. Welcome kit provided. 🎁',
+    'sp3-name':'Bathroom','sp3-desc':'[BATHROOM DESCRIPTION]',
+    'sp4-name':'Terrace / Balcony','sp4-desc':'Spacious terrace with table and chairs, perfect for breakfast, lunch and dinner outdoors in the beautiful Côte d\'Azur climate. One of the best features of the house!',
+    'tag-ac':'Air conditioning','tag-heat':'Heating','tag-tv':'Smart TV',
+    'tag-coffee':'Coffee machine','tag-shower':'Shower','tag-hairdryer':'Hairdryer',
+    'tag-iron':'Iron','tag-dw':'Dishwasher','tag-wm':'Washing machine',
+    'lbl-extras':'Extra Services',
+    'svc1t':'Linen Change','svc1d':'<strong>€[XX]</strong> linen change only',
+    'svc2t':'Linen + Cleaning','svc2d':'<strong>€[XX]</strong> linen change and full cleaning',
+    'svc3t':'Extra Cleaning Only','svc3d':'<strong>€[XX]</strong> cleaning without linen change',
+    'svc4t':'Welcome Kit','svc4d':'Included in your stay — ready in the kitchen! 🎁',
+    'svc5t':'Early Check-in','svc5d':'<strong>€[XX] per hour of early arrival</strong> — to be arranged with the host in advance.',
+    'ph-luoghi-eye':'Explore Juan-les-Pins','ph-luoghi-title':'Places',
+    'pl1-desc':'The famous fine sandy beach in the centre of Juan-les-Pins. Perfect for swimming, sunbathing and soaking up the Côte d\'Azur atmosphere.',
+    'pl1-how':'🚶 ~3 min walk from Boulevard Poincaré 93 · The heart of summer in Juan-les-Pins!',
+    'pl2-desc':'The most exclusive headland on the Riviera, with hidden coves and the Sentier du Littoral coastal path — an absolute must.',
+    'pl2-how':'🚲 ~15 min by bike or 5 min by car from home · Postcard-perfect scenery!',
+    'pl3-desc':'Antibes old town is a medieval gem with Provençal markets, the Picasso Museum and ancient sea walls.',
+    'pl3-how':'🚌 ~10 min by bus or 20 min by bike from Boulevard Poincaré · The Marché Provençal is a spectacle!',
+    'pl4-desc':'The legendary Jazz à Juan festival (July) takes place right here at the Pinède Gould. One of the most prestigious music events in Europe.',
+    'pl4-how':'🚶 ~8 min walk from home · Juan-les-Pins, the world jazz capital!',
+    'pl5-desc':'The city of cinema is just 15 min away by train. La Croisette, the Palais des Festivals and the beaches make Cannes unmissable.',
+    'pl5-how':'🚶+🚂 10 min walk to the station, then 15 min by train · An unmissable day trip!',
+    'pl6-desc':'The capital of the Côte d\'Azur is 30 min away by train. The Promenade des Anglais, Vieux-Nice and flower markets are not to be missed.',
+    'pl6-how':'🚶+🚂 10 min walk to the station, then 30 min by train · A full day won\'t be enough!',
+    'ph-man-eye':'Host\'s picks','ph-man-title':'Where to eat',
+    'rt1':'French cuisine · Seafood · €€€','rd1':'Historic restaurant on the seafront. Excellent fish and seafood with sea view. ⭐ 4.5',
+    'rt2':'Haute cuisine · Mediterranean · €€€€','rd2':'Refined restaurant inside the Hôtel Belles Rives, F. Scott Fitzgerald\'s former villa. Exceptional cuisine. ⭐ 4.8',
+    'rt3':'Provençal · Terrace · €€','rd3':'Authentic Provençal cuisine. The bouillabaisse and local fish dishes are unmissable. Much loved by locals. ⭐ 4.3',
+    'rt4':'Bar · Breakfast · Aperitif · €','rd4':'The perfect bar for breakfast with croissant and café au lait. Great for evening aperitifs too. ⭐ 4.6',
+    'lbl-super':'🛒 Supermarket','txt-super':'<strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. Just steps from the house, perfect for daily shopping. ⭐ 4.2<br><br><a href="https://www.google.com/maps/search/Auchan+Supermarché+Juan-les-Pins+Boulevard+Poincaré" target="_blank" class="maps-btn">🧭 Find it</a>',
+    'ph-mov-eye':'Useful numbers & Check-out','ph-mov-title':'Useful Info',
+    'mv1t':'Electrical Panel','mv1d':'[LOCATION OF ELECTRICAL PANEL]',
+    'mv2t':'Water Valve','mv2d':'[LOCATION OF WATER VALVE]',
+    'mv3t':'Getting around','mv3d':'<strong>Gare de Juan-les-Pins</strong> is ~10 min walk from Boulevard Poincaré 93. From there: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nice (30 min)</strong>. Local buses run along the whole coast. We recommend cycling in summer! 🚲',
+    'lbl-sos':'🆘 Emergency Numbers',
+    'sos1n':'Emergency Room (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min by car',
+    'sos2n':'Police / Gendarmerie','sos2d':'Law enforcement — emergencies',
+    'sos3n':'Pompiers (Fire Brigade)','sos3d':'Fire, flooding, structural emergencies',
+    'sos4n':'European Emergency Number','sos4d':'All emergencies — works across the EU',
+    'sos5n':'Pharmacy','sos5d':'[Name and address of nearby pharmacy]',
+    'lbl-contacts':'📞 Host Contacts',
+    'cb2-lbl':'Your host','cb2-btn':'📞 Call',
+    'cb3-lbl':'Second contact','cb3-btn':'📞 Call',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Luggage','st1d':'Check wardrobes, bathroom, balcony and kitchen before leaving. <strong>Left-luggage storage is not available.</strong>',
+    'st2t':'Lights & AC','st2d':'Turn off lights, air conditioning and all appliances.',
+    'st3t':'Doors & Windows','st3d':'Close all doors and windows before you leave.',
+    'st4t':'Keys','st4d':'<strong>Return the keys</strong> as instructed upon arrival.',
+    'bye-title':'Enjoy your stay in Juan-les-Pins! 💙',
+    'bye-text':'We hope your stay on the Côte d\'Azur has been unforgettable! ☀️<br><br>Please remember that check-out is due by 10:00 AM.<br><br>⭐ If you enjoyed your stay, we would be delighted to receive your review on Airbnb or Booking!<br><br>Merci et à bientôt! 🌊',
+    'nav-lbl-home':'Home','nav-lbl-sog':'Stay','nav-lbl-luo':'Places','nav-lbl-man':'Eat','nav-lbl-mov':'Info',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigate'
+  }
+};
+
+let currentLang = 'it';
+
+function applyLang(lang) {
+  const t = T[lang];
+  for (const id in t) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = t[id];
+  }
+  const btn  = document.getElementById('arrival-toggle-btn');
+  const sit  = document.getElementById('arrival-steps-it');
+  const sen  = document.getElementById('arrival-steps-en');
+  const open = btn && btn.textContent.trim() === '−';
+  if (sit) sit.style.display = (open && lang === 'it') ? 'block' : 'none';
+  if (sen) sen.style.display = (open && lang === 'en') ? 'block' : 'none';
+}
+
+function openGuide(lang) {
+  currentLang = lang;
+  applyLang(lang);
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('guide').classList.add('active');
+  switchTab('home');
+}
+
+function backToLanding() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('landing').classList.add('active');
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const tabs = ['home','soggiorno','luoghi','mangiare','muoversi'];
+  const idx  = tabs.indexOf(name);
+  if (idx >= 0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+  document.getElementById('tab-' + name).scrollTop = 0;
+}
+
+function openMaps() {
+  window.open('https://www.google.com/maps/search/93+Boulevard+Poincaré,+Juan-les-Pins,+06160+Antibes,+France', '_blank');
+}
+
+function toggleArrival() {
+  const btn  = document.getElementById('arrival-toggle-btn');
+  const open = btn.textContent.trim() === '−';
+  const sit  = document.getElementById('arrival-steps-it');
+  const sen  = document.getElementById('arrival-steps-en');
+  if (!open) {
+    btn.textContent = '−';
+    if (sit) sit.style.display = currentLang === 'en' ? 'none' : 'block';
+    if (sen) sen.style.display = currentLang === 'en' ? 'block' : 'none';
+  } else {
+    btn.textContent = '+';
+    if (sit) sit.style.display = 'none';
+    if (sen) sen.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
