@@ -22,14 +22,11 @@
   --nav-h:    calc(68px + env(safe-area-inset-bottom, 0px));
 }
 
-html {
-  height: -webkit-fill-available;
+html, body {
+  height: 100%;
   background: var(--bg);
 }
 body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +37,7 @@ body {
   max-width: 430px;
   margin: 0 auto;
   height: 100vh;
-  height: -webkit-fill-available;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
 }
@@ -49,6 +46,9 @@ body {
 .screen {
   position: absolute;
   inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
   display: none;
   flex-direction: column;
   background: var(--bg);
