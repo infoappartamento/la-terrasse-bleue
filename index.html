@@ -107,7 +107,7 @@ body {
 .apt-subtitle { font-size: 13px; color: var(--text-dim); font-style: italic; margin-bottom: 12px; }
 .apt-addr     { font-size: 12px; color: var(--accent2); margin-bottom: 20px; }
 
-.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lang-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 .lang-btn {
   display: flex; align-items: center; justify-content: center;
   gap: 8px; padding: 14px 10px; border-radius: 12px;
@@ -591,12 +591,26 @@ body {
         <button class="lang-btn" onclick="openGuide('it')">
           <span class="lang-flag">🇮🇹</span>
           <span>Italiano</span>
-          <small style="font-weight:400;opacity:.65;font-size:11px;">Guida Ospiti ›</small>
         </button>
         <button class="lang-btn" onclick="openGuide('en')">
           <span class="lang-flag">🇬🇧</span>
           <span>English</span>
-          <small style="font-weight:400;opacity:.65;font-size:11px;">Guest Guide ›</small>
+        </button>
+        <button class="lang-btn" onclick="openGuide('fr')">
+          <span class="lang-flag">🇫🇷</span>
+          <span>Français</span>
+        </button>
+        <button class="lang-btn" onclick="openGuide('de')">
+          <span class="lang-flag">🇩🇪</span>
+          <span>Deutsch</span>
+        </button>
+        <button class="lang-btn" onclick="openGuide('es')">
+          <span class="lang-flag">🇪🇸</span>
+          <span>Español</span>
+        </button>
+        <button class="lang-btn" onclick="openGuide('ar')">
+          <span class="lang-flag">🇸🇦</span>
+          <span>العربية</span>
         </button>
       </div>
     </div>
@@ -1341,6 +1355,348 @@ const T = {
   }
 };
 
+  fr: {
+    'ph-home-eye':'Bienvenue à','ph-home-title':'Juan-les-Pins 🌊',
+    'wc-title':'Bienvenue ! 🌊',
+    'wc-text':'Bonjour et bienvenue ! ☀️<br><br>Nous sommes ravis de vous accueillir à La Terrasse Bleue à Juan-les-Pins, l\'un des joyaux de la Côte d\'Azur. Juan-les-Pins est célèbre pour ses plages de sable fin, sa vie nocturne animée et le légendaire festival Jazz à Juan.<br><br>Le logement est idéalement situé pour explorer toute la Riviera Française : Antibes, Cannes et Nice sont facilement accessibles en train ou en voiture.<br><br>Pendant votre séjour, nous sommes toujours disponibles pour tout besoin, conseil de restaurants, plages ou activités.<br><br>Nous vous souhaitons des vacances inoubliables sur la Côte d\'Azur ! 💙<br>À bientôt !',
+    'exp-title':'Explorer le guide','exp-sub':'Tout ce dont vous avez besoin en un clic',
+    'nav-soggiorno':'Votre séjour','nav-soggiorno-sub':'Check-in, WiFi, règles et espaces',
+    'nav-luoghi':'Lieux à visiter','nav-luoghi-sub':'Plages, Cap d\'Antibes et plus',
+    'nav-mangiare':'Où manger','nav-mangiare-sub':'Restaurants et bars recommandés',
+    'nav-muoversi':'Infos & Urgences','nav-muoversi-sub':'Numéros utiles et check-out',
+    'cb-lbl':'Contacter votre hôte','cb-btn-txt':'📞 Appeler',
+    'ph-sog-eye':'Votre','ph-sog-title':'Séjour',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
+    'lbl-guests':'Voyageurs max.','lbl-addr':'Adresse','max-ospiti':'5 personnes',
+    'lbl-reach':'Comment nous rejoindre',
+    'txt-reach':'Nous sommes au <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Ouvrez Maps pour l\'itinéraire depuis votre position.',
+    'maps-reach-txt':'🧭 Ouvrir sur Maps',
+    'lbl-access':'Comment accéder',
+    'txt-access':'Vous trouverez les clés dans le boîtier à l\'entrée. Le code vous sera communiqué en privé avant votre arrivée.',
+    'lbl-parking':'Parking',
+    'txt-parking':'<strong>Parking privé couvert</strong> inclus. Place réservée exclusivement aux locataires.',
+    'wifi-pwd-lbl':'Mot de passe WiFi','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'Règlement de la maison',
+    'r1t':'Silence nocturne','r1d':'De 23h à 8h, merci de maintenir un niveau sonore réduit, par respect pour les voisins.',
+    'r2t':'Non-fumeur','r2d':'Il est interdit de fumer à l\'intérieur. Autorisé uniquement sur le balcon ou la terrasse.',
+    'r3t':'Animaux','r3d':'Acceptés après communication préalable à l\'hôte.',
+    'r4t':'Invités extérieurs','r4d':'Les visiteurs sont les bienvenus après communication préalable à l\'hôte.',
+    'r5t':'Tri des déchets','r5d':'[Instructions de tri de la commune d\'Antibes-Juan-les-Pins.]',
+    'r6t':'Économie d\'énergie','r6d':'Pensez à éteindre les lumières et la climatisation en quittant le logement ! 🌿',
+    'r7t':'Dépôt de bagages','r7d':'Le dépôt de bagages au check-in et au check-out n\'est pas disponible.',
+    'sp1-name':'Chambres',
+    'camera-desc':'1 chambre double + salon avec <strong>canapé-lit double</strong> et <strong>fauteuil convertible en lit simple</strong>. Jusqu\'à 5 voyageurs.',
+    'sp2-name':'Cuisine','sp2-desc':'Entièrement équipée. <strong>Café et thé</strong> inclus. Kit de bienvenue fourni. 🎁',
+    'sp3-name':'Salle de bain','sp3-desc':'[DESCRIPTION DE LA SALLE DE BAIN]',
+    'sp4-name':'Terrasse / Balcon','sp4-desc':'Grande terrasse avec table et chaises, idéale pour les petits-déjeuners, déjeuners et dîners en plein air sous le magnifique climat de la Côte d\'Azur. Le vrai atout du logement !',
+    'tag-ac':'Climatisation','tag-heat':'Chauffage','tag-tv':'Smart TV',
+    'tag-coffee':'Machine à café','tag-shower':'Douche','tag-hairdryer':'Sèche-cheveux',
+    'tag-iron':'Fer à repasser','tag-dw':'Lave-vaisselle','tag-wm':'Lave-linge',
+    'lbl-extras':'Services supplémentaires',
+    'svc1t':'Changement de linge','svc1d':'<strong>€[XX]</strong> changement de linge uniquement',
+    'svc2t':'Linge + Nettoyage','svc2d':'<strong>€[XX]</strong> changement de linge et nettoyage complet',
+    'svc3t':'Nettoyage supplémentaire','svc3d':'<strong>€[XX]</strong> nettoyage sans changement de linge',
+    'svc4t':'Kit de bienvenue','svc4d':'Inclus dans le séjour — déjà prêt dans la cuisine ! 🎁',
+    'svc5t':'Check-in anticipé','svc5d':'<strong>€[XX] par heure d\'avance</strong> — à convenir avec l\'hôte.',
+    'ph-luoghi-eye':'Explorer Juan-les-Pins','ph-luoghi-title':'Lieux',
+    'pl1-desc':'La célèbre plage de sable fin au centre de Juan-les-Pins. Parfaite pour nager, bronzer et profiter de l\'atmosphère de la Côte d\'Azur.',
+    'pl1-how':'🚶 ~3 min à pied du Boulevard Poincaré 93 · Le cœur de l\'été à Juan-les-Pins !',
+    'pl2-desc':'Le cap le plus exclusif de la Riviera, avec des criques cachées et le Sentier du Littoral — un chemin côtier panoramique à ne pas manquer.',
+    'pl2-how':'🚲 ~15 min à vélo ou 5 min en voiture · Des panoramas de carte postale !',
+    'pl3-desc':'Le centre historique d\'Antibes est un joyau médiéval avec marchés provençaux, le Musée Picasso et les remparts sur la mer.',
+    'pl3-how':'🚌 ~10 min en bus ou 20 min à vélo · Le Marché Provençal est un spectacle !',
+    'pl4-desc':'Le légendaire festival Jazz à Juan (juillet) se tient ici au Pinède Gould. L\'un des événements musicaux les plus prestigieux d\'Europe.',
+    'pl4-how':'🚶 ~8 min à pied de la maison · Juan-les-Pins, capitale mondiale du jazz !',
+    'pl5-desc':'La ville du cinéma est à seulement 15 min en train. La Croisette, le Palais des Festivals et les plages font de Cannes un incontournable.',
+    'pl5-how':'🚶+🚂 10 min à pied jusqu\'à la gare, puis 15 min en train · Une excursion incontournable !',
+    'pl6-desc':'La capitale de la Côte d\'Azur est à 30 min en train. La Promenade des Anglais, le Vieux-Nice et les marchés de fleurs sont à voir absolument.',
+    'pl6-how':'🚶+🚂 10 min à pied jusqu\'à la gare, puis 30 min en train · Une journée entière ne suffira pas !',
+    'ph-man-eye':'Conseils de l\'hôte','ph-man-title':'Où manger',
+    'rt1':'Cuisine française · Fruits de mer · €€€','rd1':'Restaurant historique sur le front de mer. Excellents plats de poissons et fruits de mer avec vue sur la mer. ⭐ 4.5',
+    'rt2':'Haute cuisine · Méditerranéenne · €€€€','rd2':'Restaurant raffiné à l\'Hôtel Belles Rives, l\'ancienne villa de F. Scott Fitzgerald. Cuisine d\'exception. ⭐ 4.8',
+    'rt3':'Provençale · Terrasse · €€','rd3':'Cuisine provençale authentique. La bouillabaisse et les plats de poissons locaux sont incontournables. ⭐ 4.3',
+    'rt4':'Bar · Petit-déjeuner · Apéritif · €','rd4':'Le bar idéal pour le petit-déjeuner avec croissant et café au lait. Parfait pour l\'apéritif du soir. ⭐ 4.6',
+    'lbl-super':'🛒 Supermarché','txt-super':'<strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. À quelques pas de la maison, très pratique pour les courses. ⭐ 4.2',
+    'ph-mov-eye':'Numéros utiles & Check-out','ph-mov-title':'Infos utiles',
+    'mv1t':'Tableau électrique','mv1d':'[EMPLACEMENT DU TABLEAU ÉLECTRIQUE]',
+    'mv2t':'Vanne d\'eau','mv2d':'[EMPLACEMENT DE LA VANNE D\'EAU]',
+    'mv3t':'Se déplacer','mv3d':'La <strong>Gare de Juan-les-Pins</strong> est à ~10 min à pied du Boulevard Poincaré 93. De là : <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nice (30 min)</strong>. Bus locaux sur toute la côte. Nous recommandons le vélo en été ! 🚲',
+    'lbl-sos':'🆘 Numéros d\'urgence',
+    'sos1n':'Urgences (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min en voiture',
+    'sos2n':'Police / Gendarmerie','sos2d':'Forces de l\'ordre — urgences',
+    'sos3n':'Pompiers','sos3d':'Incendies, inondations, urgences structurelles',
+    'sos4n':'Numéro d\'urgence européen','sos4d':'Toutes urgences — valable dans toute l\'UE',
+    'sos5n':'Pharmacie','sos5d':'[Nom et adresse de la pharmacie la plus proche]',
+    'lbl-contacts':'📞 Contacts de l\'hôte',
+    'cb2-lbl':'Votre hôte','cb2-btn':'📞 Appeler',
+    'cb3-lbl':'Second contact','cb3-btn':'📞 Appeler',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Bagages','st1d':'Vérifiez les armoires, la salle de bain, le balcon et la cuisine avant de partir. <strong>Le dépôt de bagages n\'est pas disponible.</strong>',
+    'st2t':'Lumières & Clim','st2d':'Éteignez les lumières, la climatisation et tous les appareils.',
+    'st3t':'Portes & Fenêtres','st3d':'Fermez toutes les portes et fenêtres avant de partir.',
+    'st4t':'Clés','st4d':'<strong>Rendez les clés</strong> selon les instructions données à l\'arrivée.',
+    'bye-title':'Bon séjour à Juan-les-Pins ! 💙',
+    'bye-text':'Nous espérons que votre séjour sur la Côte d\'Azur a été inoubliable ! ☀️<br><br>Rappel : le check-out doit être effectué avant 10h00.<br><br>⭐ Si vous avez apprécié votre séjour, nous serions ravis de recevoir votre avis sur Airbnb ou Booking !<br><br>Merci et à bientôt ! 🌊',
+    'nav-lbl-home':'Accueil','nav-lbl-sog':'Séjour','nav-lbl-luo':'Lieux','nav-lbl-man':'Manger','nav-lbl-mov':'Infos',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigation'
+  },
+  de: {
+    'ph-home-eye':'Willkommen in','ph-home-title':'Juan-les-Pins 🌊',
+    'wc-title':'Willkommen! 🌊',
+    'wc-text':'Hallo und herzlich willkommen! ☀️<br><br>Wir freuen uns sehr, Sie in unserer La Terrasse Bleue in Juan-les-Pins, einer der Perlen der Côte d\'Azur, begrüßen zu dürfen. Juan-les-Pins ist bekannt für seine feinen Sandstrände, das lebhafte Nachtleben und das legendäre Jazz à Juan Festival.<br><br>Das Haus liegt ideal, um die gesamte Côte d\'Azur zu erkunden: Antibes, Cannes und Nizza sind mit Zug oder Auto leicht erreichbar.<br><br>Während Ihres Aufenthalts stehen wir Ihnen jederzeit für alle Bedürfnisse, Restaurantempfehlungen oder Aktivitätstipps zur Verfügung.<br><br>Wir wünschen Ihnen einen unvergesslichen Urlaub an der Côte d\'Azur! 💙<br>À bientôt!',
+    'exp-title':'Reiseführer erkunden','exp-sub':'Alles was Sie brauchen auf einen Klick',
+    'nav-soggiorno':'Ihr Aufenthalt','nav-soggiorno-sub':'Check-in, WLAN, Regeln und Räume',
+    'nav-luoghi':'Sehenswürdigkeiten','nav-luoghi-sub':'Strände, Cap d\'Antibes und mehr',
+    'nav-mangiare':'Restaurants','nav-mangiare-sub':'Empfohlene Restaurants und Bars',
+    'nav-muoversi':'Info & Notfälle','nav-muoversi-sub':'Nützliche Nummern und Check-out',
+    'cb-lbl':'Gastgeber kontaktieren','cb-btn-txt':'📞 Anrufen',
+    'ph-sog-eye':'Ihr','ph-sog-title':'Aufenthalt',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
+    'lbl-guests':'Max. Gäste','lbl-addr':'Adresse','max-ospiti':'5 Personen',
+    'lbl-reach':'Anreise',
+    'txt-reach':'Wir befinden uns am <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Öffnen Sie Maps für eine Wegbeschreibung von Ihrem Standort.',
+    'maps-reach-txt':'🧭 Auf Maps öffnen',
+    'lbl-access':'Zugang',
+    'txt-access':'Die Schlüssel finden Sie im Schlüsselfach am Eingang. Der Code wird Ihnen vor Ihrer Ankunft privat mitgeteilt.',
+    'lbl-parking':'Parken',
+    'txt-parking':'<strong>Privater überdachter Parkplatz</strong> inklusive. Reservierter Stellplatz ausschließlich für Gäste.',
+    'wifi-pwd-lbl':'WLAN-Passwort','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'Hausregeln',
+    'r1t':'Nachtruhe','r1d':'Von 23:00 bis 8:00 Uhr bitten wir um Ruhe, aus Rücksicht auf die Nachbarn.',
+    'r2t':'Rauchverbot','r2d':'Rauchen ist im Inneren verboten. Nur auf dem Balkon/Terrasse erlaubt.',
+    'r3t':'Haustiere','r3d':'Nach vorheriger Absprache mit dem Gastgeber erlaubt.',
+    'r4t':'Externe Gäste','r4d':'Besucher sind nach vorheriger Mitteilung an den Gastgeber willkommen.',
+    'r5t':'Mülltrennung','r5d':'[Hinweise zur Mülltrennung der Gemeinde Antibes-Juan-les-Pins.]',
+    'r6t':'Energiesparen','r6d':'Bitte Licht und Klimaanlage ausschalten, wenn Sie das Haus verlassen! 🌿',
+    'r7t':'Gepäckaufbewahrung','r7d':'Eine Gepäckaufbewahrung beim Check-in und Check-out ist nicht möglich.',
+    'sp1-name':'Schlafzimmer',
+    'camera-desc':'1 Doppelschlafzimmer + Wohnzimmer mit <strong>Schlafsofa (Doppel)</strong> und <strong>Sessel als Einzelbett</strong>. Bis zu 5 Gäste.',
+    'sp2-name':'Küche','sp2-desc':'Voll ausgestattet. <strong>Kaffee und Tee</strong> inklusive. Willkommenspaket. 🎁',
+    'sp3-name':'Badezimmer','sp3-desc':'[BADEZIMMER BESCHREIBUNG]',
+    'sp4-name':'Terrasse / Balkon','sp4-desc':'Geräumige Terrasse mit Tisch und Stühlen, perfekt für Frühstück, Mittag- und Abendessen im Freien im wunderschönen Klima der Côte d\'Azur. Ein echtes Highlight des Hauses!',
+    'tag-ac':'Klimaanlage','tag-heat':'Heizung','tag-tv':'Smart TV',
+    'tag-coffee':'Kaffeemaschine','tag-shower':'Dusche','tag-hairdryer':'Haartrockner',
+    'tag-iron':'Bügeleisen','tag-dw':'Geschirrspüler','tag-wm':'Waschmaschine',
+    'lbl-extras':'Zusatzleistungen',
+    'svc1t':'Wäschewechsel','svc1d':'<strong>€[XX]</strong> nur Wäschewechsel',
+    'svc2t':'Wäsche + Reinigung','svc2d':'<strong>€[XX]</strong> Wäschewechsel und Grundreinigung',
+    'svc3t':'Nur Zusatzreinigung','svc3d':'<strong>€[XX]</strong> Reinigung ohne Wäschewechsel',
+    'svc4t':'Willkommenspaket','svc4d':'Im Aufenthalt inbegriffen — bereits in der Küche bereit! 🎁',
+    'svc5t':'Frühes Check-in','svc5d':'<strong>€[XX] pro Stunde</strong> — vorher mit dem Gastgeber absprechen.',
+    'ph-luoghi-eye':'Juan-les-Pins entdecken','ph-luoghi-title':'Sehenswürdigkeiten',
+    'pl1-desc':'Der berühmte Feinsandstrand im Zentrum von Juan-les-Pins. Ideal zum Schwimmen, Sonnenbaden und für die Atmosphäre der Côte d\'Azur.',
+    'pl1-how':'🚶 ~3 Min. zu Fuß vom Boulevard Poincaré 93 · Das Herzstück des Sommers in Juan-les-Pins!',
+    'pl2-desc':'Das exklusivste Kap der Riviera mit versteckten Buchten und dem Sentier du Littoral — ein Küstenwanderweg, den man nicht verpassen sollte.',
+    'pl2-how':'🚲 ~15 Min. mit dem Fahrrad oder 5 Min. mit dem Auto · Traumhafte Aussichten!',
+    'pl3-desc':'Die Altstadt von Antibes ist ein mittelalterliches Juwel mit provenzalischen Märkten, dem Picasso-Museum und alten Mauern am Meer.',
+    'pl3-how':'🚌 ~10 Min. mit dem Bus oder 20 Min. mit dem Fahrrad · Der Marché Provençal ist ein Erlebnis!',
+    'pl4-desc':'Das legendäre Jazz à Juan Festival (Juli) findet hier im Pinède Gould statt. Eines der renommiertesten Musikereignisse Europas.',
+    'pl4-how':'🚶 ~8 Min. zu Fuß vom Haus · Juan-les-Pins, die Welthauptstadt des Jazz!',
+    'pl5-desc':'Die Filmstadt liegt nur 15 Min. mit dem Zug entfernt. La Croisette, der Palais des Festivals und die Strände machen Cannes unverzichtbar.',
+    'pl5-how':'🚶+🚂 10 Min. zu Fuß zum Bahnhof, dann 15 Min. mit dem Zug · Ein unverzichtbarer Ausflug!',
+    'pl6-desc':'Die Hauptstadt der Côte d\'Azur ist 30 Min. mit dem Zug entfernt. Die Promenade des Anglais, Vieux-Nice und Blumenmärkte sind ein Muss.',
+    'pl6-how':'🚶+🚂 10 Min. zu Fuß zum Bahnhof, dann 30 Min. mit dem Zug · Ein ganzer Tag reicht nicht!',
+    'ph-man-eye':'Empfehlungen des Gastgebers','ph-man-title':'Restaurants',
+    'rt1':'Französische Küche · Meeresfrüchte · €€€','rd1':'Historisches Restaurant an der Strandpromenade. Ausgezeichnete Fisch- und Meeresfrüchtegerichte mit Meerblick. ⭐ 4.5',
+    'rt2':'Haute cuisine · Méditerranéenne · €€€€','rd2':'Gehobenes Restaurant im Hôtel Belles Rives, der ehemaligen Villa von F. Scott Fitzgerald. Außergewöhnliche Küche. ⭐ 4.8',
+    'rt3':'Provenzalisch · Terrasse · €€','rd3':'Authentische provenzalische Küche. Bouillabaisse und lokale Fischgerichte sind ein Muss. Bei Einheimischen sehr beliebt. ⭐ 4.3',
+    'rt4':'Bar · Frühstück · Aperitif · €','rd4':'Die perfekte Bar für das Frühstück mit Croissant und Café au lait. Auch für den Abend-Aperitif ideal. ⭐ 4.6',
+    'lbl-super':'🛒 Supermarkt','txt-super':'<strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. Nur wenige Schritte vom Haus, ideal für den täglichen Einkauf. ⭐ 4.2',
+    'ph-mov-eye':'Nützliche Nummern & Check-out','ph-mov-title':'Nützliche Infos',
+    'mv1t':'Sicherungskasten','mv1d':'[STANDORT DES SICHERUNGSKASTENS]',
+    'mv2t':'Wasserventil','mv2d':'[STANDORT DES WASSERVENTILS]',
+    'mv3t':'Fortbewegung','mv3d':'Der <strong>Bahnhof Juan-les-Pins</strong> ist ~10 Min. zu Fuß vom Boulevard Poincaré 93 entfernt. Von dort: <strong>Antibes (5 Min.)</strong>, <strong>Cannes (15 Min.)</strong>, <strong>Nizza (30 Min.)</strong>. Lokale Buslinien entlang der Küste. Im Sommer empfehlen wir das Fahrrad! 🚲',
+    'lbl-sos':'🆘 Notfallnummern',
+    'sos1n':'Notaufnahme (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 Min. mit dem Auto',
+    'sos2n':'Police / Gendarmerie','sos2d':'Ordnungskräfte — Notfälle',
+    'sos3n':'Pompiers (Feuerwehr)','sos3d':'Feuer, Überschwemmungen, strukturelle Notfälle',
+    'sos4n':'Europäische Notrufnummer','sos4d':'Alle Notfälle — gültig in der gesamten EU',
+    'sos5n':'Apotheke','sos5d':'[Name und Adresse der nächsten Apotheke]',
+    'lbl-contacts':'📞 Gastgeber-Kontakte',
+    'cb2-lbl':'Ihr Gastgeber','cb2-btn':'📞 Anrufen',
+    'cb3-lbl':'Zweiter Kontakt','cb3-btn':'📞 Anrufen',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Gepäck','st1d':'Schränke, Bad, Terrasse und Küche vor dem Abreisen überprüfen. <strong>Gepäckaufbewahrung ist nicht möglich.</strong>',
+    'st2t':'Licht & Klima','st2d':'Licht, Klimaanlage und alle Elektrogeräte ausschalten.',
+    'st3t':'Türen & Fenster','st3d':'Alle Türen und Fenster vor dem Verlassen schließen.',
+    'st4t':'Schlüssel','st4d':'<strong>Schlüssel zurückgeben</strong> wie bei der Ankunft erklärt.',
+    'bye-title':'Schönen Urlaub in Juan-les-Pins! 💙',
+    'bye-text':'Wir hoffen, Ihr Aufenthalt an der Côte d\'Azur war unvergesslich! ☀️<br><br>Bitte denken Sie daran, dass der Check-out bis 10:00 Uhr erfolgen muss.<br><br>⭐ Wenn Sie zufrieden waren, freuen wir uns sehr über eine Bewertung auf Airbnb oder Booking!<br><br>Merci et à bientôt! 🌊',
+    'nav-lbl-home':'Home','nav-lbl-sog':'Aufenthalt','nav-lbl-luo':'Orte','nav-lbl-man':'Essen','nav-lbl-mov':'Info',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigation'
+  },
+  es: {
+    'ph-home-eye':'Bienvenidos a','ph-home-title':'Juan-les-Pins 🌊',
+    'wc-title':'¡Bienvenidos! 🌊',
+    'wc-text':'¡Hola y bienvenidos! ☀️<br><br>Estamos encantados de recibirles en La Terrasse Bleue, en Juan-les-Pins, una de las perlas de la Costa Azul. Juan-les-Pins es famosa por sus playas de arena fina, su animada vida nocturna y el legendario festival Jazz à Juan.<br><br>El apartamento está idealmente situado para explorar toda la Riviera Francesa: Antibes, Cannes y Niza son fácilmente accesibles en tren o en coche.<br><br>Durante su estancia estaremos siempre disponibles para cualquier necesidad, recomendaciones de restaurantes, playas o actividades.<br><br>¡Les deseamos unas vacaciones inolvidables en la Costa Azul! 💙<br>¡Hasta pronto!',
+    'exp-title':'Explorar la guía','exp-sub':'Todo lo que necesita en un toque',
+    'nav-soggiorno':'Su estancia','nav-soggiorno-sub':'Check-in, WiFi, normas y espacios',
+    'nav-luoghi':'Lugares que ver','nav-luoghi-sub':'Playas, Cap d\'Antibes y más',
+    'nav-mangiare':'Dónde comer','nav-mangiare-sub':'Restaurantes y bares recomendados',
+    'nav-muoversi':'Info & Emergencias','nav-muoversi-sub':'Números útiles y check-out',
+    'cb-lbl':'Contactar con el anfitrión','cb-btn-txt':'📞 Llamar',
+    'ph-sog-eye':'Su','ph-sog-title':'Estancia',
+    'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
+    'lbl-guests':'Máx. huéspedes','lbl-addr':'Dirección','max-ospiti':'5 personas',
+    'lbl-reach':'Cómo llegar',
+    'txt-reach':'Estamos en el <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Abra Maps para indicaciones desde su ubicación.',
+    'maps-reach-txt':'🧭 Abrir en Maps',
+    'lbl-access':'Cómo acceder',
+    'txt-access':'Encontrará las llaves en el casillero de la entrada. El código se comunicará de forma privada antes de su llegada.',
+    'lbl-parking':'Aparcamiento',
+    'txt-parking':'<strong>Aparcamiento privado cubierto</strong> incluido. Plaza reservada exclusivamente para los huéspedes.',
+    'wifi-pwd-lbl':'Contraseña WiFi','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'Normas de la casa',
+    'r1t':'Silencio nocturno','r1d':'De 23:00 a 8:00 h, por favor mantenga el ruido al mínimo, por respeto a los vecinos.',
+    'r2t':'Prohibido fumar','r2d':'Prohibido fumar en el interior. Solo permitido en el balcón o terraza.',
+    'r3t':'Mascotas','r3d':'Permitidas previa comunicación al anfitrión.',
+    'r4t':'Visitantes','r4d':'Se pueden traer visitas previa comunicación al anfitrión.',
+    'r5t':'Reciclaje','r5d':'[Instrucciones de reciclaje del municipio de Antibes-Juan-les-Pins.]',
+    'r6t':'Ahorro energético','r6d':'¡Recuerde apagar las luces y el aire acondicionado cuando no los use! 🌿',
+    'r7t':'Consigna de equipaje','r7d':'No hay servicio de consigna de equipaje en el check-in ni en el check-out.',
+    'sp1-name':'Dormitorios',
+    'camera-desc':'1 dormitorio doble + salón con <strong>sofá cama doble</strong> y <strong>sillón convertible en cama individual</strong>. Hasta 5 huéspedes.',
+    'sp2-name':'Cocina','sp2-desc':'Totalmente equipada. <strong>Café y té</strong> incluidos. Kit de bienvenida. 🎁',
+    'sp3-name':'Baño','sp3-desc':'[DESCRIPCIÓN DEL BAÑO]',
+    'sp4-name':'Terraza / Balcón','sp4-desc':'Amplia terraza con mesa y sillas, perfecta para desayunos, almuerzos y cenas al aire libre disfrutando del maravilloso clima de la Costa Azul. ¡El punto fuerte del apartamento!',
+    'tag-ac':'Aire acondicionado','tag-heat':'Calefacción','tag-tv':'Smart TV',
+    'tag-coffee':'Cafetera','tag-shower':'Ducha','tag-hairdryer':'Secador de pelo',
+    'tag-iron':'Plancha','tag-dw':'Lavavajillas','tag-wm':'Lavadora',
+    'lbl-extras':'Servicios adicionales',
+    'svc1t':'Cambio de ropa','svc1d':'<strong>€[XX]</strong> solo cambio de ropa de cama',
+    'svc2t':'Ropa + Limpieza','svc2d':'<strong>€[XX]</strong> cambio de ropa y limpieza completa',
+    'svc3t':'Solo limpieza adicional','svc3d':'<strong>€[XX]</strong> limpieza sin cambio de ropa',
+    'svc4t':'Kit de bienvenida','svc4d':'Incluido en la estancia — ¡ya listo en la cocina! 🎁',
+    'svc5t':'Check-in anticipado','svc5d':'<strong>€[XX] por hora de adelanto</strong> — a acordar con el anfitrión.',
+    'ph-luoghi-eye':'Explorar Juan-les-Pins','ph-luoghi-title':'Lugares',
+    'pl1-desc':'La famosa playa de arena fina en el centro de Juan-les-Pins. Perfecta para nadar, tomar el sol y disfrutar del ambiente de la Costa Azul.',
+    'pl1-how':'🚶 ~3 min a pie desde el Boulevard Poincaré 93 · ¡El corazón del verano en Juan-les-Pins!',
+    'pl2-desc':'El cabo más exclusivo de la Riviera, con calas escondidas y el Sentier du Littoral — un sendero costero panorámico que no hay que perderse.',
+    'pl2-how':'🚲 ~15 min en bici o 5 min en coche · ¡Paisajes de postal!',
+    'pl3-desc':'El casco histórico de Antibes es una joya medieval con mercados provenzales, el Museo Picasso y antiguas murallas frente al mar.',
+    'pl3-how':'🚌 ~10 min en autobús o 20 min en bici · ¡El Marché Provençal es un espectáculo!',
+    'pl4-desc':'El legendario festival Jazz à Juan (julio) se celebra aquí en el Pinède Gould. Uno de los eventos musicales más prestigiosos de Europa.',
+    'pl4-how':'🚶 ~8 min a pie desde casa · ¡Juan-les-Pins, capital mundial del jazz!',
+    'pl5-desc':'La ciudad del cine está a solo 15 min en tren. La Croisette, el Palais des Festivals y las playas hacen de Cannes una visita obligada.',
+    'pl5-how':'🚶+🚂 10 min a pie hasta la estación, luego 15 min en tren · ¡Una excursión imprescindible!',
+    'pl6-desc':'La capital de la Costa Azul está a 30 min en tren. La Promenade des Anglais, Vieux-Nice y los mercados de flores son imprescindibles.',
+    'pl6-how':'🚶+🚂 10 min a pie hasta la estación, luego 30 min en tren · ¡Un día entero no será suficiente!',
+    'ph-man-eye':'Recomendaciones del anfitrión','ph-man-title':'Dónde comer',
+    'rt1':'Cocina francesa · Mariscos · €€€','rd1':'Restaurante histórico en el paseo marítimo. Excelentes platos de pescado y marisco con vistas al mar. ⭐ 4.5',
+    'rt2':'Haute cuisine · Mediterránea · €€€€','rd2':'Restaurante refinado en el Hôtel Belles Rives, la antigua villa de F. Scott Fitzgerald. Cocina excepcional. ⭐ 4.8',
+    'rt3':'Provenzal · Terraza · €€','rd3':'Cocina provenzal auténtica. La bullabesa y los platos de pescado local son imprescindibles. Muy apreciado por los lugareños. ⭐ 4.3',
+    'rt4':'Bar · Desayuno · Aperitivo · €','rd4':'El bar perfecto para desayunar con croissant y café au lait. Ideal también para el aperitivo nocturno. ⭐ 4.6',
+    'lbl-super':'🛒 Supermercado','txt-super':'<strong>Auchan Supermarché</strong> — Juan-les-Pins, Boulevard Poincaré. A pocos pasos de casa, muy cómodo para las compras del día. ⭐ 4.2',
+    'ph-mov-eye':'Números útiles & Check-out','ph-mov-title':'Información útil',
+    'mv1t':'Cuadro eléctrico','mv1d':'[UBICACIÓN DEL CUADRO ELÉCTRICO]',
+    'mv2t':'Llave del agua','mv2d':'[UBICACIÓN DE LA LLAVE DEL AGUA]',
+    'mv3t':'Cómo moverse','mv3d':'La <strong>Gare de Juan-les-Pins</strong> está a ~10 min a pie del Boulevard Poincaré 93. Desde allí: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Niza (30 min)</strong>. Autobuses locales por toda la costa. ¡En verano recomendamos la bicicleta! 🚲',
+    'lbl-sos':'🆘 Números de emergencia',
+    'sos1n':'Urgencias (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min en coche',
+    'sos2n':'Policía / Gendarmería','sos2d':'Fuerzas del orden — emergencias',
+    'sos3n':'Bomberos','sos3d':'Incendios, inundaciones, emergencias estructurales',
+    'sos4n':'Número de emergencia europeo','sos4d':'Todas las emergencias — válido en toda la UE',
+    'sos5n':'Farmacia','sos5d':'[Nombre y dirección de la farmacia más cercana]',
+    'lbl-contacts':'📞 Contactos del anfitrión',
+    'cb2-lbl':'Su anfitrión','cb2-btn':'📞 Llamar',
+    'cb3-lbl':'Segundo contacto','cb3-btn':'📞 Llamar',
+    'lbl-checkout':'👋 Check-out',
+    'st1t':'Equipaje','st1d':'Revise armarios, baño, balcón y cocina antes de salir. <strong>No hay servicio de consigna de equipaje.</strong>',
+    'st2t':'Luces & Clima','st2d':'Apague luces, aire acondicionado y todos los electrodomésticos.',
+    'st3t':'Puertas & Ventanas','st3d':'Cierre todas las puertas y ventanas antes de marcharse.',
+    'st4t':'Llaves','st4d':'<strong>Devuelva las llaves</strong> según las instrucciones recibidas a la llegada.',
+    'bye-title':'¡Disfrute de su estancia en Juan-les-Pins! 💙',
+    'bye-text':'¡Esperamos que su estancia en la Costa Azul haya sido inolvidable! ☀️<br><br>Recuerde que el check-out debe realizarse antes de las 10:00 h.<br><br>⭐ Si disfrutó de su estancia, nos encantaría recibir su reseña en Airbnb o Booking.<br><br>¡Merci et à bientôt! 🌊',
+    'nav-lbl-home':'Inicio','nav-lbl-sog':'Estancia','nav-lbl-luo':'Lugares','nav-lbl-man':'Comer','nav-lbl-mov':'Info',
+    's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navegar'
+  },
+  ar: {
+    'ph-home-eye':'أهلاً في','ph-home-title':'جوان-لي-بان 🌊',
+    'wc-title':'أهلاً وسهلاً! 🌊',
+    'wc-text':'مرحباً وأهلاً بكم! ☀️<br><br>يسعدنا استقبالكم في La Terrasse Bleue في جوان-لي-بان، إحدى جواهر الكوت دازور. تشتهر جوان-لي-بان بشواطئها الرملية الناعمة، وحياتها الليلية النابضة، ومهرجان الجاز الأسطوري Jazz à Juan.<br><br>يقع المنزل في موقع مثالي لاستكشاف الريفيرا الفرنسية: أنتيب وكان ونيس يمكن الوصول إليها بسهولة بالقطار أو بالسيارة.<br><br>طوال إقامتكم، نحن دائماً في خدمتكم لأي استفسار أو توصية حول المطاعم والشواطئ والأنشطة.<br><br>نتمنى لكم إجازة لا تُنسى على الكوت دازور! 💙<br>À bientôt!',
+    'exp-title':'استكشف الدليل','exp-sub':'كل ما تحتاجه بنقرة واحدة',
+    'nav-soggiorno':'إقامتكم','nav-soggiorno-sub':'تسجيل الدخول، الواي فاي، القواعد والمساحات',
+    'nav-luoghi':'الأماكن السياحية','nav-luoghi-sub':'الشواطئ، كاب دانتيب والمزيد',
+    'nav-mangiare':'أين تأكل','nav-mangiare-sub':'مطاعم وبارات موصى بها',
+    'nav-muoversi':'معلومات وطوارئ','nav-muoversi-sub':'أرقام مفيدة وتسجيل المغادرة',
+    'cb-lbl':'تواصل مع المضيف','cb-btn-txt':'📞 اتصل',
+    'ph-sog-eye':'تفاصيل','ph-sog-title':'إقامتكم',
+    'lbl-times':'تسجيل الدخول والمغادرة','lbl-ci':'تسجيل الدخول','lbl-co':'تسجيل المغادرة',
+    'lbl-guests':'الحد الأقصى للضيوف','lbl-addr':'العنوان','max-ospiti':'5 أشخاص',
+    'lbl-reach':'كيفية الوصول',
+    'txt-reach':'نحن في <strong>Boulevard Poincaré 93، جوان-لي-بان</strong>. افتح الخرائط للحصول على الاتجاهات من موقعك.',
+    'maps-reach-txt':'🧭 افتح على الخرائط',
+    'lbl-access':'كيفية الدخول',
+    'txt-access':'ستجد المفاتيح في الصندوق عند المدخل. سيُرسل إليك الرمز بشكل خاص قبل وصولك.',
+    'lbl-parking':'موقف السيارات',
+    'txt-parking':'<strong>موقف سيارات مغطى وخاص</strong> مشمول في الإقامة. مكان محجوز حصراً للضيوف.',
+    'wifi-pwd-lbl':'كلمة مرور الواي فاي','wifi-tip':'[PASSWORD]',
+    'lbl-rules':'قواعد المنزل',
+    'r1t':'الهدوء الليلي','r1d':'من الساعة 23:00 حتى 8:00 صباحاً، يُرجى الحفاظ على مستوى منخفض من الضوضاء احتراماً للجيران.',
+    'r2t':'ممنوع التدخين','r2d':'ممنوع التدخين في الداخل. مسموح به فقط على الشرفة.',
+    'r3t':'الحيوانات الأليفة','r3d':'مسموح بها بعد إخطار المضيف مسبقاً.',
+    'r4t':'الزوار','r4d':'يمكن إحضار الزوار بعد إخطار المضيف مسبقاً.',
+    'r5t':'إعادة التدوير','r5d':'[تعليمات فرز النفايات لبلدية أنتيب-جوان-لي-بان.]',
+    'r6t':'توفير الطاقة','r6d':'تذكر إطفاء الأضواء والتكييف عند المغادرة! 🌿',
+    'r7t':'تخزين الأمتعة','r7d':'لا تتوفر خدمة تخزين الأمتعة عند تسجيل الدخول أو المغادرة.',
+    'sp1-name':'غرف النوم',
+    'camera-desc':'غرفة نوم مزدوجة + غرفة معيشة بـ<strong>أريكة سرير مزدوجة</strong> و<strong>كرسي يتحول إلى سرير مفرد</strong>. حتى 5 ضيوف.',
+    'sp2-name':'المطبخ','sp2-desc':'مجهز بالكامل. <strong>القهوة والشاي</strong> مشمولان. مجموعة ترحيبية. 🎁',
+    'sp3-name':'الحمام','sp3-desc':'[وصف الحمام]',
+    'sp4-name':'التراس / الشرفة','sp4-desc':'تراس واسع بطاولة وكراسي، مثالي لتناول الإفطار والغداء والعشاء في الهواء الطلق مع الاستمتاع بمناخ الكوت دازور الرائع. الميزة الحقيقية للمنزل!',
+    'tag-ac':'تكييف هواء','tag-heat':'تدفئة','tag-tv':'تلفزيون ذكي',
+    'tag-coffee':'آلة قهوة','tag-shower':'دش','tag-hairdryer':'مجفف شعر',
+    'tag-iron':'مكواة','tag-dw':'غسالة أطباق','tag-wm':'غسالة ملابس',
+    'lbl-extras':'خدمات إضافية',
+    'svc1t':'تغيير الأغطية','svc1d':'<strong>€[XX]</strong> تغيير أغطية فقط',
+    'svc2t':'أغطية + تنظيف','svc2d':'<strong>€[XX]</strong> تغيير أغطية وتنظيف شامل',
+    'svc3t':'تنظيف إضافي فقط','svc3d':'<strong>€[XX]</strong> تنظيف بدون تغيير أغطية',
+    'svc4t':'مجموعة ترحيبية','svc4d':'مشمولة في الإقامة — جاهزة في المطبخ! 🎁',
+    'svc5t':'تسجيل دخول مبكر','svc5d':'<strong>€[XX] لكل ساعة تقدم</strong> — يُتفق عليه مع المضيف مسبقاً.',
+    'ph-luoghi-eye':'استكشاف جوان-لي-بان','ph-luoghi-title':'الأماكن',
+    'pl1-desc':'الشاطئ الرملي الناعم الشهير في وسط جوان-لي-بان. مثالي للسباحة والاسترخاء والاستمتاع بأجواء الكوت دازور.',
+    'pl1-how':'🚶 ~3 دقائق سيراً من Boulevard Poincaré 93 · قلب الصيف في جوان-لي-بان!',
+    'pl2-desc':'أرقى رأس في الريفيرا، مع خلجان خفية ومسار ساحلي بانورامي Sentier du Littoral لا يُفوّت.',
+    'pl2-how':'🚲 ~15 دقيقة بالدراجة أو 5 دقائق بالسيارة · مناظر ساحرة!',
+    'pl3-desc':'مدينة أنتيب القديمة جوهرة تاريخية بأسواق بروفانسية، متحف بيكاسو وأسوار قديمة تطل على البحر.',
+    'pl3-how':'🚌 ~10 دقائق بالحافلة أو 20 دقيقة بالدراجة · السوق البروفانسي تجربة رائعة!',
+    'pl4-desc':'مهرجان Jazz à Juan الأسطوري (يوليو) يقام هنا في Pinède Gould. أحد أرقى الفعاليات الموسيقية في أوروبا.',
+    'pl4-how':'🚶 ~8 دقائق سيراً من المنزل · جوان-لي-بان عاصمة الجاز العالمية!',
+    'pl5-desc':'مدينة السينما على بعد 15 دقيقة بالقطار. الكروازيت وقصر المهرجانات والشواطئ تجعل كان وجهة لا تُفوّت.',
+    'pl5-how':'🚶+🚂 10 دقائق سيراً للمحطة ثم 15 دقيقة بالقطار · رحلة يوم لا تُنسى!',
+    'pl6-desc':'عاصمة الكوت دازور على بعد 30 دقيقة بالقطار. الكورنيش وأسواق الزهور وأحياء نيس القديمة لا تُفوّت.',
+    'pl6-how':'🚶+🚂 10 دقائق سيراً للمحطة ثم 30 دقيقة بالقطار · يوم كامل لن يكفي!',
+    'ph-man-eye':'توصيات المضيف','ph-man-title':'أين تأكل',
+    'rt1':'مطبخ فرنسي · مأكولات بحرية · €€€','rd1':'مطعم تاريخي على الواجهة البحرية. أطباق سمك وثمار بحر ممتازة مع إطلالة على البحر. ⭐ 4.5',
+    'rt2':'مطبخ راقٍ · متوسطي · €€€€','rd2':'مطعم فاخر داخل فندق Belles Rives، فيلا F. Scott Fitzgerald السابقة. طبخ استثنائي. ⭐ 4.8',
+    'rt3':'بروفانسي · تراس · €€','rd3':'مطبخ بروفانسي أصيل. البويابيس وأطباق الأسماك المحلية لا تُفوّت. محبوب جداً عند السكان المحليين. ⭐ 4.3',
+    'rt4':'بار · إفطار · أبيريتيف · €','rd4':'البار المثالي لإفطار مع كروسون وكافيه أو لي. رائع أيضاً لأبيريتيف المساء. ⭐ 4.6',
+    'lbl-super':'🛒 السوبرماركت','txt-super':'<strong>Auchan Supermarché</strong> — جوان-لي-بان، Boulevard Poincaré. على بعد خطوات من المنزل، مريح جداً للتسوق اليومي. ⭐ 4.2',
+    'ph-mov-eye':'أرقام مفيدة وتسجيل المغادرة','ph-mov-title':'معلومات مفيدة',
+    'mv1t':'لوحة الكهرباء','mv1d':'[موقع لوحة الكهرباء]',
+    'mv2t':'صمام الماء','mv2d':'[موقع صمام الماء]',
+    'mv3t':'التنقل','mv3d':'<strong>محطة جوان-لي-بان</strong> على بعد ~10 دقائق سيراً من Boulevard Poincaré 93. من هناك: <strong>أنتيب (5 دقائق)</strong>، <strong>كان (15 دقيقة)</strong>، <strong>نيس (30 دقيقة)</strong>. حافلات محلية على طول الساحل. نوصي بالدراجة صيفاً! 🚲',
+    'lbl-sos':'🆘 أرقام الطوارئ',
+    'sos1n':'الطوارئ (SAMU)','sos1d':'مستشفى أنتيب — 10 دقائق بالسيارة',
+    'sos2n':'الشرطة / الدرك','sos2d':'قوات الأمن — حالات الطوارئ',
+    'sos3n':'رجال الإطفاء','sos3d':'حرائق، فيضانات، طوارئ هيكلية',
+    'sos4n':'رقم الطوارئ الأوروبي','sos4d':'جميع الطوارئ — يعمل في جميع دول الاتحاد الأوروبي',
+    'sos5n':'الصيدلية','sos5d':'[اسم وعنوان أقرب صيدلية]',
+    'lbl-contacts':'📞 جهات اتصال المضيف',
+    'cb2-lbl':'مضيفكم','cb2-btn':'📞 اتصل',
+    'cb3-lbl':'جهة اتصال ثانية','cb3-btn':'📞 اتصل',
+    'lbl-checkout':'👋 تسجيل المغادرة',
+    'st1t':'الأمتعة','st1d':'تحقق من الخزانات والحمام والشرفة والمطبخ قبل المغادرة. <strong>لا تتوفر خدمة حفظ الأمتعة.</strong>',
+    'st2t':'الأضواء والتكييف','st2d':'أطفئ الأضواء والتكييف وجميع الأجهزة الكهربائية.',
+    'st3t':'الأبواب والنوافذ','st3d':'أغلق جميع الأبواب والنوافذ قبل المغادرة.',
+    'st4t':'المفاتيح','st4d':'<strong>أعد المفاتيح</strong> وفق التعليمات المعطاة عند الوصول.',
+    'bye-title':'استمتعوا بإقامتكم في جوان-لي-بان! 💙',
+    'bye-text':'نأمل أن تكون إقامتكم على الكوت دازور لا تُنسى! ☀️<br><br>تذكروا أن تسجيل المغادرة يجب أن يتم قبل الساعة 10:00 صباحاً.<br><br>⭐ إذا أعجبتكم إقامتكم، سنكون سعداء جداً بتقييمكم على Airbnb أو Booking!<br><br>Merci et à bientôt! 🌊',
+    'nav-lbl-home':'الرئيسية','nav-lbl-sog':'الإقامة','nav-lbl-luo':'الأماكن','nav-lbl-man':'الأكل','nav-lbl-mov':'معلومات',
+    's-checkin-lbl':'تسجيل الدخول','s-checkout-lbl':'تسجيل المغادرة','s-maps-lbl':'خرائط'
+  }
+};
+
 let currentLang = 'it';
 
 function applyLang(lang) {
@@ -1354,14 +1710,16 @@ function applyLang(lang) {
   const sen  = document.getElementById('arrival-steps-en');
   const open = btn && btn.textContent.trim() === '−';
   if (sit) sit.style.display = (open && lang === 'it') ? 'block' : 'none';
-  if (sen) sen.style.display = (open && lang === 'en') ? 'block' : 'none';
+  if (sen) sen.style.display = (open && lang !== 'it') ? 'block' : 'none';
 }
 
 function openGuide(lang) {
   currentLang = lang;
   applyLang(lang);
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('guide').classList.add('active');
+  const guide = document.getElementById('guide');
+  guide.classList.add('active');
+  guide.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   switchTab('home');
 }
 
@@ -1391,8 +1749,8 @@ function toggleArrival() {
   const sen  = document.getElementById('arrival-steps-en');
   if (!open) {
     btn.textContent = '−';
-    if (sit) sit.style.display = currentLang === 'en' ? 'none' : 'block';
-    if (sen) sen.style.display = currentLang === 'en' ? 'block' : 'none';
+    if (sit) sit.style.display = currentLang === 'it' ? 'block' : 'none';
+    if (sen) sen.style.display = currentLang !== 'it' ? 'block' : 'none';
   } else {
     btn.textContent = '+';
     if (sit) sit.style.display = 'none';
