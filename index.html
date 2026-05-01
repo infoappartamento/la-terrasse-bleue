@@ -799,7 +799,7 @@ body {
           <div class="sc-body">
             <p id="txt-reach" style="font-size:13.5px;color:#4A5568;line-height:1.55;margin-bottom:14px;">Siamo al <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Apri Maps per le indicazioni dalla tua posizione.</p>
             <a href="#" onclick="openMaps();return false;" class="maps-big-btn" id="maps-reach-txt">🧭 Apri su Maps</a>
-            <button class="photo-btn" onclick="openIngressoPhoto()">📸 Foto ingresso</button>
+            <button class="photo-btn" id="btn-photo-ingresso" onclick="openIngressoPhoto()">📸 Foto ingresso</button>
           </div>
         </div>
 
@@ -808,8 +808,8 @@ body {
           <div class="sc-body">
             <p id="txt-access" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Le chiavi le troverai all'interno della KeyBox in 67 Chemin des Liserons, alla destra dell'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L'appartamento si trova al <strong>secondo piano</strong>: prima porta a sinistra uscendo dall'ascensore.</p>
             <a href="https://maps.google.com/?q=67+Chemin+des+Liserons,+Antibes,+France" target="_blank" class="maps-big-btn" id="maps-access-txt">🧭 Apri su Maps</a>
-            <button class="photo-btn" id="keybox-photo-btn" onclick="openKeyboxPhoto()">📸 Dove si trova la KeyBox</button>
-            <button class="photo-btn" onclick="openAppartamentoPhoto()">📸 Dove si trova l'appartamento</button>
+            <button class="photo-btn" id="btn-photo-keybox" onclick="openKeyboxPhoto()">📸 Dove si trova la KeyBox</button>
+            <button class="photo-btn" id="btn-photo-apt" onclick="openAppartamentoPhoto()">📸 Dove si trova l'appartamento</button>
           </div>
         </div>
 
@@ -817,7 +817,7 @@ body {
           <div class="sc-header"><span>🅿️</span><h3 id="lbl-parking">Parcheggio</h3></div>
           <div class="sc-body">
             <p id="txt-parking" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Una volta entrati dal cancello automatico (tasto sinistro del telecomando), tieni subito la sinistra, scendi la rampa, apri il secondo cancello (tasto destro del telecomando), prosegui fino in fondo. Il posto auto è il numero <strong>53</strong>, quello a sinistra a ridosso del muro con la catenella gialla e nera. Togli il lucchetto con codice <strong>581</strong>. Scarica l'auto — alle tue spalle c'è una porta grigia, entra, prendi l'ascensore e sali al <strong>secondo piano</strong>.</p>
-            <button class="photo-btn" onclick="openPostoAutoPhoto()">📸 Foto posto auto</button>
+            <button class="photo-btn" id="btn-photo-parking" onclick="openPostoAutoPhoto()">📸 Foto posto auto</button>
           </div>
         </div>
 
@@ -859,7 +859,7 @@ body {
               <div class="rule-num">5</div>
               <div><div class="rule-title" id="r5t">Raccolta Rifiuti</div>
               <div class="rule-desc"  id="r5d">Si trova uscendo in cortile sulla destra.</div>
-              <button class="photo-btn" style="margin-top:8px;" onclick="openPattumieraPhoto()">📸 Foto zona pattumiera</button></div>
+              <button class="photo-btn" id="btn-photo-trash" style="margin-top:8px;" onclick="openPattumieraPhoto()">📸 Foto zona pattumiera</button></div>
             </div>
             <div class="rule-item">
               <div class="rule-num">6</div>
@@ -1314,6 +1314,7 @@ const T = {
     'bye-text':'Speriamo che il vostro soggiorno sulla Côte d\'Azur sia stato indimenticabile! ☀️<br><br>Vi ricordiamo che il check-out è previsto entro le 10:00.<br><br>⭐ Se vi siete trovati bene, ci farebbe molto piacere ricevere una vostra recensione su Airbnb o Booking!<br><br>Merci et à bientôt! 🌊',
     'nav-lbl-home':'Home','nav-lbl-sog':'Soggiorno','nav-lbl-luo':'Luoghi','nav-lbl-man':'Mangiare','nav-lbl-mov':'Info',
     's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Naviga'
+    'btn-photo-ingresso':'📸 Foto ingresso','btn-photo-keybox':'📸 Dove si trova la KeyBox','btn-photo-apt':'📸 Dove si trova l'appartamento','btn-photo-parking':'📸 Foto posto auto','btn-photo-trash':'📸 Foto zona pattumiera',
   },
   en: {
     'ph-home-eye':'Welcome to','ph-home-title':'Juan-les-Pins 🌊',
@@ -1401,6 +1402,7 @@ const T = {
     'bye-text':'We hope your stay on the Côte d\'Azur has been unforgettable! ☀️<br><br>Please remember that check-out is due by 10:00 AM.<br><br>⭐ If you enjoyed your stay, we would be delighted to receive your review on Airbnb or Booking!<br><br>Merci et à bientôt! 🌊',
     'nav-lbl-home':'Home','nav-lbl-sog':'Stay','nav-lbl-luo':'Places','nav-lbl-man':'Eat','nav-lbl-mov':'Info',
     's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigate'
+    'btn-photo-ingresso':'📸 Entrance photo','btn-photo-keybox':'📸 Where is the KeyBox','btn-photo-apt':'📸 Where is the apartment','btn-photo-parking':'📸 Parking space photo','btn-photo-trash':'📸 Waste area photo',
   },
   fr: {
     'ph-home-eye':'Bienvenue à','ph-home-title':'Juan-les-Pins 🌊',
@@ -1487,6 +1489,7 @@ const T = {
     'bye-title':'Bon séjour à Juan-les-Pins ! 💙',
     'bye-text':'Nous espérons que votre séjour sur la Côte d\'Azur a été inoubliable ! ☀️<br><br>Rappel : le check-out doit être effectué avant 10h00.<br><br>⭐ Si vous avez apprécié votre séjour, nous serions ravis de recevoir votre avis sur Airbnb ou Booking !<br><br>Merci et à bientôt ! 🌊',
     'nav-lbl-home':'Accueil','nav-lbl-sog':'Séjour','nav-lbl-luo':'Lieux','nav-lbl-man':'Manger','nav-lbl-mov':'Infos',
+    'btn-photo-ingresso':"📸 Photo de l'entrée",'btn-photo-keybox':'📸 Où se trouve la KeyBox','btn-photo-apt':"📸 Où se trouve l'appartement",'btn-photo-parking':'📸 Photo de la place de parking','btn-photo-trash':'📸 Photo de la zone poubelles',
     's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigation'
   },
   de: {
@@ -1574,6 +1577,7 @@ const T = {
     'bye-title':'Schönen Urlaub in Juan-les-Pins! 💙',
     'bye-text':'Wir hoffen, Ihr Aufenthalt an der Côte d\'Azur war unvergesslich! ☀️<br><br>Bitte denken Sie daran, dass der Check-out bis 10:00 Uhr erfolgen muss.<br><br>⭐ Wenn Sie zufrieden waren, freuen wir uns sehr über eine Bewertung auf Airbnb oder Booking!<br><br>Merci et à bientôt! 🌊',
     'nav-lbl-home':'Home','nav-lbl-sog':'Aufenthalt','nav-lbl-luo':'Orte','nav-lbl-man':'Essen','nav-lbl-mov':'Info',
+    'btn-photo-ingresso':'📸 Foto Eingang','btn-photo-keybox':'📸 Wo ist die KeyBox','btn-photo-apt':'📸 Wo ist die Wohnung','btn-photo-parking':'📸 Foto Parkplatz','btn-photo-trash':'📸 Foto Müllbereich',
     's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navigation'
   },
   es: {
@@ -1662,6 +1666,7 @@ const T = {
     'bye-text':'¡Esperamos que su estancia en la Costa Azul haya sido inolvidable! ☀️<br><br>Recuerde que el check-out debe realizarse antes de las 10:00 h.<br><br>⭐ Si disfrutó de su estancia, nos encantaría recibir su reseña en Airbnb o Booking.<br><br>¡Merci et à bientôt! 🌊',
     'nav-lbl-home':'Inicio','nav-lbl-sog':'Estancia','nav-lbl-luo':'Lugares','nav-lbl-man':'Comer','nav-lbl-mov':'Info',
     's-checkin-lbl':'Check-in','s-checkout-lbl':'Check-out','s-maps-lbl':'Navegar'
+    'btn-photo-ingresso':'📸 Foto entrada','btn-photo-keybox':'📸 Dónde está la KeyBox','btn-photo-apt':'📸 Dónde está el apartamento','btn-photo-parking':'📸 Foto plaza de aparcamiento','btn-photo-trash':'📸 Foto zona basura',
   },
   ar: {
     'ph-home-eye':'أهلاً في','ph-home-title':'جوان-لي-بان 🌊',
@@ -1748,6 +1753,7 @@ const T = {
     'bye-title':'استمتعوا بإقامتكم في جوان-لي-بان! 💙',
     'bye-text':'نأمل أن تكون إقامتكم على الكوت دازور لا تُنسى! ☀️<br><br>تذكروا أن تسجيل المغادرة يجب أن يتم قبل الساعة 10:00 صباحاً.<br><br>⭐ إذا أعجبتكم إقامتكم، سنكون سعداء جداً بتقييمكم على Airbnb أو Booking!<br><br>Merci et à bientôt! 🌊',
     'nav-lbl-home':'الرئيسية','nav-lbl-sog':'الإقامة','nav-lbl-luo':'الأماكن','nav-lbl-man':'الأكل','nav-lbl-mov':'معلومات',
+    'btn-photo-ingresso':'📸 صورة المدخل','btn-photo-keybox':'📸 أين توجد الـ KeyBox','btn-photo-apt':'📸 أين توجد الشقة','btn-photo-parking':'📸 صورة مكان وقوف السيارة','btn-photo-trash':'📸 صورة منطقة النفايات',
     's-checkin-lbl':'تسجيل الدخول','s-checkout-lbl':'تسجيل المغادرة','s-maps-lbl':'خرائط'
   },
   ru: {
@@ -1836,6 +1842,7 @@ const T = {
     'bye-text':'Надеемся, что ваш отдых на Лазурном берегу был незабываемым! ☀️<br><br>Напоминаем, что выезд необходимо осуществить до 10:00.<br><br>⭐ Если вам понравилось пребывание, мы будем очень рады вашему отзыву на Airbnb или Booking!<br><br>Merci et à bientôt! 🌊',
     'nav-lbl-home':'Главная','nav-lbl-sog':'Проживание','nav-lbl-luo':'Места','nav-lbl-man':'Еда','nav-lbl-mov':'Инфо',
     's-checkin-lbl':'Заезд','s-checkout-lbl':'Выезд','s-maps-lbl':'Навигация'
+    'btn-photo-ingresso':'📸 Фото входа','btn-photo-keybox':'📸 Где находится KeyBox','btn-photo-apt':'📸 Где находятся апартаменты','btn-photo-parking':'📸 Фото парковочного места','btn-photo-trash':'📸 Фото зоны мусора',
   }
 };
 
