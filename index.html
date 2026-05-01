@@ -315,6 +315,21 @@ body {
 .wifi-pwd-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
 .wifi-pwd-lbl { font-size: 11px; opacity: .75; }
 .wifi-pwd-val { font-size: 16px; font-weight: 800; letter-spacing: .05em; }
+.wifi-connect-btn {
+  display: block; width: 100%; margin-top: 14px;
+  background: rgba(255,255,255,0.22); color: #fff; border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 12px; padding: 11px 0; font-size: 14px; font-weight: 700;
+  text-align: center; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  letter-spacing: .02em; transition: background .15s;
+}
+.wifi-connect-btn:active { background: rgba(255,255,255,0.35); }
+.wifi-toast {
+  position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #1E293B; color: #fff; padding: 10px 20px; border-radius: 24px;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+  opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; z-index: 999;
+}
+.wifi-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* Rules */
 .rule-item {
@@ -811,7 +826,9 @@ body {
             <div class="wifi-pwd-lbl" id="wifi-pwd-lbl">Password WiFi</div>
             <div class="wifi-pwd-val" id="wifi-tip">ftctsqvmrdqv7wwwqmrvcd</div>
           </div>
+          <button class="wifi-connect-btn" onclick="connectWifi()">📶 Click to Connect</button>
         </div>
+        <div class="wifi-toast" id="wifi-toast"></div>
 
         <div class="section-card" style="margin-top:16px;">
           <div class="sc-header"><span>📋</span><h3 id="lbl-rules">Regole della Casa</h3></div>
@@ -1844,6 +1861,46 @@ function switchTab(name) {
 
 function openMaps() {
   window.open('https://www.google.com/maps/search/93+Boulevard+Poincaré,+Juan-les-Pins,+06160+Antibes,+France', '_blank');
+}
+
+function connectWifi() {
+  const ssid = 'Freebox-32B57A';
+  const pass = 'ftctsqvmrdqv7wwwqmrvcd';
+  const wifiUri = 'WIFI:T:WPA;S:' + ssid + ';P:' + pass + ';;';
+  const toast = document.getElementById('wifi-toast');
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // Android supports WIFI: URI natively — try it
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  if (isAndroid) {
+    window.location.href = wifiUri;
+    setTimeout(() => showToast('✅ Apertura impostazioni WiFi…'), 400);
+    return;
+  }
+
+  // iOS / altri: copia la password negli appunti
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(pass).then(() => {
+      showToast('📋 Password copiata! Incollala nelle Impostazioni > WiFi');
+    }).catch(() => {
+      showToast('Password: ' + pass);
+    });
+  } else {
+    // Fallback per browser senza clipboard API
+    const el = document.createElement('textarea');
+    el.value = pass;
+    el.style.position = 'fixed'; el.style.opacity = '0';
+    document.body.appendChild(el);
+    el.select();
+    try { document.execCommand('copy'); showToast('📋 Password copiata! Incollala nelle Impostazioni > WiFi'); }
+    catch(e) { showToast('Password: ' + pass); }
+    document.body.removeChild(el);
+  }
 }
 
 function toggleArrival() {
