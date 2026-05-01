@@ -911,22 +911,23 @@ body {
             <div class="space-icon">🛌</div>
             <div class="space-title" id="sp1-name">Camere da Letto</div>
           </div>
-          <div class="space-desc" id="camera-desc">1 camera matrimoniale + soggiorno con divano letto matrimoniale e poltrona che diventa letto singolo. Fino a 4 ospiti.</div>
+          <div class="space-desc" id="camera-desc">Letto matrimoniale con armadio guardaroba a muro.</div>
           <div class="tags">
             <span class="tag" id="tag-ac">Aria condizionata</span>
             <span class="tag" id="tag-heat">Riscaldamento</span>
-            <span class="tag" id="tag-tv">Smart TV</span>
           </div>
         </div>
 
         <div class="space-card">
           <div class="space-header">
             <div class="space-icon">🍳</div>
-            <div class="space-title" id="sp2-name">Cucina</div>
+            <div class="space-title" id="sp2-name">Soggiorno Cucina</div>
           </div>
-          <div class="space-desc" id="sp2-desc">Completamente attrezzata con piatti e utensili. <strong>Caffè e tè</strong> inclusi. Welcome kit di benvenuto. 🎁</div>
+          <div class="space-desc" id="sp2-desc">Soggiorno con divano letto matrimoniale e poltrona. Cucina completamente attrezzata, macchina caffè Nespresso. Welcome kit di benvenuto. 🎁</div>
           <div class="tags">
             <span class="tag" id="tag-coffee">Macchinetta caffè</span>
+            <span class="tag" id="tag-tv">Smart TV</span>
+            <span class="tag" id="tag-kettle">Bollitore</span>
             <span class="tag" id="tag-dw">Lavastoviglie</span>
             <span class="tag" id="tag-wm">Lavatrice</span>
           </div>
@@ -1291,12 +1292,12 @@ const T = {
     'r5t':'Raccolta Differenziata','r5d':'[Istruzioni raccolta rifiuti del Comune di Antibes-Juan-les-Pins.]',
     'r6t':'Risparmio Energetico','r6d':'Ricorda di spegnere luci e condizionatori quando non li usi! 🌿',
     'r7t':'Deposito Bagagli','r7d':'Non si effettua deposito bagagli al check-in e al check-out.',
-    'sp1-name':'Camere da Letto',
-    'camera-desc':'1 camera matrimoniale + soggiorno con <strong>divano letto matrimoniale</strong> e <strong>poltrona che diventa letto singolo</strong>. Fino a 4 ospiti.',
-    'sp2-name':'Cucina','sp2-desc':'Completamente attrezzata. <strong>Caffè e tè</strong> inclusi. Welcome kit di benvenuto. 🎁',
+    'sp1-name':'Camera da Letto',
+    'camera-desc':'Letto matrimoniale con armadio guardaroba a muro.',
+    'sp2-name':'Soggiorno Cucina','sp2-desc':'Soggiorno con divano letto matrimoniale e poltrona. Cucina completamente attrezzata, macchina caffè Nespresso. Welcome kit di benvenuto. 🎁',
     'sp3-name':'Bagno','sp3-desc':'Bagno accogliente con doccia e tutto il necessario per un soggiorno confortevole. Set asciugamani inclusi.',
     'sp4-name':'Terrazzo / Balcone','sp4-desc':'Terrazzo spazioso con tavolo e sedie, perfetto per colazioni, pranzi e cene all\'aperto godendosi il clima della Côte d\'Azur. Un vero punto di forza della casa!',
-    'tag-ac':'Aria condizionata','tag-heat':'Riscaldamento','tag-tv':'Smart TV',
+    'tag-ac':'Aria condizionata','tag-heat':'Riscaldamento','tag-tv':'Smart TV','tag-kettle':'Bollitore',
     'tag-coffee':'Macchinetta caffè','tag-shower':'Doccia','tag-hairdryer':'Asciugacapelli',
     'tag-bd':'Shampoo doccia','tag-soap':'Sapone mani',
     'tag-dw':'Lavastoviglie','tag-wm':'Lavatrice',
@@ -1379,12 +1380,12 @@ const T = {
     'r5t':'Waste Disposal','r5d':'[Local waste disposal instructions for Antibes-Juan-les-Pins municipality.]',
     'r6t':'Energy Saving','r6d':'Please turn off lights and air conditioning when not in use! 🌿',
     'r7t':'Luggage Storage','r7d':'Left-luggage storage is not available at check-in or check-out.',
-    'sp1-name':'Bedrooms',
-    'camera-desc':'1 double bedroom + living room with <strong>sofa bed (double)</strong> and <strong>armchair that converts to a single bed</strong>. Up to 4 guests.',
-    'sp2-name':'Kitchen','sp2-desc':'Fully equipped. <strong>Coffee and tea</strong> included. Welcome kit provided. 🎁',
+    'sp1-name':'Bedroom',
+    'camera-desc':'Double bed with built-in wardrobe.',
+    'sp2-name':'Living Room & Kitchen','sp2-desc':'Living room with double sofa bed and armchair. Fully equipped kitchen, Nespresso coffee machine. Welcome kit included. 🎁',
     'sp3-name':'Bathroom','sp3-desc':'Cosy bathroom with shower and everything you need for a comfortable stay. Towel set included.',
     'sp4-name':'Terrace / Balcony','sp4-desc':'Spacious terrace with table and chairs, perfect for breakfast, lunch and dinner outdoors in the beautiful Côte d\'Azur climate. One of the best features of the house!',
-    'tag-ac':'Air conditioning','tag-heat':'Heating','tag-tv':'Smart TV',
+    'tag-ac':'Air conditioning','tag-heat':'Heating','tag-tv':'Smart TV','tag-kettle':'Kettle',
     'tag-coffee':'Coffee machine','tag-shower':'Shower','tag-hairdryer':'Hairdryer',
     'tag-bd':'Shower shampoo','tag-soap':'Hand soap',
     'tag-dw':'Dishwasher','tag-wm':'Washing machine',
@@ -1467,12 +1468,12 @@ const T = {
     'r5t':'Tri des déchets','r5d':'[Instructions de tri de la commune d\'Antibes-Juan-les-Pins.]',
     'r6t':'Économie d\'énergie','r6d':'Pensez à éteindre les lumières et la climatisation en quittant le logement ! 🌿',
     'r7t':'Dépôt de bagages','r7d':'Le dépôt de bagages au check-in et au check-out n\'est pas disponible.',
-    'sp1-name':'Chambres',
-    'camera-desc':'1 chambre double + salon avec <strong>canapé-lit double</strong> et <strong>fauteuil convertible en lit simple</strong>. Jusqu\'à 4 voyageurs.',
-    'sp2-name':'Cuisine','sp2-desc':'Entièrement équipée. <strong>Café et thé</strong> inclus. Kit de bienvenue fourni. 🎁',
+    'sp1-name':'Chambre',
+    'camera-desc':'Lit double avec armoire encastrée.',
+    'sp2-name':'Séjour Cuisine','sp2-desc':'Séjour avec canapé-lit double et fauteuil. Cuisine entièrement équipée, machine à café Nespresso. Kit de bienvenue inclus. 🎁',
     'sp3-name':'Salle de bain','sp3-desc':'Salle de bain accueillante avec douche et tout le nécessaire pour un séjour confortable. Set de serviettes inclus.',
     'sp4-name':'Terrasse / Balcon','sp4-desc':'Grande terrasse avec table et chaises, idéale pour les petits-déjeuners, déjeuners et dîners en plein air sous le magnifique climat de la Côte d\'Azur. Le vrai atout du logement !',
-    'tag-ac':'Climatisation','tag-heat':'Chauffage','tag-tv':'Smart TV',
+    'tag-ac':'Climatisation','tag-heat':'Chauffage','tag-tv':'Smart TV','tag-kettle':'Bouilloire',
     'tag-coffee':'Machine à café','tag-shower':'Douche','tag-hairdryer':'Sèche-cheveux',
     'tag-bd':'Shampoing douche','tag-soap':'Savon pour les mains',
     'tag-dw':'Lave-vaisselle','tag-wm':'Lave-linge',
@@ -1556,11 +1557,11 @@ const T = {
     'r6t':'Energiesparen','r6d':'Bitte Licht und Klimaanlage ausschalten, wenn Sie das Haus verlassen! 🌿',
     'r7t':'Gepäckaufbewahrung','r7d':'Eine Gepäckaufbewahrung beim Check-in und Check-out ist nicht möglich.',
     'sp1-name':'Schlafzimmer',
-    'camera-desc':'1 Doppelschlafzimmer + Wohnzimmer mit <strong>Schlafsofa (Doppel)</strong> und <strong>Sessel als Einzelbett</strong>. Bis zu 4 Gäste.',
-    'sp2-name':'Küche','sp2-desc':'Voll ausgestattet. <strong>Kaffee und Tee</strong> inklusive. Willkommenspaket. 🎁',
+    'camera-desc':'Doppelbett mit Einbauschrank.',
+    'sp2-name':'Wohnküche','sp2-desc':'Wohnzimmer mit Schlafsofa (Doppel) und Sessel. Voll ausgestattete Küche, Nespresso-Kaffeemaschine. Willkommenspaket inklusive. 🎁',
     'sp3-name':'Badezimmer','sp3-desc':'Gemütliches Badezimmer mit Dusche und allem Notwendigen für einen komfortablen Aufenthalt. Handtuch-Set inklusive.',
     'sp4-name':'Terrasse / Balkon','sp4-desc':'Geräumige Terrasse mit Tisch und Stühlen, perfekt für Frühstück, Mittag- und Abendessen im Freien im wunderschönen Klima der Côte d\'Azur. Ein echtes Highlight des Hauses!',
-    'tag-ac':'Klimaanlage','tag-heat':'Heizung','tag-tv':'Smart TV',
+    'tag-ac':'Klimaanlage','tag-heat':'Heizung','tag-tv':'Smart TV','tag-kettle':'Wasserkocher',
     'tag-coffee':'Kaffeemaschine','tag-shower':'Dusche','tag-hairdryer':'Haartrockner',
     'tag-bd':'Duschgel','tag-soap':'Handseife',
     'tag-dw':'Geschirrspüler','tag-wm':'Waschmaschine',
@@ -1643,12 +1644,12 @@ const T = {
     'r5t':'Reciclaje','r5d':'[Instrucciones de reciclaje del municipio de Antibes-Juan-les-Pins.]',
     'r6t':'Ahorro energético','r6d':'¡Recuerde apagar las luces y el aire acondicionado cuando no los use! 🌿',
     'r7t':'Consigna de equipaje','r7d':'No hay servicio de consigna de equipaje en el check-in ni en el check-out.',
-    'sp1-name':'Dormitorios',
-    'camera-desc':'1 dormitorio doble + salón con <strong>sofá cama doble</strong> y <strong>sillón convertible en cama individual</strong>. Hasta 4 huéspedes.',
-    'sp2-name':'Cocina','sp2-desc':'Totalmente equipada. <strong>Café y té</strong> incluidos. Kit de bienvenida. 🎁',
+    'sp1-name':'Dormitorio',
+    'camera-desc':'Cama de matrimonio con armario empotrado.',
+    'sp2-name':'Salón Cocina','sp2-desc':'Salón con sofá cama doble y sillón. Cocina totalmente equipada, cafetera Nespresso. Kit de bienvenida incluido. 🎁',
     'sp3-name':'Baño','sp3-desc':'Baño acogedor con ducha y todo lo necesario para una estancia cómoda. Set de toallas incluido.',
     'sp4-name':'Terraza / Balcón','sp4-desc':'Amplia terraza con mesa y sillas, perfecta para desayunos, almuerzos y cenas al aire libre disfrutando del maravilloso clima de la Costa Azul. ¡El punto fuerte del apartamento!',
-    'tag-ac':'Aire acondicionado','tag-heat':'Calefacción','tag-tv':'Smart TV',
+    'tag-ac':'Aire acondicionado','tag-heat':'Calefacción','tag-tv':'Smart TV','tag-kettle':'Hervidor',
     'tag-coffee':'Cafetera','tag-shower':'Ducha','tag-hairdryer':'Secador de pelo',
     'tag-bd':'Gel de ducha','tag-soap':'Jabón de manos',
     'tag-dw':'Lavavajillas','tag-wm':'Lavadora',
@@ -1731,12 +1732,12 @@ const T = {
     'r5t':'إعادة التدوير','r5d':'[تعليمات فرز النفايات لبلدية أنتيب-جوان-لي-بان.]',
     'r6t':'توفير الطاقة','r6d':'تذكر إطفاء الأضواء والتكييف عند المغادرة! 🌿',
     'r7t':'تخزين الأمتعة','r7d':'لا تتوفر خدمة تخزين الأمتعة عند تسجيل الدخول أو المغادرة.',
-    'sp1-name':'غرف النوم',
-    'camera-desc':'غرفة نوم مزدوجة + غرفة معيشة بـ<strong>أريكة سرير مزدوجة</strong> و<strong>كرسي يتحول إلى سرير مفرد</strong>. حتى 5 ضيوف.',
-    'sp2-name':'المطبخ','sp2-desc':'مجهز بالكامل. <strong>القهوة والشاي</strong> مشمولان. مجموعة ترحيبية. 🎁',
+    'sp1-name':'غرفة النوم',
+    'camera-desc':'سرير مزدوج مع خزانة مدمجة في الحائط.',
+    'sp2-name':'غرفة المعيشة والمطبخ','sp2-desc':'غرفة معيشة مع أريكة سرير مزدوجة وكرسي. مطبخ مجهز بالكامل، ماكينة قهوة Nespresso. مجموعة ترحيبية مشمولة. 🎁',
     'sp3-name':'الحمام','sp3-desc':'حمام دافئ مع دش وكل ما تحتاجه لإقامة مريحة. طقم مناشف مشمول.',
     'sp4-name':'التراس / الشرفة','sp4-desc':'تراس واسع بطاولة وكراسي، مثالي لتناول الإفطار والغداء والعشاء في الهواء الطلق مع الاستمتاع بمناخ الكوت دازور الرائع. الميزة الحقيقية للمنزل!',
-    'tag-ac':'تكييف هواء','tag-heat':'تدفئة','tag-tv':'تلفزيون ذكي',
+    'tag-ac':'تكييف هواء','tag-heat':'تدفئة','tag-tv':'تلفزيون ذكي','tag-kettle':'غلاية ماء',
     'tag-coffee':'آلة قهوة','tag-shower':'دش','tag-hairdryer':'مجفف شعر',
     'tag-bd':'شامبو الدش','tag-soap':'صابون اليدين',
     'tag-dw':'غسالة أطباق','tag-wm':'غسالة ملابس',
@@ -1819,12 +1820,12 @@ const T = {
     'r5t':'Раздельный сбор мусора','r5d':'[Инструкции по сортировке мусора муниципалитета Антиб-Жуан-ле-Пен.]',
     'r6t':'Экономия энергии','r6d':'Пожалуйста, выключайте свет и кондиционер, когда не используете их! 🌿',
     'r7t':'Хранение багажа','r7d':'Хранение багажа при заезде и выезде недоступно.',
-    'sp1-name':'Спальни',
-    'camera-desc':'1 двуспальная спальня + гостиная с <strong>диваном-кроватью (двуспальным)</strong> и <strong>креслом, раскладывающимся в односпальную кровать</strong>. До 4 гостей.',
-    'sp2-name':'Кухня','sp2-desc':'Полностью оборудована. <strong>Кофе и чай</strong> включены. Приветственный набор. 🎁',
+    'sp1-name':'Спальня',
+    'camera-desc':'Двуспальная кровать со встроенным шкафом.',
+    'sp2-name':'Гостиная и кухня','sp2-desc':'Гостиная с диваном-кроватью (двуспальным) и креслом. Полностью оборудованная кухня, кофемашина Nespresso. Приветственный набор включён. 🎁',
     'sp3-name':'Ванная','sp3-desc':'Уютная ванная с душем и всем необходимым для комфортного пребывания. Набор полотенец включён.',
     'sp4-name':'Терраса / Балкон','sp4-desc':'Просторная терраса со столом и стульями, идеально подходящая для завтраков, обедов и ужинов под открытым небом на Лазурном берегу. Настоящая гордость апартаментов!',
-    'tag-ac':'Кондиционер','tag-heat':'Отопление','tag-tv':'Smart TV',
+    'tag-ac':'Кондиционер','tag-heat':'Отопление','tag-tv':'Smart TV','tag-kettle':'Чайник',
     'tag-coffee':'Кофемашина','tag-shower':'Душ','tag-hairdryer':'Фен',
     'tag-bd':'Гель для душа','tag-soap':'Мыло для рук',
     'tag-dw':'Посудомоечная машина','tag-wm':'Стиральная машина',
