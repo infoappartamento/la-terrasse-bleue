@@ -240,6 +240,8 @@ body {
   cursor: pointer; -webkit-tap-highlight-color: transparent;
   text-decoration: none; display: inline-block; white-space: nowrap;
 }
+.call-btn.green { background: #16A34A; }
+.cb-btns { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
 
 /* Section Card */
 .section-card {
@@ -696,10 +698,23 @@ body {
         <div class="contact-bar">
           <div class="cb-avatar">🏠</div>
           <div class="cb-info">
-            <div class="cb-lbl" id="cb-lbl">Chiedi informazioni</div>
+            <div class="cb-lbl" id="cb-lbl">Chiedi informazioni anche all'host</div>
             <div class="cb-name">Lorenzo</div>
           </div>
-          <a href="https://t.me/InfoJuanLesPinsBot" target="_blank" class="call-btn" id="cb-btn-txt">💬 Chat</a>
+          <div class="cb-btns">
+            <a href="https://t.me/InfoJuanLesPinsBot" target="_blank" class="call-btn" id="cb-btn-txt">💬 Chat</a>
+            <a href="tel:+393202599675" class="call-btn green">📞 Tel.</a>
+          </div>
+        </div>
+        <div class="contact-bar" style="margin-top:0;">
+          <div class="cb-avatar">👤</div>
+          <div class="cb-info">
+            <div class="cb-lbl">Secondo contatto</div>
+            <div class="cb-name">Federico</div>
+          </div>
+          <div class="cb-btns">
+            <a href="tel:+393473467555" class="call-btn green">📞 Tel.</a>
+          </div>
         </div>
         <div class="spacer-bottom"></div>
       </div>
@@ -791,10 +806,10 @@ body {
 
         <div class="wifi-card">
           <div class="wifi-label">📡 WiFi</div>
-          <div class="wifi-network">[NOME RETE WIFI]</div>
+          <div class="wifi-network">Freebox-32B57A</div>
           <div class="wifi-pwd-row">
             <div class="wifi-pwd-lbl" id="wifi-pwd-lbl">Password WiFi</div>
-            <div class="wifi-pwd-val" id="wifi-tip">[PASSWORD]</div>
+            <div class="wifi-pwd-val" id="wifi-tip">ftctsqvmrdqv7wwwqmrvcd</div>
           </div>
         </div>
 
@@ -1198,7 +1213,7 @@ const T = {
     'nav-luoghi':'Luoghi da vedere','nav-luoghi-sub':'Spiagge, Cap d\'Antibes e altro',
     'nav-mangiare':'Dove mangiare','nav-mangiare-sub':'Ristoranti e bar consigliati',
     'nav-muoversi':'Info & Emergenze','nav-muoversi-sub':'Numeri utili e check-out',
-    'cb-lbl':'Chiedi informazioni','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Chiedi informazioni anche all\'host','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Il tuo','ph-sog-title':'Soggiorno',
     'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
     'lbl-guests':'Ospiti massimi','lbl-addr':'Città','max-ospiti':'4 persone',
@@ -1209,7 +1224,7 @@ const T = {
     'txt-access':'Le chiavi le troverai all\'interno della KeyBox in 67 Chemin des Liserons, alla destra dell\'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.',
     'lbl-parking':'Parcheggio',
     'txt-parking':'Una volta entrati dal cancello automatico (tasto sinistro del telecomando), tieni subito la sinistra, scendi la rampa, apri il secondo cancello (tasto destro del telecomando), prosegui fino in fondo. Il posto auto è il numero <strong>53</strong>, quello a sinistra a ridosso del muro con la catenella gialla e nera. Togli il lucchetto con codice <strong>581</strong>. Scarica l\'auto — alle tue spalle c\'è una porta grigia, entra, prendi l\'ascensore e sali al <strong>secondo piano</strong>.',
-    'wifi-pwd-lbl':'Password WiFi','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'Password WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'Regole della Casa',
     'r1t':'Silenzio Notturno','r1d':'Dalle 23:00 alle 8:00 si prega di mantenere un livello di rumore ridotto.',
     'r2t':'Niente Fumo','r2d':'Vietato fumare all\'interno. Consentito solo sul balcone o terrazzo.',
@@ -1283,7 +1298,7 @@ const T = {
     'nav-luoghi':'Places to visit','nav-luoghi-sub':'Beaches, Cap d\'Antibes and more',
     'nav-mangiare':'Where to eat','nav-mangiare-sub':'Recommended restaurants and bars',
     'nav-muoversi':'Info & Emergencies','nav-muoversi-sub':'Useful numbers and check-out',
-    'cb-lbl':'Ask for info','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Contact the host','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Your','ph-sog-title':'Stay',
     'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
     'lbl-guests':'Max guests','lbl-addr':'City','max-ospiti':'4 guests',
@@ -1294,7 +1309,7 @@ const T = {
     'txt-access':'You will find the keys inside the KeyBox at 67 Chemin des Liserons, to the right of the garage entrance. The KeyBox code will be provided to you close to check-in.',
     'lbl-parking':'Parking',
     'txt-parking':'Once through the automatic gate (left button on the remote), immediately keep to the left, go down the ramp, open the second gate (right button on the remote), and continue to the end. Parking space number <strong>53</strong> is on the left, against the wall with the yellow and black chain. Remove the padlock using code <strong>581</strong>. Unload the car — behind you there is a grey door, enter, take the lift to the <strong>second floor</strong>.',
-    'wifi-pwd-lbl':'WiFi Password','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'WiFi Password','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'House Rules',
     'r1t':'Quiet Hours','r1d':'From 11:00 PM to 8:00 AM please keep noise levels low, out of respect for neighbours.',
     'r2t':'No Smoking','r2d':'No smoking indoors. Allowed only on the balcony or terrace.',
@@ -1368,7 +1383,7 @@ const T = {
     'nav-luoghi':'Lieux à visiter','nav-luoghi-sub':'Plages, Cap d\'Antibes et plus',
     'nav-mangiare':'Où manger','nav-mangiare-sub':'Restaurants et bars recommandés',
     'nav-muoversi':'Infos & Urgences','nav-muoversi-sub':'Numéros utiles et check-out',
-    'cb-lbl':'Demander des infos','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Contacter l\'hôte','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Votre','ph-sog-title':'Séjour',
     'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
     'lbl-guests':'Voyageurs max.','lbl-addr':'Adresse','max-ospiti':'4 personnes',
@@ -1379,7 +1394,7 @@ const T = {
     'txt-access':'Vous trouverez les clés à l\'intérieur de la KeyBox au 67 Chemin des Liserons, à droite de l\'entrée du garage. Le code de la KeyBox vous sera communiqué à l\'approche du check-in.',
     'lbl-parking':'Parking',
     'txt-parking':'Une fois passé le portail automatique (bouton gauche de la télécommande), restez immédiatement à gauche, descendez la rampe, ouvrez le deuxième portail (bouton droit de la télécommande) et continuez jusqu\'au fond. La place de parking numéro <strong>53</strong> est à gauche, contre le mur avec la chaîne jaune et noire. Retirez le cadenas avec le code <strong>581</strong>. Déchargez la voiture — derrière vous se trouve une porte grise, entrez, prenez l\'ascenseur et montez au <strong>deuxième étage</strong>.',
-    'wifi-pwd-lbl':'Mot de passe WiFi','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'Mot de passe WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'Règlement de la maison',
     'r1t':'Silence nocturne','r1d':'De 23h à 8h, merci de maintenir un niveau sonore réduit, par respect pour les voisins.',
     'r2t':'Non-fumeur','r2d':'Il est interdit de fumer à l\'intérieur. Autorisé uniquement sur le balcon ou la terrasse.',
@@ -1453,7 +1468,7 @@ const T = {
     'nav-luoghi':'Sehenswürdigkeiten','nav-luoghi-sub':'Strände, Cap d\'Antibes und mehr',
     'nav-mangiare':'Restaurants','nav-mangiare-sub':'Empfohlene Restaurants und Bars',
     'nav-muoversi':'Info & Notfälle','nav-muoversi-sub':'Nützliche Nummern und Check-out',
-    'cb-lbl':'Informationen anfragen','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Den Gastgeber kontaktieren','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Ihr','ph-sog-title':'Aufenthalt',
     'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
     'lbl-guests':'Max. Gäste','lbl-addr':'Adresse','max-ospiti':'4 Personen',
@@ -1464,7 +1479,7 @@ const T = {
     'txt-access':'Die Schlüssel befinden sich in der KeyBox in der Chemin des Liserons 67, rechts vom Garageneingang. Der KeyBox-Code wird Ihnen kurz vor dem Check-in mitgeteilt.',
     'lbl-parking':'Parken',
     'txt-parking':'Fahren Sie durch das automatische Tor (linke Taste der Fernbedienung) und halten Sie sich sofort links, fahren Sie die Rampe hinunter, öffnen Sie das zweite Tor (rechte Taste der Fernbedienung) und fahren Sie bis ans Ende. Parkplatz Nr. <strong>53</strong> befindet sich links an der Wand mit der gelb-schwarzen Kette. Öffnen Sie das Schloss mit dem Code <strong>581</strong>. Entladen Sie das Auto — hinter Ihnen befindet sich eine graue Tür, treten Sie ein, nehmen Sie den Aufzug und fahren Sie in den <strong>zweiten Stock</strong>.',
-    'wifi-pwd-lbl':'WLAN-Passwort','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'WLAN-Passwort','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'Hausregeln',
     'r1t':'Nachtruhe','r1d':'Von 23:00 bis 8:00 Uhr bitten wir um Ruhe, aus Rücksicht auf die Nachbarn.',
     'r2t':'Rauchverbot','r2d':'Rauchen ist im Inneren verboten. Nur auf dem Balkon/Terrasse erlaubt.',
@@ -1538,7 +1553,7 @@ const T = {
     'nav-luoghi':'Lugares que ver','nav-luoghi-sub':'Playas, Cap d\'Antibes y más',
     'nav-mangiare':'Dónde comer','nav-mangiare-sub':'Restaurantes y bares recomendados',
     'nav-muoversi':'Info & Emergencias','nav-muoversi-sub':'Números útiles y check-out',
-    'cb-lbl':'Pedir información','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Contactar al anfitrión','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Su','ph-sog-title':'Estancia',
     'lbl-times':'Check-in & Check-out','lbl-ci':'Check-in','lbl-co':'Check-out',
     'lbl-guests':'Máx. huéspedes','lbl-addr':'Dirección','max-ospiti':'4 personas',
@@ -1549,7 +1564,7 @@ const T = {
     'txt-access':'Encontrará las llaves dentro de la KeyBox en el 67 Chemin des Liserons, a la derecha de la entrada del garaje. El código de la KeyBox se le facilitará próximo al check-in.',
     'lbl-parking':'Aparcamiento',
     'txt-parking':'Una vez pasada la puerta automática (botón izquierdo del mando), gire inmediatamente a la izquierda, baje la rampa, abra la segunda puerta (botón derecho del mando) y continúe hasta el fondo. La plaza número <strong>53</strong> está a la izquierda, junto a la pared con la cadena amarilla y negra. Quite el candado con el código <strong>581</strong>. Descargue el coche — detrás hay una puerta gris, entre, tome el ascensor y suba a la <strong>segunda planta</strong>.',
-    'wifi-pwd-lbl':'Contraseña WiFi','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'Contraseña WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'Normas de la casa',
     'r1t':'Silencio nocturno','r1d':'De 23:00 a 8:00 h, por favor mantenga el ruido al mínimo, por respeto a los vecinos.',
     'r2t':'Prohibido fumar','r2d':'Prohibido fumar en el interior. Solo permitido en el balcón o terraza.',
@@ -1623,7 +1638,7 @@ const T = {
     'nav-luoghi':'الأماكن السياحية','nav-luoghi-sub':'الشواطئ، كاب دانتيب والمزيد',
     'nav-mangiare':'أين تأكل','nav-mangiare-sub':'مطاعم وبارات موصى بها',
     'nav-muoversi':'معلومات وطوارئ','nav-muoversi-sub':'أرقام مفيدة وتسجيل المغادرة',
-    'cb-lbl':'اطلب معلومات','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'تواصل مع المضيف','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'تفاصيل','ph-sog-title':'إقامتكم',
     'lbl-times':'تسجيل الدخول والمغادرة','lbl-ci':'تسجيل الدخول','lbl-co':'تسجيل المغادرة',
     'lbl-guests':'الحد الأقصى للضيوف','lbl-addr':'العنوان','max-ospiti':'4 أشخاص',
@@ -1634,7 +1649,7 @@ const T = {
     'txt-access':'ستجد المفاتيح داخل صندوق KeyBox في 67 Chemin des Liserons، على يمين مدخل الكراج. سيتم إرسال رمز الـ KeyBox إليك قبيل تسجيل الوصول.',
     'lbl-parking':'موقف السيارات',
     'txt-parking':'بمجرد دخولك من البوابة الأوتوماتيكية (الزر الأيسر للريموت)، اتجه فوراً نحو اليسار، انزل المنحدر، افتح البوابة الثانية (الزر الأيمن للريموت)، واستمر حتى النهاية. مكان وقوف السيارة رقم <strong>53</strong> على اليسار بجوار الجدار مع السلسلة الصفراء والسوداء. أزل القفل باستخدام الرمز <strong>581</strong>. أفرغ السيارة — خلفك باب رمادي، ادخل، خذ المصعد وصعد إلى <strong>الطابق الثاني</strong>.',
-    'wifi-pwd-lbl':'كلمة مرور الواي فاي','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'كلمة مرور الواي فاي','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'قواعد المنزل',
     'r1t':'الهدوء الليلي','r1d':'من الساعة 23:00 حتى 8:00 صباحاً، يُرجى الحفاظ على مستوى منخفض من الضوضاء احتراماً للجيران.',
     'r2t':'ممنوع التدخين','r2d':'ممنوع التدخين في الداخل. مسموح به فقط على الشرفة.',
@@ -1708,7 +1723,7 @@ const T = {
     'nav-luoghi':'Достопримечательности','nav-luoghi-sub':'Пляжи, Кап-д\'Антиб и многое другое',
     'nav-mangiare':'Где поесть','nav-mangiare-sub':'Рекомендуемые рестораны и бары',
     'nav-muoversi':'Инфо & Экстренные','nav-muoversi-sub':'Полезные номера и выезд',
-    'cb-lbl':'Задать вопрос','cb-btn-txt':'💬 Chat',
+    'cb-lbl':'Связаться с хозяином','cb-btn-txt':'💬 Chat',
     'ph-sog-eye':'Ваше','ph-sog-title':'Пребывание',
     'lbl-times':'Заезд & Выезд','lbl-ci':'Заезд','lbl-co':'Выезд',
     'lbl-guests':'Макс. гостей','lbl-addr':'Город','max-ospiti':'4 гостей',
@@ -1719,7 +1734,7 @@ const T = {
     'txt-access':'Ключи находятся в KeyBox по адресу 67 Chemin des Liserons, справа от входа в гараж. Код от KeyBox будет предоставлен вам перед заездом.',
     'lbl-parking':'Парковка',
     'txt-parking':'После въезда через автоматические ворота (левая кнопка пульта), сразу держитесь левой стороны, спускайтесь по пандусу, откройте вторые ворота (правая кнопка пульта) и проезжайте до конца. Парковочное место № <strong>53</strong> находится слева у стены с жёлто-чёрной цепью. Снимите замок с кодом <strong>581</strong>. Выгрузите вещи — за вашей спиной серая дверь, войдите, поднимитесь на лифте на <strong>второй этаж</strong>.',
-    'wifi-pwd-lbl':'Пароль WiFi','wifi-tip':'[PASSWORD]',
+    'wifi-pwd-lbl':'Пароль WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd',
     'lbl-rules':'Правила дома',
     'r1t':'Тишина ночью','r1d':'С 23:00 до 8:00 просьба соблюдать тишину из уважения к соседям.',
     'r2t':'Не курить','r2d':'Курение внутри запрещено. Разрешено только на балконе или террасе.',
