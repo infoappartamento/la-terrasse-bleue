@@ -1290,13 +1290,58 @@ body {
                 <div class="mov-desc"  id="mv2d">Si trova nel corridoio esterno, nel terzo sportello. La manopola è quella in basso a sinistra con la targhetta 23.</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="section-card" style="margin-top:16px;">
+          <div class="sc-header"><span>🚗</span><h3 id="lbl-transport">Come muoversi</h3></div>
+          <div class="sc-body">
+
             <div class="mov-item">
               <div class="mov-icon">🚂</div>
-              <div>
-                <div class="mov-title" id="mv3t">Come muoversi</div>
-                <div class="mov-desc"  id="mv3d">Juan-les-Pins è ottimamente collegata. Il treno collega <strong>Cannes (15 min)</strong>, <strong>Antibes (5 min)</strong> e <strong>Nizza (30 min)</strong>. Bus locali per tutta la costa. In estate consigliamo la bicicletta! 🚲</div>
+              <div style="flex:1">
+                <div class="mov-title" id="tr1t">Treno — Gare de Juan-les-Pins</div>
+                <div class="mov-desc" id="tr1d">A <strong>~10 min a piedi</strong> dall'appartamento (2 Av de l'Estérel). Treni frequenti: <strong>Antibes 5 min ~€2</strong> · <strong>Cannes 15 min ~€3</strong> · <strong>Nizza 25 min ~€5</strong></div>
+                <a href="https://maps.google.com/?q=Gare+de+Juan-les-Pins,+2+Avenue+de+l%27Est%C3%A9rel,+06160+Juan-les-Pins" target="_blank" class="map-btn" style="margin-top:8px;display:inline-flex;font-size:13px;">🗺 <span id="tr1-map">Mappa stazione</span></a>
               </div>
             </div>
+
+            <div class="mov-item">
+              <div class="mov-icon">🚌</div>
+              <div>
+                <div class="mov-title" id="tr2t">Bus — Envibus &amp; Lignes d'Azur</div>
+                <div class="mov-desc" id="tr2d">Linee Envibus per tutta la zona. <strong>Linea 200</strong> (Lignes d'Azur) collega Nizza–Antibes–Cannes lungo la costa.</div>
+              </div>
+            </div>
+
+            <div class="mov-item">
+              <div class="mov-icon">🚕</div>
+              <div style="flex:1">
+                <div class="mov-title" id="tr3t">Taxi locali (24/7)</div>
+                <div class="mov-desc" id="tr3d">Servizio disponibile giorno e notte:</div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+                  <a href="tel:+330493676767" class="sos-num" style="font-size:13px;padding:6px 12px;">📞 04 93 67 67 67</a>
+                  <a href="tel:+330749777621" class="sos-num" style="font-size:13px;padding:6px 12px;">📞 07 49 77 76 21</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mov-item">
+              <div class="mov-icon">📱</div>
+              <div>
+                <div class="mov-title" id="tr4t">Uber &amp; Bolt</div>
+                <div class="mov-desc" id="tr4d">Disponibili via app nella zona di Antibes–Juan-les-Pins.</div>
+              </div>
+            </div>
+
+            <div class="mov-item">
+              <div class="mov-icon">✈️</div>
+              <div>
+                <div class="mov-title" id="tr5t">Aeroporto di Nizza (NCE) — ~20 km</div>
+                <div class="mov-desc" id="tr5d"><strong>Bus 82 Express</strong>: ~35 min, €9 · oppure <strong>treno</strong> via Antibes: ~23 min, ~€5</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -1489,7 +1534,14 @@ const T = {
     'ph-mov-eye':'Numeri Utili & Check-out','ph-mov-title':'Info Utili',
     'mv1t':'Quadro Elettrico','mv1d':'Si trova entrando sulla sinistra, dietro lo sportello bianco. L\'interruttore principale è quello in alto a destra.',
     'mv2t':'Valvola Acqua','mv2d':'Si trova nel corridoio esterno, nel terzo sportello. La manopola è quella in basso a sinistra con la targhetta 23.',
-    'mv3t':'Come muoversi','mv3d':'La <strong>Gare de Juan-les-Pins</strong> è a ~10 min a piedi da Boulevard Poincaré 93. Da lì: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nizza (30 min)</strong>. Bus locali lungo tutta la costa. In estate consigliamo la bicicletta! 🚲',
+    'lbl-transport':'🚗 Come muoversi',
+    'tr1t':'Treno — Gare de Juan-les-Pins','tr1d':'A <strong>~10 min a piedi</strong> dall\'appartamento (2 Av de l\'Estérel). Treni frequenti: <strong>Antibes 5 min ~€2</strong> · <strong>Cannes 15 min ~€3</strong> · <strong>Nizza 25 min ~€5</strong>',
+    'tr1-map':'Mappa stazione',
+    'tr2t':'Bus — Envibus &amp; Lignes d\'Azur','tr2d':'Linee Envibus per tutta la zona. <strong>Linea 200</strong> (Lignes d\'Azur) collega Nizza–Antibes–Cannes lungo la costa.',
+    'tr3t':'Taxi locali (24/7)','tr3d':'Servizio disponibile giorno e notte:',
+    'tr4t':'Uber &amp; Bolt','tr4d':'Disponibili via app nella zona di Antibes–Juan-les-Pins.',
+    'tr5t':'Aeroporto di Nizza (NCE) — ~20 km','tr5d':'<strong>Bus 82 Express</strong>: ~35 min, €9 · oppure <strong>treno</strong> via Antibes: ~23 min, ~€5',
+
     'lbl-sos':'🆘 Emergenze',
     'sos1n':'Pronto Soccorso (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min in auto',
     'sos2n':'Police / Gendarmerie','sos2d':'Forze dell\'ordine — emergenze',
@@ -1579,7 +1631,14 @@ const T = {
     'ph-mov-eye':'Useful numbers & Check-out','ph-mov-title':'Useful Info',
     'mv1t':'Electrical Panel','mv1d':'Located on the left as you enter, behind the white panel door. The main switch is the one at the top right.',
     'mv2t':'Water Valve','mv2d':'Located in the external corridor, behind the third panel door. The knob is the one at the bottom left, labelled 23.',
-    'mv3t':'Getting around','mv3d':'<strong>Gare de Juan-les-Pins</strong> is ~10 min walk from Boulevard Poincaré 93. From there: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nice (30 min)</strong>. Local buses run along the whole coast. We recommend cycling in summer! 🚲',
+    'lbl-transport':'🚗 Getting around',
+    'tr1t':'Train — Gare de Juan-les-Pins','tr1d':'<strong>~10 min walk</strong> from the apartment (2 Av de l\'Estérel). Frequent trains: <strong>Antibes 5 min ~€2</strong> · <strong>Cannes 15 min ~€3</strong> · <strong>Nice 25 min ~€5</strong>',
+    'tr1-map':'Station map',
+    'tr2t':'Bus — Envibus &amp; Lignes d\'Azur','tr2d':'Envibus local lines across the area. <strong>Line 200</strong> (Lignes d\'Azur) runs Nice–Antibes–Cannes along the coast.',
+    'tr3t':'Local Taxis (24/7)','tr3d':'Service available day and night:',
+    'tr4t':'Uber &amp; Bolt','tr4d':'Available via app in the Antibes–Juan-les-Pins area.',
+    'tr5t':'Nice Airport (NCE) — ~20 km','tr5d':'<strong>Bus 82 Express</strong>: ~35 min, €9 · or <strong>train</strong> via Antibes: ~23 min, ~€5',
+
     'lbl-sos':'🆘 Emergency Numbers',
     'sos1n':'Emergency Room (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min by car',
     'sos2n':'Police / Gendarmerie','sos2d':'Law enforcement — emergencies',
@@ -1669,7 +1728,14 @@ const T = {
     'ph-mov-eye':'Numéros utiles & Check-out','ph-mov-title':'Infos utiles',
     'mv1t':'Tableau électrique','mv1d':'Situé sur la gauche en entrant, derrière le panneau blanc. Le disjoncteur principal est celui en haut à droite.',
     'mv2t':'Vanne d\'eau','mv2d':'Situé dans le couloir extérieur, derrière le troisième panneau. Le robinet est celui en bas à gauche, avec l\'étiquette 23.',
-    'mv3t':'Se déplacer','mv3d':'La <strong>Gare de Juan-les-Pins</strong> est à ~10 min à pied du Boulevard Poincaré 93. De là : <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Nice (30 min)</strong>. Bus locaux sur toute la côte. Nous recommandons le vélo en été ! 🚲',
+    'lbl-transport':'🚗 Se déplacer',
+    'tr1t':'Train — Gare de Juan-les-Pins','tr1d':'À <strong>~10 min à pied</strong> de l\'appartement (2 Av de l\'Estérel). Trains fréquents : <strong>Antibes 5 min ~2€</strong> · <strong>Cannes 15 min ~3€</strong> · <strong>Nice 25 min ~5€</strong>',
+    'tr1-map':'Plan de la gare',
+    'tr2t':'Bus — Envibus &amp; Lignes d\'Azur','tr2d':'Lignes Envibus dans toute la zone. <strong>Ligne 200</strong> (Lignes d\'Azur) relie Nice–Antibes–Cannes le long de la côte.',
+    'tr3t':'Taxis locaux (24h/24)','tr3d':'Service disponible jour et nuit :',
+    'tr4t':'Uber &amp; Bolt','tr4d':'Disponibles via app dans la zone Antibes–Juan-les-Pins.',
+    'tr5t':'Aéroport de Nice (NCE) — ~20 km','tr5d':'<strong>Bus 82 Express</strong> : ~35 min, 9€ · ou <strong>train</strong> via Antibes : ~23 min, ~5€',
+
     'lbl-sos':'🆘 Numéros d\'urgence',
     'sos1n':'Urgences (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min en voiture',
     'sos2n':'Police / Gendarmerie','sos2d':'Forces de l\'ordre — urgences',
@@ -1759,7 +1825,14 @@ const T = {
     'ph-mov-eye':'Nützliche Nummern & Check-out','ph-mov-title':'Nützliche Infos',
     'mv1t':'Sicherungskasten','mv1d':'Befindet sich links beim Eintreten, hinter der weißen Klappe. Der Hauptschalter ist der oben rechts.',
     'mv2t':'Wasserventil','mv2d':'Befindet sich im Außenflur hinter der dritten Klappe. Der Hahn ist unten links mit dem Aufkleber 23.',
-    'mv3t':'Fortbewegung','mv3d':'Der <strong>Bahnhof Juan-les-Pins</strong> ist ~10 Min. zu Fuß vom Boulevard Poincaré 93 entfernt. Von dort: <strong>Antibes (5 Min.)</strong>, <strong>Cannes (15 Min.)</strong>, <strong>Nizza (30 Min.)</strong>. Lokale Buslinien entlang der Küste. Im Sommer empfehlen wir das Fahrrad! 🚲',
+    'lbl-transport':'🚗 Fortbewegung',
+    'tr1t':'Zug — Gare de Juan-les-Pins','tr1d':'<strong>~10 Min. zu Fuß</strong> von der Wohnung (2 Av de l\'Estérel). Häufige Verbindungen: <strong>Antibes 5 Min. ~2€</strong> · <strong>Cannes 15 Min. ~3€</strong> · <strong>Nizza 25 Min. ~5€</strong>',
+    'tr1-map':'Bahnhof auf Karte',
+    'tr2t':'Bus — Envibus &amp; Lignes d\'Azur','tr2d':'Lokale Envibus-Linien in der gesamten Region. <strong>Linie 200</strong> (Lignes d\'Azur) verbindet Nizza–Antibes–Cannes entlang der Küste.',
+    'tr3t':'Lokale Taxis (24/7)','tr3d':'Service rund um die Uhr verfügbar:',
+    'tr4t':'Uber &amp; Bolt','tr4d':'Per App im Bereich Antibes–Juan-les-Pins verfügbar.',
+    'tr5t':'Flughafen Nizza (NCE) — ~20 km','tr5d':'<strong>Bus 82 Express</strong>: ~35 Min., 9€ · oder <strong>Zug</strong> über Antibes: ~23 Min., ~5€',
+
     'lbl-sos':'🆘 Notfallnummern',
     'sos1n':'Notaufnahme (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 Min. mit dem Auto',
     'sos2n':'Police / Gendarmerie','sos2d':'Ordnungskräfte — Notfälle',
@@ -1849,7 +1922,14 @@ const T = {
     'ph-mov-eye':'Números útiles & Check-out','ph-mov-title':'Información útil',
     'mv1t':'Cuadro eléctrico','mv1d':'Se encuentra a la izquierda al entrar, detrás del panel blanco. El interruptor principal es el de arriba a la derecha.',
     'mv2t':'Llave del agua','mv2d':'Se encuentra en el pasillo exterior, detrás del tercer panel. La llave es la de abajo a la izquierda, con la etiqueta 23.',
-    'mv3t':'Cómo moverse','mv3d':'La <strong>Gare de Juan-les-Pins</strong> está a ~10 min a pie del Boulevard Poincaré 93. Desde allí: <strong>Antibes (5 min)</strong>, <strong>Cannes (15 min)</strong>, <strong>Niza (30 min)</strong>. Autobuses locales por toda la costa. ¡En verano recomendamos la bicicleta! 🚲',
+    'lbl-transport':'🚗 Cómo moverse',
+    'tr1t':'Tren — Gare de Juan-les-Pins','tr1d':'A <strong>~10 min a pie</strong> del apartamento (2 Av de l\'Estérel). Trenes frecuentes: <strong>Antibes 5 min ~2€</strong> · <strong>Cannes 15 min ~3€</strong> · <strong>Niza 25 min ~5€</strong>',
+    'tr1-map':'Mapa de la estación',
+    'tr2t':'Autobús — Envibus &amp; Lignes d\'Azur','tr2d':'Líneas Envibus por toda la zona. <strong>Línea 200</strong> (Lignes d\'Azur) une Niza–Antibes–Cannes por la costa.',
+    'tr3t':'Taxis locales (24/7)','tr3d':'Servicio disponible día y noche:',
+    'tr4t':'Uber &amp; Bolt','tr4d':'Disponibles via app en la zona Antibes–Juan-les-Pins.',
+    'tr5t':'Aeropuerto de Niza (NCE) — ~20 km','tr5d':'<strong>Bus 82 Express</strong>: ~35 min, 9€ · o <strong>tren</strong> vía Antibes: ~23 min, ~5€',
+
     'lbl-sos':'🆘 Números de emergencia',
     'sos1n':'Urgencias (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 min en coche',
     'sos2n':'Policía / Gendarmería','sos2d':'Fuerzas del orden — emergencias',
@@ -1939,7 +2019,14 @@ const T = {
     'ph-mov-eye':'أرقام مفيدة وتسجيل المغادرة','ph-mov-title':'معلومات مفيدة',
     'mv1t':'لوحة الكهرباء','mv1d':'تقع على اليسار عند الدخول، خلف الباب الأبيض. المفتاح الرئيسي هو الموجود في أعلى اليمين.',
     'mv2t':'صمام الماء','mv2d':'يقع في الممر الخارجي خلف الباب الثالث. المقبض هو الموجود في أسفل اليسار بالرقم 23.',
-    'mv3t':'التنقل','mv3d':'<strong>محطة جوان-لي-بان</strong> على بعد ~10 دقائق سيراً من Boulevard Poincaré 93. من هناك: <strong>أنتيب (5 دقائق)</strong>، <strong>كان (15 دقيقة)</strong>، <strong>نيس (30 دقيقة)</strong>. حافلات محلية على طول الساحل. نوصي بالدراجة صيفاً! 🚲',
+    'lbl-transport':'🚗 كيفية التنقل',
+    'tr1t':'القطار — محطة جوان-لي-بان','tr1d':'على بعد <strong>~10 دقائق سيراً</strong> من الشقة (2 Av de l\'Estérel). قطارات متكررة: <strong>أنتيب 5 دقائق ~2€</strong> · <strong>كان 15 دقيقة ~3€</strong> · <strong>نيس 25 دقيقة ~5€</strong>',
+    'tr1-map':'خريطة المحطة',
+    'tr2t':'الحافلات — Envibus و Lignes d\'Azur','tr2d':'خطوط Envibus المحلية في المنطقة. <strong>الخط 200</strong> (Lignes d\'Azur) يربط نيس–أنتيب–كان على طول الساحل.',
+    'tr3t':'سيارات الأجرة المحلية (24/7)','tr3d':'الخدمة متاحة على مدار الساعة:',
+    'tr4t':'Uber و Bolt','tr4d':'متاحان عبر التطبيق في منطقة أنتيب–جوان-لي-بان.',
+    'tr5t':'مطار نيس (NCE) — ~20 كم','tr5d':'<strong>حافلة 82 Express</strong>: ~35 دقيقة، 9€ · أو <strong>قطار</strong> عبر أنتيب: ~23 دقيقة، ~5€',
+
     'lbl-sos':'🆘 أرقام الطوارئ',
     'sos1n':'الطوارئ (SAMU)','sos1d':'مستشفى أنتيب — 10 دقائق بالسيارة',
     'sos2n':'الشرطة / الدرك','sos2d':'قوات الأمن — حالات الطوارئ',
@@ -2029,7 +2116,14 @@ const T = {
     'ph-mov-eye':'Полезные номера & Выезд','ph-mov-title':'Полезная информация',
     'mv1t':'Электрощит','mv1d':'Находится слева при входе, за белой дверцей. Главный рубильник — верхний правый.',
     'mv2t':'Водяной вентиль','mv2d':'Находится во внешнем коридоре за третьей дверцей. Нужный кран — нижний левый, с табличкой 23.',
-    'mv3t':'Как передвигаться','mv3d':'Станция <strong>Gare de Juan-les-Pins</strong> находится в ~10 мин ходьбы от Boulevard Poincaré 93. Отсюда: <strong>Антиб (5 мин)</strong>, <strong>Канны (15 мин)</strong>, <strong>Ницца (30 мин)</strong>. Местные автобусы курсируют вдоль всего побережья. Летом рекомендуем велосипед! 🚲',
+    'lbl-transport':'🚗 Как добраться',
+    'tr1t':'Поезд — Gare de Juan-les-Pins','tr1d':'<strong>~10 мин пешком</strong> от апартаментов (2 Av de l\'Estérel). Частые поезда: <strong>Антиб 5 мин ~2€</strong> · <strong>Канны 15 мин ~3€</strong> · <strong>Ницца 25 мин ~5€</strong>',
+    'tr1-map':'Карта станции',
+    'tr2t':'Автобус — Envibus и Lignes d\'Azur','tr2d':'Местные линии Envibus по всей зоне. <strong>Линия 200</strong> (Lignes d\'Azur) связывает Ниццу–Антиб–Канны вдоль побережья.',
+    'tr3t':'Местные такси (24/7)','tr3d':'Сервис доступен круглосуточно:',
+    'tr4t':'Uber и Bolt','tr4d':'Доступны через приложение в районе Антиб–Жуан-ле-Пен.',
+    'tr5t':'Аэропорт Ниццы (NCE) — ~20 км','tr5d':'<strong>Автобус 82 Express</strong>: ~35 мин, 9€ · или <strong>поезд</strong> через Антиб: ~23 мин, ~5€',
+
     'lbl-sos':'🆘 Экстренные номера',
     'sos1n':'Скорая помощь (SAMU)','sos1d':'Centre Hospitalier d\'Antibes — 10 мин на машине',
     'sos2n':'Полиция / Жандармерия','sos2d':'Правоохранительные органы — экстренные случаи',
