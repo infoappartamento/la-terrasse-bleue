@@ -671,6 +671,9 @@ body {
   .nav-lbl,
   .resto-type { color: #4D6680; }
 
+  /* ── Beach items ── */
+  .beach-dist, .beach-info { color: #6B85A8; }
+
   /* ── Supermarket items ── */
   .super-item-name { color: var(--dark-txt) !important; }
   .super-item-info  { color: #6B85A8; }
@@ -1300,11 +1303,61 @@ body {
           <h2 id="ph-luoghi-title">Luoghi</h2>
         </div>
 
-        <div class="place-card">
-          <div class="place-title">🏖️ Spiaggia di Juan-les-Pins</div>
-          <div class="place-desc" id="pl1-desc">La famosa spiaggia di sabbia fine del centro di Juan-les-Pins. Perfetta per nuotare, prendere il sole e vivere l'atmosfera vibrante della Côte d'Azur.</div>
-          <div class="place-how" id="pl1-how">🚶 ~3 min a piedi da Boulevard Poincaré 93 · Il cuore dell'estate a Juan-les-Pins!</div>
-          <a href="https://maps.google.com/?q=Plage+de+Juan-les-Pins,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Indicazioni</a>
+        <div class="section-card" style="margin-top:16px;">
+          <div class="sc-header"><span>🏖️</span><h3 id="lbl-beaches">Spiagge vicine</h3></div>
+          <div class="sc-body">
+
+            <div class="beach-item">
+              <div class="beach-top">
+                <div class="beach-name">Plage du Centre</div>
+                <span class="beach-tag mixed" id="bh1-tag">Mista</span>
+              </div>
+              <div class="beach-dist">🚶 ~3 min · ~280 m da casa</div>
+              <div class="beach-info" id="bh1-info">Sabbia fine dorata · La spiaggia più centrale e animata · ⏰ Meglio 9–11h o dopo le 17h</div>
+              <a href="https://maps.google.com/?q=Plage+Juan-les-Pins,+Bd+du+Littoral,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Maps</a>
+            </div>
+
+            <div class="beach-item">
+              <div class="beach-top">
+                <div class="beach-name">Plage de la Gallice</div>
+                <span class="beach-tag free" id="bh2-tag">Libera</span>
+              </div>
+              <div class="beach-dist">🚶 ~8 min · ~550 m (direzione Port Gallice)</div>
+              <div class="beach-info" id="bh2-info">Piccola e tranquilla · Frequentata dai locali · Ideale per famiglie · ⏰ Meno affollata a qualsiasi ora</div>
+              <a href="https://maps.google.com/?q=Plage+de+la+Gallice,+Juan-les-Pins,+06160+Antibes,+France" target="_blank" class="maps-btn">🧭 Maps</a>
+            </div>
+
+            <div class="beach-item">
+              <div class="beach-top">
+                <div class="beach-name">Plage du Ponteil</div>
+                <span class="beach-tag mixed" id="bh3-tag">Mista</span>
+              </div>
+              <div class="beach-dist">🚶 ~15 min · ~1.1 km (lungo il lungomare)</div>
+              <div class="beach-info" id="bh3-info">Sabbia fine · Bella passeggiata sul lungomare per arrivarci · ⏰ Mattina o tardo pomeriggio</div>
+              <a href="https://maps.google.com/?q=Plage+du+Ponteil,+Antibes,+06600,+France" target="_blank" class="maps-btn">🧭 Maps</a>
+            </div>
+
+            <div class="beach-item">
+              <div class="beach-top">
+                <div class="beach-name">Plage de la Salis</div>
+                <span class="beach-tag mixed" id="bh4-tag">Mista</span>
+              </div>
+              <div class="beach-dist">🚶 ~20 min · ~1.4 km</div>
+              <div class="beach-info" id="bh4-info">Vicina alla Città Vecchia di Antibes · Buona per snorkeling · ⏰ Mattina presto o dopo le 17h</div>
+              <a href="https://maps.google.com/?q=Plage+de+la+Salis,+06600+Antibes,+France" target="_blank" class="maps-btn">🧭 Maps</a>
+            </div>
+
+            <div class="beach-item">
+              <div class="beach-top">
+                <div class="beach-name">Plage de la Garoupe</div>
+                <span class="beach-tag mixed" id="bh5-tag">Mista</span>
+              </div>
+              <div class="beach-dist">🚲 ~20 min in bici · 🚗 ~10 min in auto (Cap d'Antibes)</div>
+              <div class="beach-info" id="bh5-info">Acque cristalline · Paesaggio magnifico · Mix di spiaggia pubblica e club esclusivi · ⏰ Mattina presto (meno affollata)</div>
+              <a href="https://maps.google.com/?q=Plage+de+la+Garoupe,+Cap+d%27Antibes,+France" target="_blank" class="maps-btn">🧭 Maps</a>
+            </div>
+
+          </div>
         </div>
 
         <div class="place-card">
@@ -1753,6 +1806,13 @@ const T = {
     'rmeta4':'⏰ Mar–Dom 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Consigliata',
     'rmeta5':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Consigliata per la cena',
     'rmeta6':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Non necessaria',
+
+    'lbl-beaches':'🏖️ Spiagge vicine',
+    'bh1-tag':'Mista','bh1-info':'Sabbia fine dorata · La spiaggia più centrale e animata · ⏰ Meglio 9–11h o dopo le 17h',
+    'bh2-tag':'Libera','bh2-info':'Piccola e tranquilla · Frequentata dai locali · Ideale per famiglie · ⏰ Meno affollata a qualsiasi ora',
+    'bh3-tag':'Mista','bh3-info':'Sabbia fine · Bella passeggiata sul lungomare per arrivarci · ⏰ Mattina o tardo pomeriggio',
+    'bh4-tag':'Mista','bh4-info':'Vicina alla Città Vecchia di Antibes · Buona per snorkeling · ⏰ Mattina presto o dopo le 17h',
+    'bh5-tag':'Mista','bh5-info':'Acque cristalline · Paesaggio magnifico · Mix di spiaggia pubblica e club esclusivi · ⏰ Mattina presto (meno affollata)',
     'lbl-super':'🛒 Supermercati nelle vicinanze',
     'ph-mov-eye':'Numeri Utili & Check-out','ph-mov-title':'Info Utili',
     'mv1t':'Quadro Elettrico','mv1d':'Si trova entrando sulla sinistra, dietro lo sportello bianco. L\'interruttore principale è quello in alto a destra.',
@@ -1861,6 +1921,13 @@ const T = {
     'rmeta4':'⏰ Tue–Sun 12:00–2:30 PM · 7:00–10:00 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended',
     'rmeta5':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended for dinner',
     'rmeta6':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Walk-ins welcome',
+
+    'lbl-beaches':'🏖️ Nearby beaches',
+    'bh1-tag':'Mixed','bh1-info':'Fine golden sand · The most central and lively beach · ⏰ Best 9–11 AM or after 5 PM',
+    'bh2-tag':'Free','bh2-info':'Small and peaceful · Popular with locals · Ideal for families · ⏰ Less crowded at any hour',
+    'bh3-tag':'Mixed','bh3-info':'Fine sand · Lovely seafront walk to get there · ⏰ Morning or late afternoon',
+    'bh4-tag':'Mixed','bh4-info':'Close to Antibes Old Town · Good for snorkelling · ⏰ Early morning or after 5 PM',
+    'bh5-tag':'Mixed','bh5-info':'Crystal-clear water · Magnificent scenery · Mix of public beach and exclusive clubs · ⏰ Early morning (less crowded)',
     'lbl-super':'🛒 Nearby supermarkets',
     'ph-mov-eye':'Useful numbers & Check-out','ph-mov-title':'Useful Info',
     'mv1t':'Electrical Panel','mv1d':'Located on the left as you enter, behind the white panel door. The main switch is the one at the top right.',
@@ -1969,6 +2036,13 @@ const T = {
     'rmeta4':'⏰ Mar–Dim 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Conseillée',
     'rmeta5':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Conseillée pour le dîner',
     'rmeta6':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sans réservation',
+
+    'lbl-beaches':'🏖️ Plages à proximité',
+    'bh1-tag':'Mixte','bh1-info':'Sable fin doré · La plage la plus centrale et animée · ⏰ Mieux 9h–11h ou après 17h',
+    'bh2-tag':'Gratuite','bh2-info':'Petite et tranquille · Fréquentée par les habitants · Idéale pour les familles · ⏰ Moins fréquentée à toute heure',
+    'bh3-tag':'Mixte','bh3-info':'Sable fin · Belle promenade en bord de mer · ⏰ Matin ou fin d\'après-midi',
+    'bh4-tag':'Mixte','bh4-info':'Proche du vieil Antibes · Bonne pour le masque et tuba · ⏰ Tôt le matin ou après 17h',
+    'bh5-tag':'Mixte','bh5-info':'Eau cristalline · Paysage magnifique · Mix de plage publique et clubs exclusifs · ⏰ Tôt le matin (moins fréquenté)',
     'lbl-super':'🛒 Supermarchés à proximité',
     'ph-mov-eye':'Numéros utiles & Check-out','ph-mov-title':'Infos utiles',
     'mv1t':'Tableau électrique','mv1d':'Situé sur la gauche en entrant, derrière le panneau blanc. Le disjoncteur principal est celui en haut à droite.',
@@ -2077,6 +2151,13 @@ const T = {
     'rmeta4':'⏰ Di–So 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen',
     'rmeta5':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen für Abendessen',
     'rmeta6':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Ohne Reservierung',
+
+    'lbl-beaches':'🏖️ Nahe Strände',
+    'bh1-tag':'Gemischt','bh1-info':'Feiner goldener Sand · Der zentralste und belebteste Strand · ⏰ Besser 9–11 Uhr oder nach 17 Uhr',
+    'bh2-tag':'Frei','bh2-info':'Klein und ruhig · Bei Einheimischen beliebt · Ideal für Familien · ⏰ Zu jeder Stunde weniger voll',
+    'bh3-tag':'Gemischt','bh3-info':'Feiner Sand · Schöner Strandspaziergang dorthin · ⏰ Morgens oder am späten Nachmittag',
+    'bh4-tag':'Gemischt','bh4-info':'Nahe der Antibes Altstadt · Gut zum Schnorcheln · ⏰ Früh morgens oder nach 17 Uhr',
+    'bh5-tag':'Gemischt','bh5-info':'Kristallklares Wasser · Herrliche Landschaft · Mix aus öffentlichem Strand und exklusiven Clubs · ⏰ Früh morgens (weniger voll)',
     'lbl-super':'🛒 Supermärkte in der Nähe',
     'ph-mov-eye':'Nützliche Nummern & Check-out','ph-mov-title':'Nützliche Infos',
     'mv1t':'Sicherungskasten','mv1d':'Befindet sich links beim Eintreten, hinter der weißen Klappe. Der Hauptschalter ist der oben rechts.',
@@ -2185,6 +2266,13 @@ const T = {
     'rmeta4':'⏰ Mar–Dom 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Recomendada',
     'rmeta5':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Recomendada para la cena',
     'rmeta6':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sin reserva necesaria',
+
+    'lbl-beaches':'🏖️ Playas cercanas',
+    'bh1-tag':'Mixta','bh1-info':'Arena fina dorada · La playa más céntrica y animada · ⏰ Mejor 9–11h o después de las 17h',
+    'bh2-tag':'Libre','bh2-info':'Pequeña y tranquila · Popular entre los locales · Ideal para familias · ⏰ Menos concurrida a cualquier hora',
+    'bh3-tag':'Mixta','bh3-info':'Arena fina · Agradable paseo por el litoral · ⏰ Mañana o última hora de la tarde',
+    'bh4-tag':'Mixta','bh4-info':'Cerca del casco antiguo de Antibes · Buena para hacer snorkel · ⏰ Primera hora de la mañana o después de las 17h',
+    'bh5-tag':'Mixta','bh5-info':'Aguas cristalinas · Paisaje magnífico · Mezcla de playa pública y clubs exclusivos · ⏰ Primera hora (menos concurrida)',
     'lbl-super':'🛒 Supermercados cercanos',
     'ph-mov-eye':'Números útiles & Check-out','ph-mov-title':'Información útil',
     'mv1t':'Cuadro eléctrico','mv1d':'Se encuentra a la izquierda al entrar, detrás del panel blanco. El interruptor principal es el de arriba a la derecha.',
@@ -2293,6 +2381,13 @@ const T = {
     'rmeta4':'⏰ الثلاثاء–الأحد 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به',
     'rmeta5':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به للعشاء',
     'rmeta6':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 بدون حجز مسبق',
+
+    'lbl-beaches':'🏖️ الشواطئ القريبة',
+    'bh1-tag':'مختلط','bh1-info':'رمال ناعمة ذهبية · أكثر الشواطئ مركزية وحيوية · ⏰ الأفضل 9–11 صباحاً أو بعد الساعة 5 مساءً',
+    'bh2-tag':'مجاني','bh2-info':'صغير وهادئ · محبوب لدى السكان المحليين · مثالي للعائلات · ⏰ أقل ازدحاماً في أي وقت',
+    'bh3-tag':'مختلط','bh3-info':'رمال ناعمة · نزهة جميلة على طول الشاطئ للوصول إليه · ⏰ الصباح أو آخر الظهيرة',
+    'bh4-tag':'مختلط','bh4-info':'قريب من المدينة القديمة في أنتيب · جيد للغطس · ⏰ الصباح الباكر أو بعد الساعة 5 مساءً',
+    'bh5-tag':'مختلط','bh5-info':'مياه بلورية · مناظر رائعة · مزيج من الشاطئ العام والنوادي الحصرية · ⏰ الصباح الباكر (أقل ازدحاماً)',
     'lbl-super':'🛒 سوبرماركت قريب',
     'ph-mov-eye':'أرقام مفيدة وتسجيل المغادرة','ph-mov-title':'معلومات مفيدة',
     'mv1t':'لوحة الكهرباء','mv1d':'تقع على اليسار عند الدخول، خلف الباب الأبيض. المفتاح الرئيسي هو الموجود في أعلى اليمين.',
@@ -2401,6 +2496,13 @@ const T = {
     'rmeta4':'⏰ Вт–Вс 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется',
     'rmeta5':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется на ужин',
     'rmeta6':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Без бронирования',
+
+    'lbl-beaches':'🏖️ Ближайшие пляжи',
+    'bh1-tag':'Смешанный','bh1-info':'Мелкий золотой песок · Самый центральный и оживлённый пляж · ⏰ Лучше 9–11 утра или после 17:00',
+    'bh2-tag':'Бесплатный','bh2-info':'Маленький и тихий · Популярен у местных · Идеально для семей · ⏰ Меньше народу в любое время',
+    'bh3-tag':'Смешанный','bh3-info':'Мелкий песок · Красивая прогулка вдоль набережной · ⏰ Утром или поздним днём',
+    'bh4-tag':'Смешанный','bh4-info':'Рядом со старым Антибом · Хорошо для сноркелинга · ⏰ Ранним утром или после 17:00',
+    'bh5-tag':'Смешанный','bh5-info':'Кристально чистая вода · Великолепный пейзаж · Смесь общественного пляжа и элитных клубов · ⏰ Ранним утром (меньше народу)',
     'lbl-super':'🛒 Ближайшие супермаркеты',
     'ph-mov-eye':'Полезные номера & Выезд','ph-mov-title':'Полезная информация',
     'mv1t':'Электрощит','mv1d':'Находится слева при входе, за белой дверцей. Главный рубильник — верхний правый.',
