@@ -930,6 +930,29 @@ body {
             <p id="txt-reach" style="font-size:13.5px;color:#4A5568;line-height:1.55;margin-bottom:14px;">Siamo al <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Apri Maps per le indicazioni dalla tua posizione.</p>
             <a href="#" onclick="openMaps();return false;" class="maps-big-btn" id="maps-reach-txt">🧭 Apri su Maps</a>
             <button class="photo-btn" id="btn-photo-ingresso" onclick="openIngressoPhoto()">📸 Foto ingresso</button>
+
+            <div style="margin-top:16px;border-top:1px solid var(--border-l);padding-top:4px;">
+              <div class="mov-item">
+                <div class="mov-icon">🚂</div>
+                <div><div class="mov-title" id="arr1t">In treno</div>
+                <div class="mov-desc" id="arr1d">Da <strong>Nizza</strong> ~25 min · da <strong>Antibes</strong> ~5 min. Scendi a <strong>Gare de Juan-les-Pins</strong>, poi ~10 min a piedi.</div></div>
+              </div>
+              <div class="mov-item">
+                <div class="mov-icon">🚌</div>
+                <div><div class="mov-title" id="arr2t">In bus</div>
+                <div class="mov-desc" id="arr2d"><strong>Linea 200</strong> (Lignes d'Azur) da Nizza o Cannes, fermata Juan-les-Pins. Linee Envibus locali per tutta la zona.</div></div>
+              </div>
+              <div class="mov-item">
+                <div class="mov-icon">🚗</div>
+                <div><div class="mov-title" id="arr3t">In auto</div>
+                <div class="mov-desc" id="arr3d">Autostrada <strong>A8</strong>, uscita <em>Antibes</em> o <em>Juan-les-Pins</em>. Seguire Bd du Président Wilson → Bd Poincaré 93.</div></div>
+              </div>
+              <div class="mov-item">
+                <div class="mov-icon">✈️</div>
+                <div><div class="mov-title" id="arr4t">Dall'aeroporto di Nizza (NCE)</div>
+                <div class="mov-desc" id="arr4d">~20 km. <strong>Treno</strong>: ~25 min ~€5 · <strong>Bus 82 Express</strong>: ~35 min €9 · <strong>Taxi</strong>: ~20 min ~€50</div></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1481,6 +1504,10 @@ const T = {
     'lbl-reach':'Come raggiungerci',
     'txt-reach':'Siamo al <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Apri Maps per le indicazioni dalla tua posizione.',
     'maps-reach-txt':'🧭 Apri su Maps',
+    'arr1t':'In treno','arr1d':'Da <strong>Nizza</strong> ~25 min · da <strong>Antibes</strong> ~5 min. Scendi a <strong>Gare de Juan-les-Pins</strong>, poi ~10 min a piedi.',
+    'arr2t':'In bus','arr2d':'<strong>Linea 200</strong> (Lignes d\'Azur) da Nizza o Cannes, fermata Juan-les-Pins. Linee Envibus locali per tutta la zona.',
+    'arr3t':'In auto','arr3d':'Autostrada <strong>A8</strong>, uscita <em>Antibes</em> o <em>Juan-les-Pins</em>. Seguire Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'Dall\'aeroporto di Nizza (NCE)','arr4d':'~20 km. <strong>Treno</strong>: ~25 min ~€5 · <strong>Bus 82 Express</strong>: ~35 min €9 · <strong>Taxi</strong>: ~20 min ~€50',
     'lbl-access':'Come accedere','maps-access-txt':'🧭 Apri su Maps',
     'txt-access':'Le chiavi le troverai all\'interno della KeyBox in 67 Chemin des Liserons, alla destra dell\'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L\'appartamento si trova al <strong>secondo piano</strong>: prima porta a sinistra uscendo dall\'ascensore.',
     'lbl-parking':'Parcheggio',
@@ -1578,6 +1605,10 @@ const T = {
     'lbl-reach':'How to reach us',
     'txt-reach':'We are at <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Open Maps for directions from your location.',
     'maps-reach-txt':'🧭 Open on Maps',
+    'arr1t':'By train','arr1d':'From <strong>Nice</strong> ~25 min · from <strong>Antibes</strong> ~5 min. Get off at <strong>Gare de Juan-les-Pins</strong>, then ~10 min walk.',
+    'arr2t':'By bus','arr2d':'<strong>Line 200</strong> (Lignes d\'Azur) from Nice or Cannes, stop Juan-les-Pins. Local Envibus lines throughout the area.',
+    'arr3t':'By car','arr3d':'Motorway <strong>A8</strong>, exit <em>Antibes</em> or <em>Juan-les-Pins</em>. Follow Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'From Nice Airport (NCE)','arr4d':'~20 km. <strong>Train</strong>: ~25 min ~€5 · <strong>Bus 82 Express</strong>: ~35 min €9 · <strong>Taxi</strong>: ~20 min ~€50',
     'lbl-access':'How to access','maps-access-txt':'🧭 Open on Maps',
     'txt-access':'You will find the keys inside the KeyBox at 67 Chemin des Liserons, to the right of the garage entrance. The KeyBox code will be provided to you close to check-in.<br><br>The apartment is on the <strong>second floor</strong>: first door on the left as you exit the lift.',
     'lbl-parking':'Parking',
@@ -1675,6 +1706,10 @@ const T = {
     'lbl-reach':'Comment nous rejoindre',
     'txt-reach':'Nous sommes au <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Ouvrez Maps pour l\'itinéraire depuis votre position.',
     'maps-reach-txt':'🧭 Ouvrir sur Maps',
+    'arr1t':'En train','arr1d':'Depuis <strong>Nice</strong> ~25 min · depuis <strong>Antibes</strong> ~5 min. Descendre à la <strong>Gare de Juan-les-Pins</strong>, puis ~10 min à pied.',
+    'arr2t':'En bus','arr2d':'<strong>Ligne 200</strong> (Lignes d\'Azur) depuis Nice ou Cannes, arrêt Juan-les-Pins. Lignes Envibus locales dans toute la zone.',
+    'arr3t':'En voiture','arr3d':'Autoroute <strong>A8</strong>, sortie <em>Antibes</em> ou <em>Juan-les-Pins</em>. Suivre le Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'Depuis l\'aéroport de Nice (NCE)','arr4d':'~20 km. <strong>Train</strong> : ~25 min ~5€ · <strong>Bus 82 Express</strong> : ~35 min 9€ · <strong>Taxi</strong> : ~20 min ~50€',
     'lbl-access':'Comment accéder','maps-access-txt':'🧭 Ouvrir sur Maps',
     'txt-access':'Vous trouverez les clés à l\'intérieur de la KeyBox au 67 Chemin des Liserons, à droite de l\'entrée du garage. Le code de la KeyBox vous sera communiqué à l\'approche du check-in.<br><br>L\'appartement se trouve au <strong>deuxième étage</strong> : première porte à gauche en sortant de l\'ascenseur.',
     'lbl-parking':'Parking',
@@ -1772,6 +1807,10 @@ const T = {
     'lbl-reach':'Anreise',
     'txt-reach':'Wir befinden uns am <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Öffnen Sie Maps für eine Wegbeschreibung von Ihrem Standort.',
     'maps-reach-txt':'🧭 Auf Maps öffnen',
+    'arr1t':'Mit dem Zug','arr1d':'Von <strong>Nizza</strong> ~25 Min. · von <strong>Antibes</strong> ~5 Min. Aussteigen an der <strong>Gare de Juan-les-Pins</strong>, dann ~10 Min. zu Fuß.',
+    'arr2t':'Mit dem Bus','arr2d':'<strong>Linie 200</strong> (Lignes d\'Azur) von Nizza oder Cannes, Haltestelle Juan-les-Pins. Lokale Envibus-Linien in der gesamten Region.',
+    'arr3t':'Mit dem Auto','arr3d':'Autobahn <strong>A8</strong>, Ausfahrt <em>Antibes</em> oder <em>Juan-les-Pins</em>. Folgen Sie dem Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'Vom Flughafen Nizza (NCE)','arr4d':'~20 km. <strong>Zug</strong>: ~25 Min. ~5€ · <strong>Bus 82 Express</strong>: ~35 Min. 9€ · <strong>Taxi</strong>: ~20 Min. ~50€',
     'lbl-access':'Zugang','maps-access-txt':'🧭 Auf Maps öffnen',
     'txt-access':'Die Schlüssel befinden sich in der KeyBox in der Chemin des Liserons 67, rechts vom Garageneingang. Der KeyBox-Code wird Ihnen kurz vor dem Check-in mitgeteilt.<br><br>Die Wohnung liegt im <strong>zweiten Stock</strong>: erste Tür links nach dem Verlassen des Aufzugs.',
     'lbl-parking':'Parken',
@@ -1869,6 +1908,10 @@ const T = {
     'lbl-reach':'Cómo llegar',
     'txt-reach':'Estamos en el <strong>Boulevard Poincaré 93, Juan-les-Pins</strong>. Abra Maps para indicaciones desde su ubicación.',
     'maps-reach-txt':'🧭 Abrir en Maps',
+    'arr1t':'En tren','arr1d':'Desde <strong>Niza</strong> ~25 min · desde <strong>Antibes</strong> ~5 min. Bajarse en <strong>Gare de Juan-les-Pins</strong>, luego ~10 min a pie.',
+    'arr2t':'En autobús','arr2d':'<strong>Línea 200</strong> (Lignes d\'Azur) desde Niza o Cannes, parada Juan-les-Pins. Líneas Envibus locales por toda la zona.',
+    'arr3t':'En coche','arr3d':'Autopista <strong>A8</strong>, salida <em>Antibes</em> o <em>Juan-les-Pins</em>. Seguir el Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'Desde el aeropuerto de Niza (NCE)','arr4d':'~20 km. <strong>Tren</strong>: ~25 min ~5€ · <strong>Bus 82 Express</strong>: ~35 min 9€ · <strong>Taxi</strong>: ~20 min ~50€',
     'lbl-access':'Cómo acceder','maps-access-txt':'🧭 Abrir en Maps',
     'txt-access':'Encontrará las llaves dentro de la KeyBox en el 67 Chemin des Liserons, a la derecha de la entrada del garaje. El código de la KeyBox se le facilitará próximo al check-in.<br><br>El apartamento se encuentra en el <strong>segundo piso</strong>: primera puerta a la izquierda al salir del ascensor.',
     'lbl-parking':'Aparcamiento',
@@ -1966,6 +2009,10 @@ const T = {
     'lbl-reach':'كيفية الوصول',
     'txt-reach':'نحن في <strong>Boulevard Poincaré 93، جوان-لي-بان</strong>. افتح الخرائط للحصول على الاتجاهات من موقعك.',
     'maps-reach-txt':'🧭 افتح على الخرائط',
+    'arr1t':'بالقطار','arr1d':'من <strong>نيس</strong> ~25 دقيقة · من <strong>أنتيب</strong> ~5 دقائق. انزل في <strong>محطة جوان-لي-بان</strong>، ثم ~10 دقائق سيراً.',
+    'arr2t':'بالحافلة','arr2d':'<strong>الخط 200</strong> (Lignes d\'Azur) من نيس أو كان، محطة جوان-لي-بان. خطوط Envibus المحلية في المنطقة.',
+    'arr3t':'بالسيارة','arr3d':'طريق سريع <strong>A8</strong>، مخرج <em>أنتيب</em> أو <em>جوان-لي-بان</em>. اتبع Bd du Président Wilson ← Bd Poincaré 93.',
+    'arr4t':'من مطار نيس (NCE)','arr4d':'~20 كم. <strong>قطار</strong>: ~25 دقيقة ~5€ · <strong>حافلة 82 Express</strong>: ~35 دقيقة 9€ · <strong>تاكسي</strong>: ~20 دقيقة ~50€',
     'lbl-access':'كيفية الدخول','maps-access-txt':'🧭 افتح على الخرائط',
     'txt-access':'ستجد المفاتيح داخل صندوق KeyBox في 67 Chemin des Liserons، على يمين مدخل الكراج. سيتم إرسال رمز الـ KeyBox إليك قبيل تسجيل الوصول.<br><br>الشقة في <strong>الطابق الثاني</strong>: أول باب على اليسار عند الخروج من المصعد.',
     'lbl-parking':'موقف السيارات',
@@ -2063,6 +2110,10 @@ const T = {
     'lbl-reach':'Как нас найти',
     'txt-reach':'Мы находимся по адресу <strong>Boulevard Poincaré 93, Жуан-ле-Пен</strong>. Откройте Maps для маршрута из вашего местоположения.',
     'maps-reach-txt':'🧭 Открыть в Maps',
+    'arr1t':'На поезде','arr1d':'Из <strong>Ниццы</strong> ~25 мин · из <strong>Антиба</strong> ~5 мин. Выходите на станции <strong>Gare de Juan-les-Pins</strong>, затем ~10 мин пешком.',
+    'arr2t':'На автобусе','arr2d':'<strong>Линия 200</strong> (Lignes d\'Azur) из Ниццы или Канн, остановка Juan-les-Pins. Местные линии Envibus по всему району.',
+    'arr3t':'На машине','arr3d':'Автострада <strong>A8</strong>, съезд <em>Antibes</em> или <em>Juan-les-Pins</em>. Следуйте по Bd du Président Wilson → Bd Poincaré 93.',
+    'arr4t':'Из аэропорта Ниццы (NCE)','arr4d':'~20 км. <strong>Поезд</strong>: ~25 мин ~5€ · <strong>Автобус 82 Express</strong>: ~35 мин 9€ · <strong>Такси</strong>: ~20 мин ~50€',
     'lbl-access':'Как войти в апартаменты','maps-access-txt':'🧭 Открыть в Maps',
     'txt-access':'Ключи находятся в KeyBox по адресу 67 Chemin des Liserons, справа от входа в гараж. Код от KeyBox будет предоставлен вам перед заездом.<br><br>Апартаменты находятся на <strong>втором этаже</strong>: первая дверь слева при выходе из лифта.',
     'lbl-parking':'Парковка',
