@@ -702,6 +702,53 @@ body {
   .cb-avatar { background: var(--card) !important; }
 }
 
+/* ── Weather card ── */
+.weather-card {
+  margin: 0 16px 12px;
+  background: linear-gradient(145deg, #071B2F 0%, #0A2848 55%, #0C3060 100%);
+  border-radius: 20px;
+  padding: 16px 18px 18px;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 4px 24px rgba(4,17,30,.35);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.weather-card::before {
+  content: '';
+  position: absolute; top: -30px; right: -20px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(26,127,193,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.wc-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 13px;
+}
+.wc-loc { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .5; }
+.wc-ext { font-size: 11px; color: rgba(255,255,255,.4); text-decoration: none;
+  border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 2px 9px; }
+.wc-ext:hover { color: rgba(255,255,255,.7); }
+.wc-main { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; }
+.wc-icon { font-size: 52px; line-height: 1; flex-shrink: 0; }
+.wc-center { flex: 1; }
+.wc-temp { font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+.wc-cond { font-size: 13px; opacity: .7; margin-top: 4px; }
+.wc-details {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.wc-det {
+  background: rgba(255,255,255,.07); border-radius: 11px;
+  padding: 8px 4px; text-align: center;
+}
+.wc-det-ico { font-size: 16px; margin-bottom: 3px; }
+.wc-det-val { font-size: 12.5px; font-weight: 700; }
+.wc-det-lbl { font-size: 9.5px; opacity: .5; margin-top: 1px; letter-spacing: .03em; }
+.wc-loading { text-align: center; font-size: 13px; opacity: .5; padding: 18px 0; }
+.wc-error { text-align: center; font-size: 12.5px; opacity: .6; padding: 14px 0; }
+.wc-error a { color: rgba(255,255,255,.75); }
+
 </style>
 </head>
 <body>
@@ -957,6 +1004,49 @@ body {
               <div class="ei-title" id="nav-muoversi">Info & Emergenze</div>
               <div class="ei-sub"   id="nav-muoversi-sub">Numeri utili e check-out</div>
             </div>
+          </div>
+        </div>
+
+
+        <div class="weather-card" id="weather-card">
+          <div class="wc-header">
+            <span class="wc-loc">📍 Juan-les-Pins · Meteo</span>
+            <a href="https://wttr.in/Juan-les-Pins" target="_blank" class="wc-ext">wttr.in ↗</a>
+          </div>
+          <div id="wc-loading" class="wc-loading">🌤 Caricamento…</div>
+          <div id="wc-content" style="display:none">
+            <div class="wc-main">
+              <div class="wc-icon" id="wc-icon">🌤</div>
+              <div class="wc-center">
+                <div class="wc-temp"><span id="wc-temp">--</span>°</div>
+                <div class="wc-cond" id="wc-cond">–</div>
+              </div>
+            </div>
+            <div class="wc-details">
+              <div class="wc-det">
+                <div class="wc-det-ico">🌡️</div>
+                <div class="wc-det-val"><span id="wc-feels">--</span>°</div>
+                <div class="wc-det-lbl" id="wc-lbl-feels">Percepita</div>
+              </div>
+              <div class="wc-det">
+                <div class="wc-det-ico">💧</div>
+                <div class="wc-det-val"><span id="wc-hum">--</span>%</div>
+                <div class="wc-det-lbl" id="wc-lbl-hum">Umidità</div>
+              </div>
+              <div class="wc-det">
+                <div class="wc-det-ico">💨</div>
+                <div class="wc-det-val"><span id="wc-wind">--</span></div>
+                <div class="wc-det-lbl">km/h</div>
+              </div>
+              <div class="wc-det">
+                <div class="wc-det-ico">↕️</div>
+                <div class="wc-det-val" id="wc-minmax" style="font-size:11px;">--/--</div>
+                <div class="wc-det-lbl" id="wc-lbl-mm">Min/Max</div>
+              </div>
+            </div>
+          </div>
+          <div id="wc-error" style="display:none" class="wc-error">
+            ⚠️ Meteo offline · <a href="https://wttr.in/Juan-les-Pins" target="_blank">Apri wttr.in ↗</a>
           </div>
         </div>
 
@@ -2375,6 +2465,7 @@ function openGuide(lang) {
   const fb = document.getElementById('topbar-lang-btn');
   if (fb) fb.textContent = FLAGS[lang] || '🌐';
   switchTab('home');
+  loadWeather();
 }
 
 function openLangSheet() {
@@ -2423,6 +2514,71 @@ function switchTab(name) {
   if (idx >= 0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
   document.getElementById('tab-' + name).scrollTop = 0;
 }
+
+// ── Weather widget ──
+var _wx = null, _wxT = 0;
+var WX_ICONS = {
+  113:'☀️', 116:'⛅', 119:'☁️', 122:'☁️', 143:'🌫️',
+  176:'🌦️', 179:'🌨️', 185:'🌧️', 200:'🌩️', 227:'🌨️',
+  230:'❄️', 248:'🌫️', 260:'🌫️', 263:'🌦️', 266:'🌧️',
+  281:'🌧️', 284:'🌧️', 293:'🌧️', 296:'🌧️', 299:'🌧️',
+  302:'🌧️', 305:'🌧️', 308:'🌧️', 311:'🌧️', 314:'🌧️',
+  317:'🌧️', 320:'🌧️', 323:'🌨️', 326:'🌨️', 329:'❄️',
+  332:'❄️', 338:'❄️', 350:'🌨️', 353:'🌦️', 356:'🌧️',
+  359:'🌧️', 362:'🌨️', 365:'🌨️', 368:'🌨️', 371:'🌨️',
+  386:'🌩️', 389:'🌩️', 392:'🌩️', 395:'🌩️'
+};
+var WX_LABELS = {
+  it:  {feels:'Percepita', hum:'Umidità',   mm:'Min / Max', err:'Meteo offline'},
+  en:  {feels:'Feels like',hum:'Humidity',  mm:'Min / Max', err:'Weather offline'},
+  fr:  {feels:'Ressenti',  hum:'Humidité',  mm:'Min / Max', err:'Météo hors ligne'},
+  de:  {feels:'Gefühlt',   hum:'Luftfeuchte',mm:'Min / Max',err:'Wetter offline'},
+  es:  {feels:'Sensación', hum:'Humedad',   mm:'Min / Max', err:'Clima sin conexión'},
+  ar:  {feels:'الإحساس',   hum:'الرطوبة',   mm:'الحد الأدنى/الأقصى', err:'الطقس غير متاح'},
+  ru:  {feels:'Ощущается', hum:'Влажность', mm:'Мин / Макс', err:'Погода недоступна'}
+};
+function _wxLang() {
+  var l = currentLang || 'en';
+  return ['it','en','fr','de','es','ar','ru'].indexOf(l) >= 0 ? l : 'en';
+}
+function _wxRender(d) {
+  var cc = d.current_condition[0];
+  var wd = d.weather[0];
+  var code = parseInt(cc.weatherCode);
+  var lbl = WX_LABELS[_wxLang()] || WX_LABELS.en;
+  document.getElementById('wc-icon').textContent = WX_ICONS[code] || '🌤';
+  document.getElementById('wc-temp').textContent = cc.temp_C;
+  document.getElementById('wc-cond').textContent = cc.weatherDesc[0].value;
+  document.getElementById('wc-feels').textContent = cc.FeelsLikeC;
+  document.getElementById('wc-hum').textContent = cc.humidity;
+  document.getElementById('wc-wind').textContent = cc.windspeedKmph;
+  document.getElementById('wc-minmax').textContent = wd.mintempC + '° / ' + wd.maxtempC + '°';
+  document.getElementById('wc-lbl-feels').textContent = lbl.feels;
+  document.getElementById('wc-lbl-hum').textContent = lbl.hum;
+  document.getElementById('wc-lbl-mm').textContent = lbl.mm;
+  document.getElementById('wc-loading').style.display = 'none';
+  document.getElementById('wc-content').style.display = '';
+  document.getElementById('wc-error').style.display = 'none';
+}
+function loadWeather() {
+  var now = Date.now();
+  if (_wx && now - _wxT < 900000) { _wxRender(_wx); return; } // 15-min cache
+  var lang = _wxLang();
+  var ctrl = new AbortController();
+  var timer = setTimeout(function(){ ctrl.abort(); }, 6000);
+  fetch('https://wttr.in/Juan-les-Pins?format=j1&lang=' + lang, {signal: ctrl.signal})
+    .then(function(r){ clearTimeout(timer); if (!r.ok) throw new Error(); return r.json(); })
+    .then(function(d){ _wx = d; _wxT = Date.now(); _wxRender(d); })
+    .catch(function(){
+      clearTimeout(timer);
+      document.getElementById('wc-loading').style.display = 'none';
+      var errEl = document.getElementById('wc-error');
+      var lbl = WX_LABELS[lang] || WX_LABELS.en;
+      errEl.innerHTML = '⚠️ ' + lbl.err + ' · <a href="https://wttr.in/Juan-les-Pins" target="_blank">wttr.in ↗</a>';
+      errEl.style.display = '';
+    });
+}
+
 // ── Swipe gesture between tabs ──
 (function() {
   var TABS = ['home','soggiorno','luoghi','mangiare','muoversi'];
