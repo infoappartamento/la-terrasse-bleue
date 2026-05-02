@@ -610,6 +610,98 @@ body {
   font-size: 10.5px; font-weight: 800; letter-spacing: .12em;
   text-transform: uppercase; color: #94A3B8; padding: 24px 16px 10px;
 }
+/* ══════════════════════════════════════
+   DARK MODE — prefers-color-scheme: dark
+   ══════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+
+  /* ── Override light surface variables ── */
+  :root {
+    --surface:  #111D2B;
+    --surface2: #0C1720;
+    --border-l: rgba(255,255,255,0.07);
+    --dark-txt: #E2EBF5;
+    --cream:    #0C1720;
+  }
+
+  /* ── Guide background ── */
+  #guide { background: var(--surface); }
+
+  /* ── Cards with hard-coded #fff background ── */
+  .welcome-card,
+  .explore-item,
+  .contact-bar,
+  .section-card,
+  .place-card,
+  .svc-card,
+  .resto-card,
+  .super-card { background: var(--surface) !important; }
+
+  /* ── Bottom nav ── */
+  .bottom-nav {
+    background: rgba(10,17,27,0.93) !important;
+    border-top-color: rgba(255,255,255,.06) !important;
+    box-shadow: 0 -1px 0 rgba(255,255,255,.04), 0 -8px 32px rgba(0,0,0,.5) !important;
+  }
+  .nav-btn { color: #4D6680; }
+
+  /* ── Body text (#4A5568) ── */
+  .welcome-card p,
+  .place-desc,
+  .space-desc,
+  .mov-desc,
+  .cs-desc,
+  .step-text,
+  .resto-desc { color: #8A9EC0; }
+
+  /* ── Secondary labels (#64748B) ── */
+  .svc-desc,
+  .rule-desc,
+  .sos-desc,
+  .cb-lbl,
+  .ti-lbl,
+  .ti-val,
+  .resto-meta { color: #6B85A8; }
+
+  /* ── Dimmed labels (#94A3B8) ── */
+  .ir-label,
+  .sec-lbl,
+  .explore-sub,
+  .explore-item .ei-sub,
+  .nav-lbl,
+  .resto-type { color: #4D6680; }
+
+  /* ── Supermarket items ── */
+  .super-item-name { color: var(--dark-txt) !important; }
+  .super-item-info  { color: #6B85A8; }
+  #lbl-super        { color: var(--dark-txt) !important; }
+
+  /* ── Inline-styled paragraphs (need !important) ── */
+  #txt-reach, #txt-access, #txt-parking { color: #8A9EC0 !important; }
+
+  /* ── sc-body borders between mov-items / sos-items ── */
+  .mov-item, .sos-item, .svc-item,
+  .checkout-step, .super-item { border-bottom-color: rgba(255,255,255,0.07); }
+
+  /* ── Welcome card shadow soften ── */
+  .welcome-card,
+  .section-card,
+  .explore-item,
+  .place-card,
+  .svc-card,
+  .resto-card,
+  .super-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 4px 14px rgba(0,0,0,.3) !important;
+    border-color: rgba(255,255,255,0.07) !important;
+  }
+
+  /* ── WiFi toast ── */
+  .wifi-toast { background: #050D17; }
+
+  /* ── Contact bar avatar ── */
+  .cb-avatar { background: var(--card) !important; }
+}
+
 </style>
 </head>
 <body>
