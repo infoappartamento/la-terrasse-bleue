@@ -1993,6 +1993,7 @@ function applyLang(lang) {
 
 function openGuide(lang) {
   currentLang = lang;
+  localStorage.setItem('ltb_lang', lang);
   applyLang(lang);
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const guide = document.getElementById('guide');
@@ -2002,9 +2003,16 @@ function openGuide(lang) {
 }
 
 function backToLanding() {
+  localStorage.removeItem('ltb_lang');
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('landing').classList.add('active');
 }
+
+// Ripristina la lingua all'avvio
+(function() {
+  const saved = localStorage.getItem('ltb_lang');
+  if (saved && T[saved]) openGuide(saved);
+})();
 
 function switchTab(name) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
