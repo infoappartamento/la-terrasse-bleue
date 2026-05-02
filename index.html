@@ -522,7 +522,8 @@ body {
 .resto-name  { font-size: 16px; font-weight: 700; color: var(--dark-txt); margin-bottom: 3px; letter-spacing: -.01em; }
 .resto-type  { font-size: 12px; color: #94A3B8; margin-bottom: 8px; font-weight: 500; }
 .resto-desc  { font-size: 13px; color: #4A5568; line-height: 1.65; margin-bottom: 12px; }
-.resto-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.resto-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.resto-meta { font-size: 12px; color: #64748B; line-height: 1.65; margin-bottom: 12px; padding-top: 10px; border-top: 1px solid var(--border-l); }
 .badge {
   background: #F0F7FF; color: var(--accent);
   border: 1px solid rgba(26,127,193,.15); border-radius: 20px;
@@ -1184,6 +1185,7 @@ body {
             <span class="badge price">€€€€</span>
             <span class="badge">🌊 Vista golfo</span>
           </div>
+          <div class="resto-meta" id="rmeta1">⏰ Mag–Set · Mer–Dom 12:30–14:00 · 19:30–22:00 &nbsp;·&nbsp; 📋 Prenotazione obbligatoria</div>
           <a href="https://maps.google.com/?q=33+Boulevard+Edouard+Baudoin,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1196,6 +1198,7 @@ body {
             <span class="badge price">€€€</span>
             <span class="badge">🌊 Lungomare</span>
           </div>
+          <div class="resto-meta" id="rmeta2">⏰ Apr–Ott: tutti i giorni 12:00–22:00 &nbsp;·&nbsp; 📋 Consigliata per la cena</div>
           <a href="https://maps.google.com/?q=8+Boulevard+Edouard+Baudoin,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1208,6 +1211,7 @@ body {
             <span class="badge price">€€€</span>
             <span class="badge">☀️ Terrazza</span>
           </div>
+          <div class="resto-meta" id="rmeta3">⏰ Mag–Set: tutti i giorni 12:00–22:30 &nbsp;·&nbsp; 📋 Consigliata</div>
           <a href="https://maps.google.com/?q=Promenade+du+Soleil,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1220,6 +1224,7 @@ body {
             <span class="badge price">€€€</span>
             <span class="badge">👨‍🍳 Gastronomico</span>
           </div>
+          <div class="resto-meta" id="rmeta4">⏰ Mar–Dom 12:00–14:30 · 19:00–22:00 &nbsp;·&nbsp; 📋 Consigliata</div>
           <a href="https://maps.google.com/?q=146+Boulevard+du+President+Wilson,+06160+Antibes,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1232,6 +1237,7 @@ body {
             <span class="badge price">€€</span>
             <span class="badge">💰 Qualità/prezzo</span>
           </div>
+          <div class="resto-meta" id="rmeta5">⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &nbsp;·&nbsp; 📋 Consigliata per la cena</div>
           <a href="https://maps.google.com/?q=Terre+et+Mer,+Juan-les-Pins,+Antibes,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1244,6 +1250,7 @@ body {
             <span class="badge price">€€</span>
             <span class="badge">💰 Qualità/prezzo</span>
           </div>
+          <div class="resto-meta" id="rmeta6">⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &nbsp;·&nbsp; 📋 Non necessaria</div>
           <a href="https://maps.google.com/?q=Le+Bistrot+Juan-les-Pins,+Antibes,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
@@ -1557,6 +1564,13 @@ const T = {
     'rt4':'Gastronomique · Pesce · €€€','rd4':'Gastronomia del mare con prodotti freschi di giornata selezionati dallo chef. Tutto locale. Una vera istituzione. ⭐ 4.6',
     'rt5':'Méditerranéenne · Terra e mare · €€','rd5':'Il meglio della terra e del mare in chiave mediterranea. Ottimo rapporto qualità-prezzo, molto apprezzato dai locali. ⭐ 4.6',
     'rt6':'Bistrot · Brasserie · €€','rd6':'Entrecôte di qualità cotta alla perfezione e piatti locali. Il miglior rapporto qualità/prezzo della zona. ⭐ 4.6',
+
+    'rmeta1':'⏰ Mag–Set · Mer–Dom 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 Prenotazione obbligatoria (consigliato prenotare con anticipo)',
+    'rmeta2':'⏰ Apr–Ott: tutti i giorni 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Consigliata per la cena',
+    'rmeta3':'⏰ Mag–Set: tutti i giorni 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Consigliata',
+    'rmeta4':'⏰ Mar–Dom 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Consigliata',
+    'rmeta5':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Consigliata per la cena',
+    'rmeta6':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Non necessaria',
     'lbl-super':'🛒 Supermercati nelle vicinanze',
     'ph-mov-eye':'Numeri Utili & Check-out','ph-mov-title':'Info Utili',
     'mv1t':'Quadro Elettrico','mv1d':'Si trova entrando sulla sinistra, dietro lo sportello bianco. L\'interruttore principale è quello in alto a destra.',
@@ -1658,6 +1672,13 @@ const T = {
     'rt4':'Gastronomic · Fish · €€€','rd4':'Seafood gastronomy with fresh, locally sourced produce selected daily by the chef. A true institution in Juan-les-Pins. ⭐ 4.6',
     'rt5':'Mediterranean · Surf & Turf · €€','rd5':'The best of land and sea Mediterranean style. Excellent value for money, very popular with locals. ⭐ 4.6',
     'rt6':'Bistrot · Brasserie · €€','rd6':'Quality entrecôte cooked to perfection and local dishes. The best value for money in the area. ⭐ 4.6',
+
+    'rmeta1':'⏰ May–Sep · Wed–Sun 12:30–2:00 PM · 7:30–10:00 PM &amp;nbsp;·&amp;nbsp; 📋 Reservation required (book well in advance)',
+    'rmeta2':'⏰ Apr–Oct: every day 12:00–10:00 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended for dinner',
+    'rmeta3':'⏰ May–Sep: every day 12:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended',
+    'rmeta4':'⏰ Tue–Sun 12:00–2:30 PM · 7:00–10:00 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended',
+    'rmeta5':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended for dinner',
+    'rmeta6':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Walk-ins welcome',
     'lbl-super':'🛒 Nearby supermarkets',
     'ph-mov-eye':'Useful numbers & Check-out','ph-mov-title':'Useful Info',
     'mv1t':'Electrical Panel','mv1d':'Located on the left as you enter, behind the white panel door. The main switch is the one at the top right.',
@@ -1759,6 +1780,13 @@ const T = {
     'rt4':'Gastronomique · Poisson · €€€','rd4':'Gastronomie de la mer avec produits frais sélectionnés quotidiennement par le chef. Tout local. Une vraie institution à Juan-les-Pins. ⭐ 4.6',
     'rt5':'Méditerranéenne · Terre et mer · €€','rd5':'Le meilleur de la terre et de la mer façon méditerranéenne. Excellent rapport qualité-prix, très apprécié des locaux. ⭐ 4.6',
     'rt6':'Bistrot · Brasserie · €€','rd6':'Entrecôte de qualité cuite à la perfection et plats locaux. Le meilleur rapport qualité/prix du secteur. ⭐ 4.6',
+
+    'rmeta1':'⏰ Mai–Sep · Mer–Dim 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 Réservation obligatoire (réserver à l\'avance)',
+    'rmeta2':'⏰ Avr–Oct : tous les jours 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Conseillée pour le dîner',
+    'rmeta3':'⏰ Mai–Sep : tous les jours 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Conseillée',
+    'rmeta4':'⏰ Mar–Dim 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Conseillée',
+    'rmeta5':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Conseillée pour le dîner',
+    'rmeta6':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sans réservation',
     'lbl-super':'🛒 Supermarchés à proximité',
     'ph-mov-eye':'Numéros utiles & Check-out','ph-mov-title':'Infos utiles',
     'mv1t':'Tableau électrique','mv1d':'Situé sur la gauche en entrant, derrière le panneau blanc. Le disjoncteur principal est celui en haut à droite.',
@@ -1860,6 +1888,13 @@ const T = {
     'rt4':'Gastronomisch · Fisch · €€€','rd4':'Meeresfrüchte-Gastronomie mit täglich frisch vom Chef ausgewählten lokalen Produkten. Eine echte Institution in Juan-les-Pins. ⭐ 4.6',
     'rt5':'Mediterran · Surf & Turf · €€','rd5':'Das Beste aus Land und Meer auf mediterrane Art. Ausgezeichnetes Preis-Leistungs-Verhältnis, bei Einheimischen sehr beliebt. ⭐ 4.6',
     'rt6':'Bistrot · Brasserie · €€','rd6':'Qualitätsentrecôte perfekt gegart und lokale Gerichte. Das beste Preis-Leistungs-Verhältnis der Gegend. ⭐ 4.6',
+
+    'rmeta1':'⏰ Mai–Sep · Mi–So 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 Reservierung erforderlich (rechtzeitig buchen)',
+    'rmeta2':'⏰ Apr–Okt: täglich 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen für Abendessen',
+    'rmeta3':'⏰ Mai–Sep: täglich 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen',
+    'rmeta4':'⏰ Di–So 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen',
+    'rmeta5':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen für Abendessen',
+    'rmeta6':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Ohne Reservierung',
     'lbl-super':'🛒 Supermärkte in der Nähe',
     'ph-mov-eye':'Nützliche Nummern & Check-out','ph-mov-title':'Nützliche Infos',
     'mv1t':'Sicherungskasten','mv1d':'Befindet sich links beim Eintreten, hinter der weißen Klappe. Der Hauptschalter ist der oben rechts.',
@@ -1961,6 +1996,13 @@ const T = {
     'rt4':'Gastronómico · Pescado · €€€','rd4':'Gastronomía del mar con productos frescos seleccionados diariamente por el chef. Todo local. Una verdadera institución en Juan-les-Pins. ⭐ 4.6',
     'rt5':'Mediterránea · Mar y montaña · €€','rd5':'Lo mejor de la tierra y del mar al estilo mediterráneo. Excelente relación calidad-precio, muy apreciado por los locales. ⭐ 4.6',
     'rt6':'Bistrot · Brasserie · €€','rd6':'Entrecôte de calidad cocinada a la perfección y platos locales. La mejor relación calidad/precio de la zona. ⭐ 4.6',
+
+    'rmeta1':'⏰ May–Sep · Mié–Dom 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 Reserva obligatoria (reservar con mucha antelación)',
+    'rmeta2':'⏰ Abr–Oct: todos los días 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Recomendada para la cena',
+    'rmeta3':'⏰ May–Sep: todos los días 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Recomendada',
+    'rmeta4':'⏰ Mar–Dom 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Recomendada',
+    'rmeta5':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Recomendada para la cena',
+    'rmeta6':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sin reserva necesaria',
     'lbl-super':'🛒 Supermercados cercanos',
     'ph-mov-eye':'Números útiles & Check-out','ph-mov-title':'Información útil',
     'mv1t':'Cuadro eléctrico','mv1d':'Se encuentra a la izquierda al entrar, detrás del panel blanco. El interruptor principal es el de arriba a la derecha.',
@@ -2062,6 +2104,13 @@ const T = {
     'rt4':'غاسترونومي · سمك · €€€','rd4':'فن الطهو البحري مع منتجات طازجة يختارها الشيف يومياً من المنطقة. مؤسسة حقيقية في جوان-ليه-بان. ⭐ 4.6',
     'rt5':'متوسطي · بر وبحر · €€','rd5':'أفضل ما في البر والبحر بأسلوب متوسطي. نسبة ممتازة بين الجودة والسعر، محبوب جداً عند السكان المحليين. ⭐ 4.6',
     'rt6':'بيسترو · براسري · €€','rd6':'إنتريكوت عالي الجودة مطبوخ على الكمال وأطباق محلية. أفضل نسبة جودة/سعر في المنطقة. ⭐ 4.6',
+
+    'rmeta1':'⏰ مايو–سبتمبر · أربعاء–أحد 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 الحجز إلزامي (يُنصح بالحجز مبكراً)',
+    'rmeta2':'⏰ أبريل–أكتوبر: يومياً 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به للعشاء',
+    'rmeta3':'⏰ مايو–سبتمبر: يومياً 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به',
+    'rmeta4':'⏰ الثلاثاء–الأحد 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به',
+    'rmeta5':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به للعشاء',
+    'rmeta6':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 بدون حجز مسبق',
     'lbl-super':'🛒 سوبرماركت قريب',
     'ph-mov-eye':'أرقام مفيدة وتسجيل المغادرة','ph-mov-title':'معلومات مفيدة',
     'mv1t':'لوحة الكهرباء','mv1d':'تقع على اليسار عند الدخول، خلف الباب الأبيض. المفتاح الرئيسي هو الموجود في أعلى اليمين.',
@@ -2163,6 +2212,13 @@ const T = {
     'rt4':'Гастрономия · Рыба · €€€','rd4':'Морская гастрономия со свежими местными продуктами, которые шеф выбирает ежедневно. Настоящее заведение Juan-les-Pins. ⭐ 4.6',
     'rt5':'Средиземноморская · Суша и море · €€','rd5':'Лучшее с суши и моря в средиземноморском стиле. Отличное соотношение цены и качества, любимое у местных. ⭐ 4.6',
     'rt6':'Бистро · Брассери · €€','rd6':'Качественный антрекот, приготовленный до совершенства, и местные блюда. Лучшее соотношение цена/качество в округе. ⭐ 4.6',
+
+    'rmeta1':'⏰ Май–Сен · Ср–Вс 12:30–14:00 · 19:30–22:00 &amp;nbsp;·&amp;nbsp; 📋 Бронирование обязательно (заранее)',
+    'rmeta2':'⏰ Апр–Окт: ежедневно 12:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется на ужин',
+    'rmeta3':'⏰ Май–Сен: ежедневно 12:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется',
+    'rmeta4':'⏰ Вт–Вс 12:00–14:30 · 19:00–22:00 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется',
+    'rmeta5':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется на ужин',
+    'rmeta6':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Без бронирования',
     'lbl-super':'🛒 Ближайшие супермаркеты',
     'ph-mov-eye':'Полезные номера & Выезд','ph-mov-title':'Полезная информация',
     'mv1t':'Электрощит','mv1d':'Находится слева при входе, за белой дверцей. Главный рубильник — верхний правый.',
@@ -2275,6 +2331,37 @@ function switchTab(name) {
   if (idx >= 0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
   document.getElementById('tab-' + name).scrollTop = 0;
 }
+// ── Swipe gesture between tabs ──
+(function() {
+  var TABS = ['home','soggiorno','luoghi','mangiare','muoversi'];
+  var sx = 0, sy = 0;
+  function getArea() { return document.querySelector('.tab-area'); }
+  function onStart(e) {
+    var t = e.touches[0];
+    sx = t.clientX; sy = t.clientY;
+  }
+  function onEnd(e) {
+    var t = e.changedTouches[0];
+    var dx = t.clientX - sx;
+    var dy = t.clientY - sy;
+    if (Math.abs(dx) < 52 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    var active = document.querySelector('.tab-content.active');
+    if (!active) return;
+    var cur = active.id.replace('tab-', '');
+    var idx = TABS.indexOf(cur);
+    if (dx < 0 && idx < TABS.length - 1) switchTab(TABS[idx + 1]);
+    if (dx > 0 && idx > 0) switchTab(TABS[idx - 1]);
+  }
+  function attach() {
+    var area = getArea();
+    if (!area) return;
+    area.addEventListener('touchstart', onStart, { passive: true });
+    area.addEventListener('touchend',   onEnd,   { passive: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach);
+  else attach();
+})();
+
 
 function openMaps() {
   window.open('https://www.google.com/maps/search/93+Boulevard+Poincaré,+Juan-les-Pins,+06160+Antibes,+France', '_blank');
