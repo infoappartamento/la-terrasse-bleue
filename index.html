@@ -1303,7 +1303,7 @@ body {
           <h2 id="ph-luoghi-title">Luoghi</h2>
         </div>
 
-        <div style="padding:16px 16px 4px;font-size:13px;font-weight:700;color:var(--dark-txt);letter-spacing:-.01em;">🏖️ <span id="lbl-beaches">Spiagge vicine</span></div>
+        <div style="padding:16px 16px 4px;font-size:13px;font-weight:700;color:var(--dark-txt);letter-spacing:-.01em;"><span id="lbl-beaches">🏖️ Spiagge vicine</span></div>
 
         <div class="place-card">
           <div class="place-title">🏖️ Plage du Centre</div>
@@ -1344,6 +1344,8 @@ body {
           <div class="place-how" id="bh5-how">🚲 ~20 min in bici · 🚗 ~10 min in auto · ⏰ Mattina presto (meno affollata)</div>
           <a href="https://maps.google.com/?q=Plage+de+la+Garoupe,+Cap+d%27Antibes,+France" target="_blank" class="maps-btn">🧭 Maps</a>
         </div>
+
+        <div style="padding:20px 16px 4px;margin-top:8px;border-top:2px solid var(--border-l);font-size:13px;font-weight:700;color:var(--dark-txt);letter-spacing:-.01em;"><span id="lbl-places">🗺️ Da visitare</span></div>
 
         <div class="place-card">
           <div class="place-title">⛵ Cap d'Antibes</div>
@@ -1792,7 +1794,7 @@ const T = {
     'rmeta5':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Consigliata per la cena',
     'rmeta6':'⏰ Tutti i giorni 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Non necessaria',
 
-    'lbl-beaches':'🏖️ Spiagge vicine',
+    'lbl-beaches':'🏖️ Spiagge vicine','lbl-places':'🗺️ Da visitare',
     'bh1-tag':'🔵 Mista','bh1-desc':'Sabbia fine dorata · La spiaggia più centrale e animata di Juan-les-Pins, ideale per chi vuole essere al cuore dell\'azione.','bh1-how':'🚶 ~3 min · ~280 m da casa · ⏰ Meglio 9–11h o dopo le 17h',
     'bh2-tag':'🟢 Libera','bh2-desc':'Piccola e tranquilla, frequentata dai locali e ideale per le famiglie con bambini.','bh2-how':'🚶 ~8 min · ~550 m (Port Gallice) · ⏰ Meno affollata a qualsiasi ora',
     'bh3-tag':'🔵 Mista','bh3-desc':'Sabbia fine e bella passeggiata sul lungomare per arrivarci, tra Juan-les-Pins e Antibes.','bh3-how':'🚶 ~15 min · ~1.1 km lungo il lungomare · ⏰ Mattina o tardo pomeriggio',
@@ -1907,7 +1909,7 @@ const T = {
     'rmeta5':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Recommended for dinner',
     'rmeta6':'⏰ Every day 12:00–2:30 PM · 7:00–10:30 PM &amp;nbsp;·&amp;nbsp; 📋 Walk-ins welcome',
 
-    'lbl-beaches':'🏖️ Nearby beaches',
+    'lbl-beaches':'🏖️ Nearby beaches','lbl-places':'🗺️ Things to see',
     'bh1-tag':'🔵 Mixed','bh1-desc':'Fine golden sand · The most central and lively beach in Juan-les-Pins, perfect for those who want to be at the heart of the action.','bh1-how':'🚶 ~3 min · ~280 m from home · ⏰ Best 9–11 AM or after 5 PM',
     'bh2-tag':'🟢 Free','bh2-desc':'Small and peaceful, popular with locals and ideal for families with children.','bh2-how':'🚶 ~8 min · ~550 m (Port Gallice) · ⏰ Less crowded at any hour',
     'bh3-tag':'🔵 Mixed','bh3-desc':'Fine sand and a lovely seafront walk to get there, between Juan-les-Pins and Antibes.','bh3-how':'🚶 ~15 min · ~1.1 km along the seafront · ⏰ Morning or late afternoon',
@@ -2022,7 +2024,7 @@ const T = {
     'rmeta5':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Conseillée pour le dîner',
     'rmeta6':'⏰ Tous les jours 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sans réservation',
 
-    'lbl-beaches':'🏖️ Plages à proximité',
+    'lbl-beaches':'🏖️ Plages à proximité','lbl-places':'🗺️ À visiter',
     'bh1-tag':'🔵 Mixte','bh1-desc':'Sable fin doré · La plage la plus centrale et animée de Juan-les-Pins, idéale pour ceux qui veulent être au cœur de l\'action.','bh1-how':'🚶 ~3 min · ~280 m de chez vous · ⏰ Mieux 9h–11h ou après 17h',
     'bh2-tag':'🟢 Gratuite','bh2-desc':'Petite et tranquille, fréquentée par les habitants et idéale pour les familles avec enfants.','bh2-how':'🚶 ~8 min · ~550 m (Port Gallice) · ⏰ Moins fréquentée à toute heure',
     'bh3-tag':'🔵 Mixte','bh3-desc':'Sable fin et belle promenade en bord de mer pour y accéder, entre Juan-les-Pins et Antibes.','bh3-how':'🚶 ~15 min · ~1,1 km le long du front de mer · ⏰ Matin ou fin d\'après-midi',
@@ -2137,7 +2139,7 @@ const T = {
     'rmeta5':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Empfohlen für Abendessen',
     'rmeta6':'⏰ Täglich 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Ohne Reservierung',
 
-    'lbl-beaches':'🏖️ Nahe Strände',
+    'lbl-beaches':'🏖️ Nahe Strände','lbl-places':'🗺️ Sehenswürdigkeiten',
     'bh1-tag':'🔵 Gemischt','bh1-desc':'Feiner goldener Sand · Der zentralste und belebteste Strand von Juan-les-Pins, ideal für alle, die mittendrin sein wollen.','bh1-how':'🚶 ~3 Min · ~280 m von der Wohnung · ⏰ Besser 9–11 Uhr oder nach 17 Uhr',
     'bh2-tag':'🟢 Frei','bh2-desc':'Klein und ruhig, bei Einheimischen beliebt und ideal für Familien mit Kindern.','bh2-how':'🚶 ~8 Min · ~550 m (Port Gallice) · ⏰ Zu jeder Stunde weniger voll',
     'bh3-tag':'🔵 Gemischt','bh3-desc':'Feiner Sand und ein schöner Strandspaziergang dorthin, zwischen Juan-les-Pins und Antibes.','bh3-how':'🚶 ~15 Min · ~1,1 km entlang der Küste · ⏰ Morgens oder am späten Nachmittag',
@@ -2252,7 +2254,7 @@ const T = {
     'rmeta5':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Recomendada para la cena',
     'rmeta6':'⏰ Todos los días 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Sin reserva necesaria',
 
-    'lbl-beaches':'🏖️ Playas cercanas',
+    'lbl-beaches':'🏖️ Playas cercanas','lbl-places':'🗺️ Qué visitar',
     'bh1-tag':'🔵 Mixta','bh1-desc':'Arena fina dorada · La playa más céntrica y animada de Juan-les-Pins, ideal para quienes quieren estar en el corazón de la acción.','bh1-how':'🚶 ~3 min · ~280 m desde casa · ⏰ Mejor 9–11h o después de las 17h',
     'bh2-tag':'🟢 Libre','bh2-desc':'Pequeña y tranquila, popular entre los locales e ideal para familias con niños.','bh2-how':'🚶 ~8 min · ~550 m (Port Gallice) · ⏰ Menos concurrida a cualquier hora',
     'bh3-tag':'🔵 Mixta','bh3-desc':'Arena fina y agradable paseo por el litoral, entre Juan-les-Pins y Antibes.','bh3-how':'🚶 ~15 min · ~1,1 km por el paseo marítimo · ⏰ Mañana o última hora de la tarde',
@@ -2367,7 +2369,7 @@ const T = {
     'rmeta5':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 الحجز موصى به للعشاء',
     'rmeta6':'⏰ يومياً 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 بدون حجز مسبق',
 
-    'lbl-beaches':'🏖️ الشواطئ القريبة',
+    'lbl-beaches':'🏖️ الشواطئ القريبة','lbl-places':'🗺️ ما يستحق الزيارة',
     'bh1-tag':'🔵 مختلط','bh1-desc':'رمال ناعمة ذهبية · أكثر الشواطئ مركزية وحيوية في خوان-لي-بان، مثالي لمن يريد أن يكون في قلب الحدث.','bh1-how':'🚶 ~3 دقائق · ~280 م من المنزل · ⏰ الأفضل 9–11 صباحاً أو بعد الساعة 5 مساءً',
     'bh2-tag':'🟢 مجاني','bh2-desc':'صغير وهادئ، محبوب لدى السكان المحليين ومثالي للعائلات مع الأطفال.','bh2-how':'🚶 ~8 دقائق · ~550 م (Port Gallice) · ⏰ أقل ازدحاماً في أي وقت',
     'bh3-tag':'🔵 مختلط','bh3-desc':'رمال ناعمة ونزهة جميلة على طول الشاطئ للوصول إليه، بين خوان-لي-بان وأنتيب.','bh3-how':'🚶 ~15 دقيقة · ~1.1 كم على طول الواجهة البحرية · ⏰ الصباح أو آخر الظهيرة',
@@ -2482,7 +2484,7 @@ const T = {
     'rmeta5':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Рекомендуется на ужин',
     'rmeta6':'⏰ Ежедневно 12:00–14:30 · 19:00–22:30 &amp;nbsp;·&amp;nbsp; 📋 Без бронирования',
 
-    'lbl-beaches':'🏖️ Ближайшие пляжи',
+    'lbl-beaches':'🏖️ Ближайшие пляжи','lbl-places':'🗺️ Что посетить',
     'bh1-tag':'🔵 Смешанный','bh1-desc':'Мелкий золотой песок · Самый центральный и оживлённый пляж Жуан-ле-Пена, идеален для тех, кто хочет быть в центре событий.','bh1-how':'🚶 ~3 мин · ~280 м от дома · ⏰ Лучше 9–11 утра или после 17:00',
     'bh2-tag':'🟢 Бесплатный','bh2-desc':'Маленький и тихий, популярен у местных жителей, идеален для семей с детьми.','bh2-how':'🚶 ~8 мин · ~550 м (Port Gallice) · ⏰ Меньше народу в любое время',
     'bh3-tag':'🔵 Смешанный','bh3-desc':'Мелкий песок и красивая прогулка вдоль набережной, между Жуан-ле-Пен и Антибом.','bh3-how':'🚶 ~15 мин · ~1,1 км вдоль набережной · ⏰ Утром или поздним днём',
