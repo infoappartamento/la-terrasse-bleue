@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no, address=no, email=no">
 <title>La Terrasse Bleue — Juan-les-Pins · Côte d'Azur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,7 +35,7 @@ html, body {
 }
 body {
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1;
@@ -210,7 +213,8 @@ body {
   -webkit-overflow-scrolling: touch; display: none;
   padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
 }
-.tab-content.active { display: block; animation: fadeUp .25s ease; }
+.tab-content.active { display: block; }
+.tab-content.tab-animating { will-change: transform; }
 
 /* Bottom Nav */
 .bottom-nav {
@@ -236,22 +240,27 @@ body {
   transition: color .2s;
   min-height: 60px; position: relative;
 }
-.nav-btn .nav-icon { font-size: 21px; transition: transform .2s; }
+.nav-btn .nav-icon { font-size: 22px; transition: transform .2s; }
 .nav-btn.active { color: var(--accent); }
-.nav-btn.active .nav-icon { transform: translateY(-2px); }
-.nav-btn.active::after {
-  content: ''; position: absolute; bottom: 6px;
-  width: 22px; height: 3px; border-radius: 2px;
-  background: var(--accent); opacity: .85;
+.nav-btn.active .nav-icon { transform: translateY(-1px); }
+.nav-btn.active::before {
+  content: ''; position: absolute; top: 7px;
+  width: 52px; height: 30px; border-radius: 15px;
+  background: linear-gradient(135deg, rgba(26,127,193,.15), rgba(0,180,216,.10));
 }
+.nav-btn.active::after { display: none; }
 
 /* ── Page Header ── */
-.page-header { padding: 28px 20px 16px; background: var(--card); color: var(--text); }
-.page-header .eyebrow {
-  font-size: 10px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--accent2); margin-bottom: 4px;
+.page-header {
+  padding: 32px 20px 52px;
+  background: linear-gradient(170deg, #061422 0%, var(--card) 55%, var(--surface) 100%);
+  color: var(--text); position: relative; z-index: 2;
 }
-.page-header h2 { font-size: 26px; font-weight: 800; }
+.page-header .eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--accent2); margin-bottom: 6px;
+}
+.page-header h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
 
 /* Hero Stats */
 .hero-stats {
@@ -266,9 +275,13 @@ body {
 /* Welcome Card */
 .welcome-card {
   margin: 16px; padding: 22px;
-  background: #fff; border-radius: 18px;
-  border: 1px solid var(--border-l);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+  background: linear-gradient(145deg, #ffffff 0%, #F3F9FF 100%);
+  border-radius: 20px; border: 1px solid var(--border-l);
+  box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 12px 36px rgba(0,0,0,.10); position: relative; overflow: hidden;
+}
+.welcome-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
 }
 .welcome-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--dark-txt); }
 .welcome-card p  { font-size: 13.5px; line-height: 1.72; color: #4A5568; }
@@ -295,9 +308,8 @@ body {
 
 /* Contact Bar */
 .contact-bar {
-  margin: 0 16px 12px; background: #fff; border-radius: 18px;
-  border: 1px solid var(--border-l);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+  margin: 0 16px 12px; background: #fff; border-radius: 20px;
+  border: 1px solid var(--border-l); box-shadow: 0 4px 16px rgba(0,0,0,.08), 0 12px 36px rgba(0,0,0,.10);
   padding: 16px 18px; display: flex; align-items: center; gap: 14px;
 }
 .cb-avatar {
@@ -310,12 +322,15 @@ body {
 .cb-lbl  { font-size: 11px; color: #64748B; }
 .cb-name { font-size: 15px; font-weight: 700; color: var(--dark-txt); }
 .call-btn {
-  background: var(--accent); color: #fff; border: none;
-  border-radius: 22px; padding: 9px 18px; font-size: 13px; font-weight: 700;
-  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff; border: none; border-radius: 22px; padding: 9px 18px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none; display: inline-block; white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(26,127,193,.3); transition: transform .15s;
 }
-.call-btn.green { background: #16A34A; }
+.call-btn:active { transform: scale(.96); }
+.call-btn.green { background: linear-gradient(135deg, #16A34A 0%, #22C55E 100%); box-shadow: 0 2px 8px rgba(22,163,74,.3); }
 .cb-btns { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
 
 .photo-modal-overlay {
@@ -352,9 +367,9 @@ body {
 
 /* Section Card */
 .section-card {
-  margin: 16px 16px 0; background: #fff; border-radius: 18px;
+  margin: 16px 16px 0; background: #fff; border-radius: 20px;
   border: 1px solid var(--border-l);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05); overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.03), 0 4px 12px rgba(0,0,0,.05); overflow: hidden;
 }
 .sc-header {
   padding: 16px 18px 14px; border-bottom: 1px solid #F0F4F8;
@@ -391,9 +406,14 @@ body {
 }
 .maps-big-btn:active { transform: scale(.98); box-shadow: 0 2px 8px rgba(26,127,193,.3); }
 .maps-btn {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 5px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: #fff; text-decoration: none;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  padding: 7px 15px; border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(26,127,193,.28);
+  transition: box-shadow .15s, transform .15s;
 }
+.maps-btn:active { transform: scale(.95); box-shadow: 0 1px 4px rgba(26,127,193,.2); }
 
 /* Arrival steps */
 .arrival-toggle-row {
@@ -497,10 +517,8 @@ body {
 
 /* Place cards */
 .place-card {
-  background: #fff; border-radius: 18px;
-  border: 1px solid var(--border-l);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
-  margin: 12px 16px 0; padding: 20px;
+  background: #fff; border-radius: 20px; border: 1px solid var(--border-l);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08); margin: 12px 16px 0; padding: 20px;
 }
 .place-card:first-child { margin-top: 16px; }
 .place-title { font-size: 15px; font-weight: 700; color: var(--dark-txt); margin-bottom: 7px; letter-spacing: -.01em; }
@@ -513,10 +531,8 @@ body {
 
 /* Restaurant cards */
 .resto-card {
-  background: #fff; border-radius: 18px;
-  border: 1px solid var(--border-l);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
-  margin: 12px 16px 0; padding: 20px;
+  background: #fff; border-radius: 20px; border: 1px solid var(--border-l);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08); margin: 12px 16px 0; padding: 20px;
 }
 .resto-card:first-child { margin-top: 16px; }
 .resto-name  { font-size: 16px; font-weight: 700; color: var(--dark-txt); margin-bottom: 3px; letter-spacing: -.01em; }
@@ -606,6 +622,21 @@ body {
 .bye-card p  { font-size: 13px; line-height: 1.7; opacity: .8; }
 
 .spacer-bottom { height: 16px; }
+
+/* ── Section headings (Luoghi + others) ── */
+.section-heading {
+  display: flex; align-items: center; gap: 10px;
+  padding: 20px 16px 8px;
+  font-size: 13px; font-weight: 800; color: var(--dark-txt); letter-spacing: -.01em;
+}
+.section-heading-bar {
+  display: inline-block; width: 3px; min-width: 3px; height: 16px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 100%);
+}
+.section-heading.divided {
+  margin-top: 4px; border-top: 1px solid var(--border-l); padding-top: 20px;
+}
+
 .sec-lbl {
   font-size: 10.5px; font-weight: 800; letter-spacing: .12em;
   text-transform: uppercase; color: #94A3B8; padding: 24px 16px 10px;
@@ -1313,7 +1344,7 @@ body {
           <h2 id="ph-luoghi-title">Luoghi</h2>
         </div>
 
-        <div style="padding:16px 16px 4px;font-size:13px;font-weight:700;color:var(--dark-txt);letter-spacing:-.01em;"><span id="lbl-beaches">🏖️ Spiagge vicine</span></div>
+        <div class="section-heading"><span class="section-heading-bar"></span><span id="lbl-beaches">🏖️ Spiagge vicine</span></div>
 
         <div class="place-card">
           <div class="place-title">🏖️ Plage du Centre</div>
@@ -1355,7 +1386,7 @@ body {
           <a href="https://maps.google.com/?q=Plage+de+la+Garoupe,+Cap+d%27Antibes,+France" target="_blank" class="maps-btn">🧭 Maps</a>
         </div>
 
-        <div style="padding:20px 16px 4px;margin-top:8px;border-top:2px solid var(--border-l);font-size:13px;font-weight:700;color:var(--dark-txt);letter-spacing:-.01em;"><span id="lbl-places">🗺️ Da visitare</span></div>
+        <div class="section-heading divided"><span class="section-heading-bar"></span><span id="lbl-places">🗺️ Da visitare</span></div>
 
         <div class="place-card">
           <div class="place-title">⛵ Cap d'Antibes</div>
@@ -2604,14 +2635,40 @@ function backToLanding() {
   if (saved && T[saved]) openGuide(saved);
 })();
 
+var _tabSliding = false;
+var _tabOrder = ['home','soggiorno','luoghi','mangiare','muoversi'];
 function switchTab(name) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  const tabs = ['home','soggiorno','luoghi','mangiare','muoversi'];
-  const idx  = tabs.indexOf(name);
-  if (idx >= 0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
-  document.getElementById('tab-' + name).scrollTop = 0;
+  if (_tabSliding) return;
+  var current = document.querySelector('.tab-content.active');
+  var next = document.getElementById('tab-' + name);
+  if (!current || !next || current === next) return;
+  var curIdx = _tabOrder.indexOf(current.id.replace('tab-',''));
+  var newIdx = _tabOrder.indexOf(name);
+  var dir = newIdx > curIdx ? 1 : -1;
+  var DUR = 260;
+  _tabSliding = true;
+  document.querySelectorAll('.nav-btn').forEach(function(b,i){ b.classList.toggle('active', i === newIdx); });
+  next.style.display = 'block';
+  next.style.transition = 'none';
+  next.style.transform = 'translateX(' + (dir * 100) + '%)';
+  next.classList.add('tab-animating');
+  current.classList.add('tab-animating');
+  void next.offsetWidth;
+  var ease = 'cubic-bezier(.4,0,.2,1)';
+  var tr = 'transform ' + DUR + 'ms ' + ease;
+  current.style.transition = tr;
+  next.style.transition = tr;
+  current.style.transform = 'translateX(' + (-dir * 100) + '%)';
+  next.style.transform = 'translateX(0)';
+  setTimeout(function() {
+    current.classList.remove('active','tab-animating');
+    current.style.cssText = '';
+    next.classList.add('active');
+    next.classList.remove('tab-animating');
+    next.style.cssText = '';
+    next.scrollTop = 0;
+    _tabSliding = false;
+  }, DUR + 10);
 }
 
 // ── Weather widget ──
