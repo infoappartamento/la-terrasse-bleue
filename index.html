@@ -214,7 +214,16 @@ body {
   padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
 }
 .tab-content.active { display: block; }
-.tab-content.tab-animating { will-change: transform; }
+
+/* ── Tab slide animations ── */
+@keyframes tabSlideInR  { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes tabSlideInL  { from { transform: translateX(-40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes tabSlideOutL { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-30px); opacity: 0; } }
+@keyframes tabSlideOutR { from { transform: translateX(0); opacity: 1; } to { transform: translateX(30px); opacity: 0; } }
+.tab-slide-in-r  { animation: tabSlideInR  .24s cubic-bezier(.4,0,.2,1) both; }
+.tab-slide-in-l  { animation: tabSlideInL  .24s cubic-bezier(.4,0,.2,1) both; }
+.tab-slide-out-l { animation: tabSlideOutL .20s cubic-bezier(.4,0,.2,1) both; }
+.tab-slide-out-r { animation: tabSlideOutR .20s cubic-bezier(.4,0,.2,1) both; }
 
 /* Bottom Nav */
 .bottom-nav {
@@ -2635,40 +2644,45 @@ function backToLanding() {
   if (saved && T[saved]) openGuide(saved);
 })();
 
-var _tabSliding = false;
 var _tabOrder = ['home','soggiorno','luoghi','mangiare','muoversi'];
+var _curTab = null;
 function switchTab(name) {
-  if (_tabSliding) return;
-  var current = document.querySelector('.tab-content.active');
-  var next = document.getElementById('tab-' + name);
-  if (!current || !next || current === next) return;
-  var curIdx = _tabOrder.indexOf(current.id.replace('tab-',''));
+  if (name === _curTab) return;
+  var curIdx = _tabOrder.indexOf(_curTab);
   var newIdx = _tabOrder.indexOf(name);
-  var dir = newIdx > curIdx ? 1 : -1;
-  var DUR = 260;
-  _tabSliding = true;
-  document.querySelectorAll('.nav-btn').forEach(function(b,i){ b.classList.toggle('active', i === newIdx); });
-  next.style.display = 'block';
-  next.style.transition = 'none';
-  next.style.transform = 'translateX(' + (dir * 100) + '%)';
-  next.classList.add('tab-animating');
-  current.classList.add('tab-animating');
-  void next.offsetWidth;
-  var ease = 'cubic-bezier(.4,0,.2,1)';
-  var tr = 'transform ' + DUR + 'ms ' + ease;
-  current.style.transition = tr;
-  next.style.transition = tr;
-  current.style.transform = 'translateX(' + (-dir * 100) + '%)';
-  next.style.transform = 'translateX(0)';
-  setTimeout(function() {
-    current.classList.remove('active','tab-animating');
-    current.style.cssText = '';
-    next.classList.add('active');
-    next.classList.remove('tab-animating');
-    next.style.cssText = '';
-    next.scrollTop = 0;
-    _tabSliding = false;
-  }, DUR + 10);
+  if (newIdx < 0) return;
+
+  // Update nav
+  document.querySelectorAll('.nav-btn').forEach(function(b, i) {
+    b.classList.toggle('active', i === newIdx);
+  });
+
+  // Hide current, show next
+  var cur = document.getElementById('tab-' + _curTab);
+  var next = document.getElementById('tab-' + name);
+  if (!next) return;
+
+  // Pick animation direction (skip if no previous tab)
+  var animIn  = (curIdx >= 0 && newIdx > curIdx) ? 'tab-slide-in-r'  : 'tab-slide-in-l';
+  var animOut = (curIdx >= 0 && newIdx > curIdx) ? 'tab-slide-out-l' : 'tab-slide-out-r';
+
+  if (cur && curIdx >= 0) {
+    cur.classList.add(animOut);
+    cur.addEventListener('animationend', function handler() {
+      cur.classList.remove('active', animOut);
+      cur.removeEventListener('animationend', handler);
+    });
+  } else if (cur) {
+    cur.classList.remove('active');
+  }
+
+  next.classList.add('active', animIn);
+  next.addEventListener('animationend', function handler() {
+    next.classList.remove(animIn);
+    next.removeEventListener('animationend', handler);
+  });
+  next.scrollTop = 0;
+  _curTab = name;
 }
 
 // ── Weather widget ──
