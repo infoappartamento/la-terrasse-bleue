@@ -7,7 +7,7 @@
 <title>La Terrasse Bleue — Juan-les-Pins · Côte d'Azur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -2647,40 +2647,26 @@ function backToLanding() {
 var _tabOrder = ['home','soggiorno','luoghi','mangiare','muoversi'];
 var _curTab = null;
 function switchTab(name) {
-  if (name === _curTab) return;
   var curIdx = _tabOrder.indexOf(_curTab);
   var newIdx = _tabOrder.indexOf(name);
-  if (newIdx < 0) return;
+  if (newIdx < 0 || name === _curTab) return;
+
+  // Hide all tabs immediately
+  document.querySelectorAll('.tab-content').forEach(function(t) {
+    t.classList.remove('active','tab-slide-in-r','tab-slide-in-l');
+  });
 
   // Update nav
   document.querySelectorAll('.nav-btn').forEach(function(b, i) {
     b.classList.toggle('active', i === newIdx);
   });
 
-  // Hide current, show next
-  var cur = document.getElementById('tab-' + _curTab);
+  // Show new tab with slide-in animation
   var next = document.getElementById('tab-' + name);
   if (!next) return;
-
-  // Pick animation direction (skip if no previous tab)
-  var animIn  = (curIdx >= 0 && newIdx > curIdx) ? 'tab-slide-in-r'  : 'tab-slide-in-l';
-  var animOut = (curIdx >= 0 && newIdx > curIdx) ? 'tab-slide-out-l' : 'tab-slide-out-r';
-
-  if (cur && curIdx >= 0) {
-    cur.classList.add(animOut);
-    cur.addEventListener('animationend', function handler() {
-      cur.classList.remove('active', animOut);
-      cur.removeEventListener('animationend', handler);
-    });
-  } else if (cur) {
-    cur.classList.remove('active');
-  }
-
+  var animIn = (curIdx >= 0 && newIdx > curIdx) ? 'tab-slide-in-r' : 'tab-slide-in-l';
   next.classList.add('active', animIn);
-  next.addEventListener('animationend', function handler() {
-    next.classList.remove(animIn);
-    next.removeEventListener('animationend', handler);
-  });
+  setTimeout(function() { next.classList.remove('tab-slide-in-r','tab-slide-in-l'); }, 280);
   next.scrollTop = 0;
   _curTab = name;
 }
