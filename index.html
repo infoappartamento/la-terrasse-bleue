@@ -2638,12 +2638,6 @@ function backToLanding() {
   document.getElementById('landing').classList.add('active');
 }
 
-// Ripristina la lingua all'avvio
-(function() {
-  const saved = localStorage.getItem('ltb_lang');
-  if (saved && T[saved]) openGuide(saved);
-})();
-
 var _tabOrder = ['home','soggiorno','luoghi','mangiare','muoversi'];
 var _curTab = null;
 function switchTab(name) {
@@ -2670,6 +2664,12 @@ function switchTab(name) {
   next.scrollTop = 0;
   _curTab = name;
 }
+
+// Ripristina la lingua all'avvio
+(function() {
+  var saved = localStorage.getItem('ltb_lang');
+  if (saved && T[saved]) openGuide(saved);
+})();
 
 // ── Weather widget ──
 var _wx = null, _wxT = 0;
