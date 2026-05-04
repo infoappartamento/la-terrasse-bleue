@@ -1195,7 +1195,7 @@ body {
         <div class="section-card">
           <div class="sc-header"><span>🔑</span><h3 id="lbl-access">Come accedere</h3></div>
           <div class="sc-body">
-            <p id="txt-access" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Le chiavi le troverai all'interno della KeyBox in 67 Chemin des Liserons, alla destra dell'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L'appartamento si trova al <strong>secondo piano</strong>: prima porta a sinistra uscendo dall'ascensore.</p>
+            <p id="txt-access" style="font-size:13.5px;color:#4A5568;line-height:1.55;">Le chiavi le troverai all'interno della KeyBox in 67 Chemin des Liserons, alla destra dell'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L'appartamento si trova al <strong>secondo piano</strong>: corridoio a sinistra, prima porta a destra.</p>
             <a href="https://maps.google.com/?q=67+Chemin+des+Liserons,+Antibes,+France" target="_blank" class="maps-big-btn" id="maps-access-txt">🧭 Apri su Maps</a>
             <button class="photo-btn" id="btn-photo-keybox" onclick="openKeyboxPhoto()">📸 Dove si trova la KeyBox</button>
             <button class="photo-btn" id="btn-photo-apt" onclick="openAppartamentoPhoto()">📸 Dove si trova l'appartamento</button>
@@ -1526,6 +1526,19 @@ body {
           <a href="https://maps.google.com/?q=Le+Bistrot+Juan-les-Pins,+Antibes,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
         </div>
 
+        <div class="resto-card">
+          <div class="resto-name">Il Tinello 🇮🇹</div>
+          <div class="resto-type" id="rt7">Italiana romagnola · Pasta fresca · Pesce · €€–€€€</div>
+          <div class="resto-desc" id="rd7">Autentico ristorante italiano a conduzione familiare: cucina dell'Emilia-Romagna con pasta fresca fatta a mano e pesce fresco del giorno. Il piatto firma? I tagliolini allo scoglio in padella. ⭐ 4.8</div>
+          <div class="resto-badges">
+            <span class="badge">🍝 Pasta fresca</span>
+            <span class="badge price">€€–€€€</span>
+            <span class="badge">🐟 Pesce fresco</span>
+          </div>
+          <div class="resto-meta" id="rmeta7">⏰ Mer–Sab 12:00–13:30 · 18:30–22:00 · Dom 12:00–13:30 · 18:30–21:30 · Chiuso Lun–Mar &nbsp;·&nbsp; 📋 Prenotazione consigliata</div>
+          <a href="https://maps.google.com/?q=Il+Tinello,+35+Boulevard+Charles+Guillaumont,+06160+Juan-les-Pins,+France" target="_blank" class="maps-btn">🧭 Vai qui</a>
+        </div>
+
         <div class="super-card">
           <div style="font-size:13px;font-weight:700;color:#0A1929;margin-bottom:12px;" id="lbl-super">🛒 Supermercati nelle vicinanze</div>
 
@@ -1788,7 +1801,7 @@ const T = {
     'arr3t':'In auto','arr3d':'Autostrada <strong>A8</strong>, uscita <em>Antibes</em> o <em>Juan-les-Pins</em>. Seguire Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'Dall\'aeroporto di Nizza (NCE)','arr4d':'~20 km. <strong>Treno</strong>: ~25 min ~€5 · <strong>Bus 82 Express</strong>: ~35 min €9 · <strong>Taxi</strong>: ~20 min ~€50',
     'lbl-access':'Come accedere','maps-access-txt':'🧭 Apri su Maps',
-    'txt-access':'Le chiavi le troverai all\'interno della KeyBox in 67 Chemin des Liserons, alla destra dell\'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L\'appartamento si trova al <strong>secondo piano</strong>: prima porta a sinistra uscendo dall\'ascensore.',
+    'txt-access':'Le chiavi le troverai all\'interno della KeyBox in 67 Chemin des Liserons, alla destra dell\'ingresso del garage. Il codice della KeyBox ti verrà fornito in prossimità del check-in.<br><br>L\'appartamento si trova al <strong>secondo piano</strong>: corridoio a sinistra, prima porta a destra.',
     'lbl-parking':'Parcheggio',
     'txt-parking':'Una volta entrati dal cancello automatico (tasto sinistro del telecomando), tieni subito la sinistra, scendi la rampa, apri il secondo cancello (tasto destro del telecomando), prosegui fino in fondo. Il posto auto è il numero <strong>53</strong>, quello a sinistra a ridosso del muro con la catenella gialla e nera. Togli il lucchetto con codice <strong>581</strong>. Scarica l\'auto — alle tue spalle c\'è una porta grigia, entra, prendi l\'ascensore e sali al <strong>secondo piano</strong>.',
     'wifi-pwd-lbl':'Password WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Inquadra per connetterti',
@@ -1904,7 +1917,7 @@ const T = {
     'arr3t':'By car','arr3d':'Motorway <strong>A8</strong>, exit <em>Antibes</em> or <em>Juan-les-Pins</em>. Follow Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'From Nice Airport (NCE)','arr4d':'~20 km. <strong>Train</strong>: ~25 min ~€5 · <strong>Bus 82 Express</strong>: ~35 min €9 · <strong>Taxi</strong>: ~20 min ~€50',
     'lbl-access':'How to access','maps-access-txt':'🧭 Open on Maps',
-    'txt-access':'You will find the keys inside the KeyBox at 67 Chemin des Liserons, to the right of the garage entrance. The KeyBox code will be provided to you close to check-in.<br><br>The apartment is on the <strong>second floor</strong>: first door on the left as you exit the lift.',
+    'txt-access':'You will find the keys inside the KeyBox at 67 Chemin des Liserons, to the right of the garage entrance. The KeyBox code will be provided to you close to check-in.<br><br>The apartment is on the <strong>second floor</strong>: corridor on the left, first door on the right.',
     'lbl-parking':'Parking',
     'txt-parking':'Once through the automatic gate (left button on the remote), immediately keep to the left, go down the ramp, open the second gate (right button on the remote), and continue to the end. Parking space number <strong>53</strong> is on the left, against the wall with the yellow and black chain. Remove the padlock using code <strong>581</strong>. Unload the car — behind you there is a grey door, enter, take the lift to the <strong>second floor</strong>.',
     'wifi-pwd-lbl':'WiFi Password','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Scan to connect',
@@ -2020,7 +2033,7 @@ const T = {
     'arr3t':'En voiture','arr3d':'Autoroute <strong>A8</strong>, sortie <em>Antibes</em> ou <em>Juan-les-Pins</em>. Suivre le Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'Depuis l\'aéroport de Nice (NCE)','arr4d':'~20 km. <strong>Train</strong> : ~25 min ~5€ · <strong>Bus 82 Express</strong> : ~35 min 9€ · <strong>Taxi</strong> : ~20 min ~50€',
     'lbl-access':'Comment accéder','maps-access-txt':'🧭 Ouvrir sur Maps',
-    'txt-access':'Vous trouverez les clés à l\'intérieur de la KeyBox au 67 Chemin des Liserons, à droite de l\'entrée du garage. Le code de la KeyBox vous sera communiqué à l\'approche du check-in.<br><br>L\'appartement se trouve au <strong>deuxième étage</strong> : première porte à gauche en sortant de l\'ascenseur.',
+    'txt-access':'Vous trouverez les clés à l\'intérieur de la KeyBox au 67 Chemin des Liserons, à droite de l\'entrée du garage. Le code de la KeyBox vous sera communiqué à l\'approche du check-in.<br><br>L\'appartement se trouve au <strong>deuxième étage</strong> : couloir à gauche, première porte à droite.',
     'lbl-parking':'Parking',
     'txt-parking':'Une fois passé le portail automatique (bouton gauche de la télécommande), restez immédiatement à gauche, descendez la rampe, ouvrez le deuxième portail (bouton droit de la télécommande) et continuez jusqu\'au fond. La place de parking numéro <strong>53</strong> est à gauche, contre le mur avec la chaîne jaune et noire. Retirez le cadenas avec le code <strong>581</strong>. Déchargez la voiture — derrière vous se trouve une porte grise, entrez, prenez l\'ascenseur et montez au <strong>deuxième étage</strong>.',
     'wifi-pwd-lbl':'Mot de passe WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Scanner pour se connecter',
@@ -2136,7 +2149,7 @@ const T = {
     'arr3t':'Mit dem Auto','arr3d':'Autobahn <strong>A8</strong>, Ausfahrt <em>Antibes</em> oder <em>Juan-les-Pins</em>. Folgen Sie dem Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'Vom Flughafen Nizza (NCE)','arr4d':'~20 km. <strong>Zug</strong>: ~25 Min. ~5€ · <strong>Bus 82 Express</strong>: ~35 Min. 9€ · <strong>Taxi</strong>: ~20 Min. ~50€',
     'lbl-access':'Zugang','maps-access-txt':'🧭 Auf Maps öffnen',
-    'txt-access':'Die Schlüssel befinden sich in der KeyBox in der Chemin des Liserons 67, rechts vom Garageneingang. Der KeyBox-Code wird Ihnen kurz vor dem Check-in mitgeteilt.<br><br>Die Wohnung liegt im <strong>zweiten Stock</strong>: erste Tür links nach dem Verlassen des Aufzugs.',
+    'txt-access':'Die Schlüssel befinden sich in der KeyBox in der Chemin des Liserons 67, rechts vom Garageneingang. Der KeyBox-Code wird Ihnen kurz vor dem Check-in mitgeteilt.<br><br>Die Wohnung liegt im <strong>zweiten Stock</strong>: Korridor links, erste Tür rechts.',
     'lbl-parking':'Parken',
     'txt-parking':'Fahren Sie durch das automatische Tor (linke Taste der Fernbedienung) und halten Sie sich sofort links, fahren Sie die Rampe hinunter, öffnen Sie das zweite Tor (rechte Taste der Fernbedienung) und fahren Sie bis ans Ende. Parkplatz Nr. <strong>53</strong> befindet sich links an der Wand mit der gelb-schwarzen Kette. Öffnen Sie das Schloss mit dem Code <strong>581</strong>. Entladen Sie das Auto — hinter Ihnen befindet sich eine graue Tür, treten Sie ein, nehmen Sie den Aufzug und fahren Sie in den <strong>zweiten Stock</strong>.',
     'wifi-pwd-lbl':'WLAN-Passwort','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Scannen zum Verbinden',
@@ -2252,7 +2265,7 @@ const T = {
     'arr3t':'En coche','arr3d':'Autopista <strong>A8</strong>, salida <em>Antibes</em> o <em>Juan-les-Pins</em>. Seguir el Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'Desde el aeropuerto de Niza (NCE)','arr4d':'~20 km. <strong>Tren</strong>: ~25 min ~5€ · <strong>Bus 82 Express</strong>: ~35 min 9€ · <strong>Taxi</strong>: ~20 min ~50€',
     'lbl-access':'Cómo acceder','maps-access-txt':'🧭 Abrir en Maps',
-    'txt-access':'Encontrará las llaves dentro de la KeyBox en el 67 Chemin des Liserons, a la derecha de la entrada del garaje. El código de la KeyBox se le facilitará próximo al check-in.<br><br>El apartamento se encuentra en el <strong>segundo piso</strong>: primera puerta a la izquierda al salir del ascensor.',
+    'txt-access':'Encontrará las llaves dentro de la KeyBox en el 67 Chemin des Liserons, a la derecha de la entrada del garaje. El código de la KeyBox se le facilitará próximo al check-in.<br><br>El apartamento se encuentra en el <strong>segundo piso</strong>: pasillo a la izquierda, primera puerta a la derecha.',
     'lbl-parking':'Aparcamiento',
     'txt-parking':'Una vez pasada la puerta automática (botón izquierdo del mando), gire inmediatamente a la izquierda, baje la rampa, abra la segunda puerta (botón derecho del mando) y continúe hasta el fondo. La plaza número <strong>53</strong> está a la izquierda, junto a la pared con la cadena amarilla y negra. Quite el candado con el código <strong>581</strong>. Descargue el coche — detrás hay una puerta gris, entre, tome el ascensor y suba a la <strong>segunda planta</strong>.',
     'wifi-pwd-lbl':'Contraseña WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Escanear para conectarse',
@@ -2368,7 +2381,7 @@ const T = {
     'arr3t':'بالسيارة','arr3d':'طريق سريع <strong>A8</strong>، مخرج <em>أنتيب</em> أو <em>جوان-لي-بان</em>. اتبع Bd du Président Wilson ← Bd Poincaré 93.',
     'arr4t':'من مطار نيس (NCE)','arr4d':'~20 كم. <strong>قطار</strong>: ~25 دقيقة ~5€ · <strong>حافلة 82 Express</strong>: ~35 دقيقة 9€ · <strong>تاكسي</strong>: ~20 دقيقة ~50€',
     'lbl-access':'كيفية الدخول','maps-access-txt':'🧭 افتح على الخرائط',
-    'txt-access':'ستجد المفاتيح داخل صندوق KeyBox في 67 Chemin des Liserons، على يمين مدخل الكراج. سيتم إرسال رمز الـ KeyBox إليك قبيل تسجيل الوصول.<br><br>الشقة في <strong>الطابق الثاني</strong>: أول باب على اليسار عند الخروج من المصعد.',
+    'txt-access':'ستجد المفاتيح داخل صندوق KeyBox في 67 Chemin des Liserons، على يمين مدخل الكراج. سيتم إرسال رمز الـ KeyBox إليك قبيل تسجيل الوصول.<br><br>الشقة في <strong>الطابق الثاني</strong>: الممر على اليسار، أول باب على اليمين.',
     'lbl-parking':'موقف السيارات',
     'txt-parking':'بمجرد دخولك من البوابة الأوتوماتيكية (الزر الأيسر للريموت)، اتجه فوراً نحو اليسار، انزل المنحدر، افتح البوابة الثانية (الزر الأيمن للريموت)، واستمر حتى النهاية. مكان وقوف السيارة رقم <strong>53</strong> على اليسار بجوار الجدار مع السلسلة الصفراء والسوداء. أزل القفل باستخدام الرمز <strong>581</strong>. أفرغ السيارة — خلفك باب رمادي، ادخل، خذ المصعد وصعد إلى <strong>الطابق الثاني</strong>.',
     'wifi-pwd-lbl':'كلمة مرور الواي فاي','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 امسح للاتصال',
@@ -2484,7 +2497,7 @@ const T = {
     'arr3t':'На машине','arr3d':'Автострада <strong>A8</strong>, съезд <em>Antibes</em> или <em>Juan-les-Pins</em>. Следуйте по Bd du Président Wilson → Bd Poincaré 93.',
     'arr4t':'Из аэропорта Ниццы (NCE)','arr4d':'~20 км. <strong>Поезд</strong>: ~25 мин ~5€ · <strong>Автобус 82 Express</strong>: ~35 мин 9€ · <strong>Такси</strong>: ~20 мин ~50€',
     'lbl-access':'Как войти в апартаменты','maps-access-txt':'🧭 Открыть в Maps',
-    'txt-access':'Ключи находятся в KeyBox по адресу 67 Chemin des Liserons, справа от входа в гараж. Код от KeyBox будет предоставлен вам перед заездом.<br><br>Апартаменты находятся на <strong>втором этаже</strong>: первая дверь слева при выходе из лифта.',
+    'txt-access':'Ключи находятся в KeyBox по адресу 67 Chemin des Liserons, справа от входа в гараж. Код от KeyBox будет предоставлен вам перед заездом.<br><br>Апартаменты находятся на <strong>втором этаже</strong>: коридор налево, первая дверь направо.',
     'lbl-parking':'Парковка',
     'txt-parking':'После въезда через автоматические ворота (левая кнопка пульта), сразу держитесь левой стороны, спускайтесь по пандусу, откройте вторые ворота (правая кнопка пульта) и проезжайте до конца. Парковочное место № <strong>53</strong> находится слева у стены с жёлто-чёрной цепью. Снимите замок с кодом <strong>581</strong>. Выгрузите вещи — за вашей спиной серая дверь, войдите, поднимитесь на лифте на <strong>второй этаж</strong>.',
     'wifi-pwd-lbl':'Пароль WiFi','wifi-tip':'ftctsqvmrdqv7wwwqmrvcd','wifi-qr-lbl':'📷 Сканируйте для подключения',
