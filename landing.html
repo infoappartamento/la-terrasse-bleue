@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La Terrasse Bleue — Appartamento con terrazza a Juan-les-Pins, sulla Côte d'Azur. Spiagge a 3 minuti, fino a 4 ospiti. Prenota su Airbnb.">
+<meta property="og:title" content="La Terrasse Bleue — Juan-les-Pins">
+<meta property="og:description" content="Il tuo angolo di Côte d'Azur. Terrazza privata, spiagge a 3 minuti, Jazz à Juan a due passi.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200">
+<title>La Terrasse Bleue — Juan-les-Pins, Côte d'Azur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0a2d42;
+  --blue:      #1a5f7a;
+  --blue-mid:  #1e7a9e;
+  --teal:      #2389ac;
+  --teal-lt:   #5bb3cc;
+  --gold:      #c9872d;
+  --gold-lt:   #e8a04e;
+  --cream:     #faf7f2;
+  --sand:      #f0e8d8;
+  --white:     #ffffff;
+  --text:      #0f1f2e;
+  --text-2:    #4a6275;
+  --text-3:    #8fa8b8;
+  --r:         16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════
+   STICKY NAV
+═══════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all .35s ease;
+}
+
+.nav.scrolled {
+  background: rgba(10,45,66,.96);
+  backdrop-filter: blur(12px);
+  padding: 12px 32px;
+  box-shadow: 0 4px 30px rgba(0,0,0,.25);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.3px;
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--gold-lt); }
+
+.nav-links { display: flex; gap: 28px; align-items: center; }
+
+.nav-links a {
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: #fff; }
+
+.btn-prenota-nav {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  box-shadow: 0 4px 16px rgba(201,135,45,.4);
+  transition: transform .2s, box-shadow .2s !important;
+}
+
+.btn-prenota-nav:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(201,135,45,.5) !important;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(.btn-prenota-nav) { display: none; }
+  .nav { padding: 14px 20px; }
+  .nav.scrolled { padding: 10px 20px; }
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(10,45,66,.72) 0%, rgba(26,95,122,.5) 50%, rgba(10,45,66,.65) 100%),
+    url('https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1800&q=85') center/cover no-repeat;
+  transform: scale(1.05);
+  animation: zoomOut 8s ease forwards;
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 800px;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.92);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+  animation: fadeUp .8s .2s both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -.5px;
+  margin-bottom: 10px;
+  animation: fadeUp .8s .4s both;
+}
+
+.hero-title em {
+  color: var(--gold-lt);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: rgba(255,255,255,.82);
+  font-weight: 300;
+  margin-bottom: 18px;
+  animation: fadeUp .8s .5s both;
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-lt);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 36px;
+  animation: fadeUp .8s .6s both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .7s both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(201,135,45,.45);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,135,45,.6);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,.4);
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background .2s;
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,.25); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,.5);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ═══════════════════════════════════════
+   HIGHLIGHTS STRIP
+═══════════════════════════════════════ */
+.highlights {
+  background: var(--navy);
+  padding: 0 24px;
+}
+
+.highlights-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide: 1px solid rgba(255,255,255,.08);
+}
+
+.hl-item {
+  padding: 28px 20px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.hl-item:last-child { border-right: none; }
+
+.hl-icon { font-size: 26px; margin-bottom: 8px; }
+
+.hl-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  margin-bottom: 4px;
+}
+
+.hl-label {
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+@media (max-width: 600px) {
+  .highlights-inner { grid-template-columns: repeat(2, 1fr); }
+  .hl-item { border-bottom: 1px solid rgba(255,255,255,.08); border-right: none; }
+  .hl-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.08); }
+}
+
+/* ═══════════════════════════════════════
+   SECTIONS COMMON
+═══════════════════════════════════════ */
+section { padding: 90px 24px; }
+
+.section-inner { max-width: 1080px; margin: 0 auto; }
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.section-title em { color: var(--teal); font-style: italic; }
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-2);
+  line-height: 1.75;
+  max-width: 580px;
+}
+
+/* ═══════════════════════════════════════
+   ABOUT / STORY
+═══════════════════════════════════════ */
+#about { background: var(--cream); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-imgs {
+  position: relative;
+  height: 520px;
+}
+
+.about-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 72%;
+  height: 80%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(10,45,66,.2);
+}
+
+.about-img-sec {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%;
+  height: 52%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(10,45,66,.18);
+  border: 4px solid var(--cream);
+}
+
+.about-badge {
+  position: absolute;
+  bottom: 130px;
+  left: -20px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(10,45,66,.3);
+  z-index: 2;
+}
+
+.about-badge-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold-lt);
+}
+
+.about-badge-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+.stars { color: var(--gold-lt); font-size: 18px; margin-bottom: 16px; }
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.feat-pill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  border: 1px solid rgba(26,95,122,.12);
+  border-radius: 30px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(10,45,66,.06);
+}
+
+.feat-pill-icon { font-size: 16px; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-imgs { height: 360px; }
+  .about-badge { left: 10px; bottom: 70px; }
+}
+
+/* ═══════════════════════════════════════
+   GALLERY
+═══════════════════════════════════════ */
+#gallery { background: var(--white); padding: 90px 0; }
+
+.gallery-header { text-align: center; margin-bottom: 48px; padding: 0 24px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 260px 260px;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.gal-item {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #eee;
+}
+
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.gal-item:hover img { transform: scale(1.05); }
+
+.gal-1 { grid-column: span 5; grid-row: span 2; }
+.gal-2 { grid-column: span 4; }
+.gal-3 { grid-column: span 3; }
+.gal-4 { grid-column: span 3; }
+.gal-5 { grid-column: span 4; }
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 200px);
+  }
+  .gal-1 { grid-column: span 2; grid-row: span 1; }
+  .gal-2,.gal-3,.gal-4,.gal-5 { grid-column: span 1; }
+}
+
+/* ═══════════════════════════════════════
+   AMENITIES
+═══════════════════════════════════════ */
+#amenities { background: var(--cream); }
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.amenity-card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(10,45,66,.07);
+  border: 1px solid rgba(26,95,122,.08);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.amenity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(10,45,66,.12);
+}
+
+.amenity-icon { font-size: 32px; margin-bottom: 10px; }
+.amenity-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+
+/* ═══════════════════════════════════════
+   TERRACE FEATURE
+═══════════════════════════════════════ */
+.terrace-section {
+  position: relative;
+  padding: 120px 24px;
+  overflow: hidden;
+}
+
+.terrace-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10,45,66,.88) 0%, rgba(26,95,122,.75) 60%, rgba(10,45,66,.82) 100%),
+    url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80') center/cover no-repeat;
+}
+
+.terrace-content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.terrace-content .section-tag { color: var(--gold-lt); }
+.terrace-content .section-title { color: #fff; max-width: none; }
+.terrace-content .section-desc { color: rgba(255,255,255,.8); max-width: none; margin: 0 auto 36px; }
+
+.terrace-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.t-pill {
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════
+   LOCATION
+═══════════════════════════════════════ */
+#location { background: #fff; }
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.location-map {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(10,45,66,.15);
+  height: 380px;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.distance-list { list-style: none; }
+
+.dist-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(10,45,66,.07);
+}
+
+.dist-item:last-child { border-bottom: none; }
+
+.dist-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.dist-info { flex: 1; }
+.dist-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.dist-sub  { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.dist-time { font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .location-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ═══════════════════════════════════════
+   REVIEWS
+═══════════════════════════════════════ */
+#reviews { background: var(--cream); }
+
+.reviews-intro { display: flex; align-items: center; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+
+.review-score {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 18px;
+  padding: 20px 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.score-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  line-height: 1;
+}
+
+.score-stars { font-size: 14px; color: var(--gold-lt); margin: 4px 0 2px; }
+.score-label { font-size: 11px; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .8px; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(10,45,66,.07);
+  border: 1px solid rgba(26,95,122,.08);
+}
+
+.review-stars { color: var(--gold-lt); font-size: 14px; margin-bottom: 10px; }
+
+.review-text {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviewer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  flex-shrink: 0;
+}
+
+.reviewer-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.reviewer-from { font-size: 12px; color: var(--text-3); }
+
+/* ═══════════════════════════════════════
+   BOOKING CTA SECTION
+═══════════════════════════════════════ */
+.booking-section {
+  position: relative;
+  padding: 100px 24px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.booking-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+}
+
+.booking-content { position: relative; max-width: 650px; margin: 0 auto; }
+
+.booking-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 18px;
+}
+
+.booking-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.booking-title em { color: var(--gold-lt); font-style: italic; }
+
+.booking-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.booking-details {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.bk-detail {
+  text-align: center;
+  color: rgba(255,255,255,.8);
+}
+
+.bk-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  display: block;
+}
+
+.bk-lbl { font-size: 12px; opacity: .7; text-transform: uppercase; letter-spacing: .8px; }
+
+.btn-book-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 52px;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 12px 48px rgba(201,135,45,.45);
+  transition: transform .2s, box-shadow .2s;
+  letter-spacing: -.2px;
+}
+
+.btn-book-big:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 60px rgba(201,135,45,.6);
+}
+
+.booking-note {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,.45);
+}
+
+/* ═══════════════════════════════════════
+   RULES / INFO
+═══════════════════════════════════════ */
+#info { background: var(--white); }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.info-card {
+  border-radius: var(--r);
+  padding: 24px;
+  background: var(--cream);
+  border: 1px solid rgba(26,95,122,.1);
+}
+
+.info-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card ul { list-style: none; }
+
+.info-card li {
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 5px 0;
+  display: flex;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.info-card li::before { content: '→'; color: var(--teal); flex-shrink: 0; font-weight: 700; }
+
+/* ═══════════════════════════════════════
+   HOST
+═══════════════════════════════════════ */
+.host-section { background: var(--cream); }
+
+.host-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  box-shadow: 0 4px 24px rgba(10,45,66,.08);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.host-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  flex-shrink: 0;
+}
+
+.host-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.host-desc {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.host-contacts { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.host-contact {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+@media (max-width: 600px) {
+  .host-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .host-contacts { justify-content: center; }
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--navy);
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footer-logo span { color: var(--gold-lt); }
+
+.footer-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .2s;
+}
+
+.footer-links a:hover { color: var(--gold-lt); }
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,.25);
+}
+
+.footer-reg {
+  font-size: 11px;
+  color: rgba(255,255,255,.2);
+  margin-top: 6px;
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════
+   FLOATING BOOK BTN (mobile)
+═══════════════════════════════════════ */
+.float-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 36px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(201,135,45,.55);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) { .float-btn { display: flex; align-items: center; gap: 8px; } }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#">La <span>Terrasse</span> Bleue</a>
+  <div class="nav-links">
+    <a href="#about">Appartamento</a>
+    <a href="#location">Posizione</a>
+    <a href="#reviews">Recensioni</a>
+    <a href="#info">Info</a>
+    <a href="AIRBNB_LINK_QUI" class="btn-prenota-nav" target="_blank">🏖 Prenota ora</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-label">✦ Côte d'Azur · Juan-les-Pins</div>
+    <h1 class="hero-title">La <em>Terrasse</em> Bleue</h1>
+    <p class="hero-sub">Il tuo angolo di paradiso sulla Riviera Francese</p>
+    <div class="hero-location">
+      📍 Boulevard Poincaré 93, Juan-les-Pins · Spiaggia a 3 minuti a piedi
+    </div>
+    <div class="hero-cta">
+      <a href="AIRBNB_LINK_QUI" class="btn-primary" target="_blank">
+        🏖 Prenota su Airbnb
+      </a>
+      <a href="#about" class="btn-secondary">
+        Scopri di più ↓
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scorri
+  </div>
+</section>
+
+<!-- ─── HIGHLIGHTS ───────────────────────────────────── -->
+<div class="highlights">
+  <div class="highlights-inner">
+    <div class="hl-item">
+      <div class="hl-icon">👥</div>
+      <div class="hl-value">4</div>
+      <div class="hl-label">Ospiti max</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-icon">🛏</div>
+      <div class="hl-value">2</div>
+      <div class="hl-label">Camere letto</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-icon">🏖</div>
+      <div class="hl-value">3 min</div>
+      <div class="hl-label">Dalla spiaggia</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-icon">🌿</div>
+      <div class="hl-value">Terrazza</div>
+      <div class="hl-label">Privata</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-imgs reveal">
+        <img class="about-img-main"
+          src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=800&q=80"
+          alt="Appartamento La Terrasse Bleue">
+        <img class="about-img-sec"
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80"
+          alt="Terrazza con vista">
+        <div class="about-badge">
+          <div class="about-badge-val">⭐ 5.0</div>
+          <div class="about-badge-lbl">Valutazione ospiti</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="section-tag">✦ L'appartamento</span>
+        <h2 class="section-title">Una perla sulla <em>Côte d'Azur</em></h2>
+        <div class="stars">★★★★★</div>
+        <p class="section-desc">
+          Juan-les-Pins è una delle gemme più luminose della Riviera Francese — celebre per le sue spiagge di sabbia finissima, il leggendario <strong>Jazz à Juan</strong> e un'atmosfera che sa ancora di dolce vita autentica.
+          <br><br>
+          La Terrasse Bleue ti accoglie con tutto il comfort moderno e quell'eleganza mediterranea che rende ogni soggiorno indimenticabile. La terrazza privata — il vero cuore della casa — è il posto perfetto dove sorseggiare il mattino o brindare al tramonto.
+        </p>
+        <div class="about-features">
+          <div class="feat-pill"><span class="feat-pill-icon">❄️</span> Aria condizionata</div>
+          <div class="feat-pill"><span class="feat-pill-icon">📶</span> WiFi ultra-veloce</div>
+          <div class="feat-pill"><span class="feat-pill-icon">☕</span> Nespresso machine</div>
+          <div class="feat-pill"><span class="feat-pill-icon">📺</span> Smart TV</div>
+          <div class="feat-pill"><span class="feat-pill-icon">🍳</span> Cucina attrezzata</div>
+          <div class="feat-pill"><span class="feat-pill-icon">🅿️</span> Posto auto incluso</div>
+          <div class="feat-pill"><span class="feat-pill-icon">🐾</span> Pet friendly</div>
+          <div class="feat-pill"><span class="feat-pill-icon">👕</span> Lavatrice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ───────────────────────────────────────── -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <span class="section-tag">✦ Galleria</span>
+    <h2 class="section-title">Ogni angolo, <em>una storia</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gal-item gal-1">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Vista terrazza">
+    </div>
+    <div class="gal-item gal-2">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Cucina">
+    </div>
+    <div class="gal-item gal-3">
+      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80" alt="Camera">
+    </div>
+    <div class="gal-item gal-4">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80" alt="Bagno">
+    </div>
+    <div class="gal-item gal-5">
+      <img src="https://images.unsplash.com/photo-1559599746-8823b38544c6?w=700&q=80" alt="Spiaggia Juan-les-Pins">
+    </div>
+  </div>
+</section>
+
+<!-- ─── AMENITIES ─────────────────────────────────────── -->
+<section id="amenities">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:0;">
+      <span class="section-tag">✦ Dotazioni</span>
+      <h2 class="section-title">Tutto ciò di cui hai <em>bisogno</em></h2>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card reveal"><div class="amenity-icon">🌿</div><div class="amenity-name">Terrazza privata</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">❄️</div><div class="amenity-name">Aria condizionata</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🔥</div><div class="amenity-name">Riscaldamento</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">📶</div><div class="amenity-name">WiFi fibra</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">📺</div><div class="amenity-name">Smart TV</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">☕</div><div class="amenity-name">Nespresso</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🍽️</div><div class="amenity-name">Cucina completa</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🥘</div><div class="amenity-name">Lavastoviglie</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">👕</div><div class="amenity-name">Lavatrice</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">💆</div><div class="amenity-name">Kit toiletries</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">💨</div><div class="amenity-name">Asciugacapelli</div></div>
+      <div class="amenity-card reveal"><div class="amenity-icon">🅿️</div><div class="amenity-name">Parcheggio privato</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TERRACE FEATURE ───────────────────────────────── -->
+<div class="terrace-section">
+  <div class="terrace-bg"></div>
+  <div class="terrace-content reveal">
+    <span class="section-tag">✦ Il fiore all'occhiello</span>
+    <h2 class="section-title">La terrazza: <em>il cuore della casa</em></h2>
+    <p class="section-desc">
+      Colazione con vista sulle palme, aperitivo al tramonto, cene sotto le stelle.
+      La terrazza di La Terrasse Bleue è il posto dove i ricordi più belli prendono vita.
+    </p>
+    <div class="terrace-pills">
+      <div class="t-pill">🌅 Tramonto mozzafiato</div>
+      <div class="t-pill">🪑 Tavolo e sedie</div>
+      <div class="t-pill">🌴 Atmosfera mediterranea</div>
+      <div class="t-pill">🥂 Perfetta per l'aperitivo</div>
+    </div>
+    <a href="AIRBNB_LINK_QUI" class="btn-primary" target="_blank" style="display:inline-flex;">
+      🏖 Prenota ora su Airbnb
+    </a>
+  </div>
+</div>
+
+<!-- ─── LOCATION ──────────────────────────────────────── -->
+<section id="location">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">✦ Dove siamo</span>
+      <h2 class="section-title">Nel cuore di <em>Juan-les-Pins</em></h2>
+      <p class="section-desc">Boulevard Poincaré 93 — a passi dalle spiagge più belle della Costa Azzurra e vicino a tutto ciò che questa terra meravigliosa sa offrire.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-map reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.7!2d7.1!3d43.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd2b8b3c6a1c3%3A0x0!2sJuan-les-Pins%2C+France!5e0!3m2!1sit!2sit!4v1"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+      <div class="reveal">
+        <ul class="distance-list">
+          <li class="dist-item">
+            <div class="dist-icon">🏖️</div>
+            <div class="dist-info">
+              <div class="dist-name">Plage du Centre</div>
+              <div class="dist-sub">La spiaggia principale</div>
+            </div>
+            <div class="dist-time">3 min 🚶</div>
+          </li>
+          <li class="dist-item">
+            <div class="dist-icon">🌊</div>
+            <div class="dist-info">
+              <div class="dist-name">Plage de la Gallice</div>
+              <div class="dist-sub">Acque cristalline</div>
+            </div>
+            <div class="dist-time">8 min 🚶</div>
+          </li>
+          <li class="dist-item">
+            <div class="dist-icon">🎷</div>
+            <div class="dist-info">
+              <div class="dist-name">Jazz à Juan Festival</div>
+              <div class="dist-sub">Il festival jazz più famoso d'Europa</div>
+            </div>
+            <div class="dist-time">5 min 🚶</div>
+          </li>
+          <li class="dist-item">
+            <div class="dist-icon">🏰</div>
+            <div class="dist-info">
+              <div class="dist-name">Centro storico di Antibes</div>
+              <div class="dist-sub">Mercati, ristorantini, cultura</div>
+            </div>
+            <div class="dist-time">15 min 🚌</div>
+          </li>
+          <li class="dist-item">
+            <div class="dist-icon">🎬</div>
+            <div class="dist-info">
+              <div class="dist-name">Cannes</div>
+              <div class="dist-sub">La Croisette, shopping, cinema</div>
+            </div>
+            <div class="dist-time">15 min 🚆</div>
+          </li>
+          <li class="dist-item">
+            <div class="dist-icon">✈️</div>
+            <div class="dist-info">
+              <div class="dist-name">Nizza</div>
+              <div class="dist-sub">Aeroporto internazionale</div>
+            </div>
+            <div class="dist-time">30 min 🚆</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ───────────────────────────────────────── -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="reviews-intro reveal">
+      <div class="review-score">
+        <div class="score-val">5.0</div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score-label">Airbnb Rating</div>
+      </div>
+      <div>
+        <span class="section-tag">✦ Cosa dicono gli ospiti</span>
+        <h2 class="section-title" style="margin-bottom:0;">Esperienze <em>indimenticabili</em></h2>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"La terrazza è semplicemente magnifica. Ci siamo seduti ogni sera a guardare il tramonto. L'appartamento è esattamente come nelle foto, pulitissimo e con tutto il necessario."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">S</div>
+          <div>
+            <div class="reviewer-name">Sofia M.</div>
+            <div class="reviewer-from">Milano, Italia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Posizione perfetta, a 3 minuti dalla spiaggia. Lorenzo è stato un host eccezionale, sempre disponibile. La cucina è completissima. Torneremo sicuramente!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">A</div>
+          <div>
+            <div class="reviewer-name">Alexandre D.</div>
+            <div class="reviewer-from">Paris, France</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Appartamento bellissimo in una delle zone più belle di Juan-les-Pins. La terrazza ci ha conquistato dal primo momento. Ottimo rapporto qualità-prezzo."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">M</div>
+          <div>
+            <div class="reviewer-name">Marta R.</div>
+            <div class="reviewer-from">Barcelona, España</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING CTA ───────────────────────────────────── -->
+<div class="booking-section">
+  <div class="booking-bg"></div>
+  <div class="booking-content reveal">
+    <div class="booking-tag">✦ Disponibilità limitata</div>
+    <h2 class="booking-title">Prenota la tua <em>vacanza da sogno</em></h2>
+    <p class="booking-desc">
+      Non aspettare — le date estive si esauriscono in fretta. Assicurati il tuo posto in paradiso sulla Côte d'Azur.
+    </p>
+    <div class="booking-details">
+      <div class="bk-detail">
+        <span class="bk-val">Check-in</span>
+        <span class="bk-lbl">dalle 16:00</span>
+      </div>
+      <div class="bk-detail">
+        <span class="bk-val">Check-out</span>
+        <span class="bk-lbl">entro le 10:00</span>
+      </div>
+      <div class="bk-detail">
+        <span class="bk-val">Fino a 4</span>
+        <span class="bk-lbl">ospiti</span>
+      </div>
+      <div class="bk-detail">
+        <span class="bk-val">🐾 Pet</span>
+        <span class="bk-lbl">friendly</span>
+      </div>
+    </div>
+    <a href="AIRBNB_LINK_QUI" class="btn-book-big" target="_blank">
+      🏖 &nbsp;Prenota ora su Airbnb
+    </a>
+    <p class="booking-note">Prenotazione sicura · Cancellazione flessibile · Assistenza 24/7</p>
+  </div>
+</div>
+
+<!-- ─── INFO / REGOLE ─────────────────────────────────── -->
+<section id="info">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-tag">✦ Informazioni pratiche</span>
+      <h2 class="section-title">Tutto quello che <em>devi sapere</em></h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h3>🕐 Orari</h3>
+        <ul>
+          <li>Check-in dalle ore 16:00</li>
+          <li>Check-out entro le ore 10:00</li>
+          <li>Early check-in: €15/ora (disponibilità)</li>
+          <li>Late check-out: €15/ora (disponibilità)</li>
+        </ul>
+      </div>
+      <div class="info-card reveal">
+        <h3>📋 Regole casa</h3>
+        <ul>
+          <li>Silenzio dalle 23:00 alle 8:00</li>
+          <li>No fumo in appartamento (terrazza sì)</li>
+          <li>Animali ammessi con avviso</li>
+          <li>Ospiti esterni con notifica</li>
+        </ul>
+      </div>
+      <div class="info-card reveal">
+        <h3>🧹 Servizi extra</h3>
+        <ul>
+          <li>Pulizia finale inclusa</li>
+          <li>Pulizia aggiuntiva: €50</li>
+          <li>Welcome kit incluso</li>
+          <li>Parcheggio privato incluso (#53)</li>
+        </ul>
+      </div>
+      <div class="info-card reveal">
+        <h3>🔑 Accesso</h3>
+        <ul>
+          <li>Chiavi in KeyBox (67 Chemin des Liserons)</li>
+          <li>Appartamento al secondo piano</li>
+          <li>Codice garage: 581</li>
+          <li>WiFi: Freebox-32B57A</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOST ──────────────────────────────────────────── -->
+<section class="host-section">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom:36px;" class="reveal">
+      <span class="section-tag">✦ Il tuo host</span>
+      <h2 class="section-title">Sempre <em>a tua disposizione</em></h2>
+    </div>
+    <div class="host-card reveal">
+      <div class="host-avatar">L</div>
+      <div>
+        <div class="host-name">Lorenzo & Federico</div>
+        <p class="host-desc">
+          Siamo qui per rendere il tuo soggiorno perfetto. Conosciamo Juan-les-Pins come le nostre tasche e saremo felici di consigliarti i ristoranti migliori, le spiagge più belle e i segreti della Côte d'Azur.
+        </p>
+        <div class="host-contacts">
+          <div class="host-contact">📞 Lorenzo: +39 320 2599675</div>
+          <div class="host-contact">📞 Federico: +39 347 3467555</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">La <span>Terrasse</span> Bleue</div>
+  <div class="footer-sub">Boulevard Poincaré 93 · Juan-les-Pins · Côte d'Azur · France</div>
+  <div class="footer-links">
+    <a href="#about">Appartamento</a>
+    <a href="#gallery">Galleria</a>
+    <a href="#location">Posizione</a>
+    <a href="#reviews">Recensioni</a>
+    <a href="AIRBNB_LINK_QUI" target="_blank">Prenota su Airbnb</a>
+  </div>
+  <div class="footer-copy">© 2026 La Terrasse Bleue · Juan-les-Pins</div>
+  <div class="footer-reg">Meublé de Tourisme · Reg. 06 004 26 275 0 CM · SIRET 10353881500012</div>
+</footer>
+
+<!-- ─── FLOATING BOOK BUTTON (mobile) ─────────────────── -->
+<a href="AIRBNB_LINK_QUI" class="float-btn" target="_blank">🏖 Prenota ora</a>
+
+<script>
+// ── Sticky nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
