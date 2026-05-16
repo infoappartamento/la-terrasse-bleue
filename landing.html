@@ -583,8 +583,25 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
 
 @media (max-width: 968px) {
   .about-grid { grid-template-columns: 1fr; gap: 60px; }
-  .about-images { height: 480px; max-width: 560px; margin: 0 auto; }
-  .about-mark { font-size: 70px; }
+  .about-images {
+    height: auto;
+    max-width: 560px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    position: relative;
+  }
+  .about-img-1, .about-img-2 {
+    position: static;
+    width: 100%;
+    height: 320px;
+    border: none;
+  }
+  .about-mark { font-size: 70px; top: -30px; z-index: 1; }
+}
+@media (max-width: 560px) {
+  .about-img-1, .about-img-2 { height: 240px; }
 }
 
 /* ════════════════════════════════════════════════════
