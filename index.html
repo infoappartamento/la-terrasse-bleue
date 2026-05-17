@@ -6,6 +6,15 @@
 <title>La Terrasse Bleue · Juan-les-Pins · Côte d'Azur</title>
 <meta name="description" content="Appartamento di charme con terrazza privata a Juan-les-Pins. A 2 minuti dalla spiaggia, nel cuore della Côte d'Azur.">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3EN3EK97E7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3EN3EK97E7');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1994,6 +2003,28 @@ function setLang(lang) {
   const supported = ['it','en','fr','de'];
   setLang(supported.includes(browserLang) ? browserLang : 'it');
 })();
+
+// Track Airbnb booking button clicks
+document.querySelectorAll('a[href*="airbnb.com"]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'click_airbnb_book', {
+        button_location: link.className || 'link',
+        page_language: document.documentElement.lang
+      });
+    }
+  });
+});
+
+// Track language switcher usage
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      const match = btn.getAttribute('onclick').match(/setLang\('(\w+)'\)/);
+      if (match) gtag('event', 'change_language', { language: match[1] });
+    }
+  });
+});
 </script>
 </body>
 </html>
