@@ -6,13 +6,35 @@
 <title>La Terrasse Bleue · Juan-les-Pins · Côte d'Azur</title>
 <meta name="description" content="Appartamento di charme con terrazza privata a Juan-les-Pins. A 2 minuti dalla spiaggia, nel cuore della Côte d'Azur.">
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9B9HCR4TV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Default: blocca analytics e ads finché l'utente non dà il consenso
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+
+  // Se l'utente ha già accettato in passato, ripristina il consenso
+  try {
+    if (localStorage.getItem('gdpr_consent') === 'accepted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  } catch(e) {}
+
   gtag('js', new Date());
-  gtag('config', 'G-P9B9HCR4TV');
+  gtag('config', 'G-P9B9HCR4TV', { 'anonymize_ip': true });
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1260,6 +1282,95 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ════════════════════════════════════════════════════
+   GDPR CONSENT BANNER
+═══════════════════════════════════════════════════════ */
+.gdpr {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px);
+  z-index: 1000;
+  width: calc(100% - 48px);
+  max-width: 720px;
+  background: var(--navy-deepest);
+  color: var(--cream);
+  padding: 28px 32px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  display: none;
+  opacity: 0;
+  transition: opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1);
+}
+.gdpr.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.gdpr-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+  letter-spacing: -.005em;
+}
+.gdpr-text {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,.78);
+  margin-bottom: 22px;
+}
+.gdpr-text a {
+  color: var(--gold-light);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+}
+.gdpr-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.gdpr-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 13px 22px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--gold);
+  transition: all .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.gdpr-btn-accept {
+  background: var(--gold);
+  color: var(--navy-deepest);
+}
+.gdpr-btn-accept:hover {
+  background: transparent;
+  color: var(--gold);
+}
+.gdpr-btn-reject {
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  border-color: rgba(255,255,255,.3);
+}
+.gdpr-btn-reject:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+@media (max-width: 600px) {
+  .gdpr { bottom: 12px; padding: 22px 22px; width: calc(100% - 24px); }
+  .gdpr-title { font-size: 19px; }
+  .gdpr-text { font-size: 13px; }
+  .gdpr-actions { flex-direction: column; gap: 10px; }
+}
 </style>
 </head>
 <body>
@@ -1681,6 +1792,16 @@ footer {
 
 <a href="https://www.airbnb.com/h/laterrassebleue" target="_blank" class="float-btn" data-i18n="float">Prenota ora</a>
 
+<!-- ─── GDPR CONSENT BANNER ─────────────────────────── -->
+<div class="gdpr" id="gdpr" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="gdpr-title" data-i18n="gdpr_title">Rispettiamo la tua privacy</div>
+  <p class="gdpr-text" data-i18n="gdpr_text">Usiamo Google Analytics per capire come gli ospiti scoprono questa pagina e migliorare la loro esperienza. Nessun cookie pubblicitario, nessun dato personale condiviso con terzi.</p>
+  <div class="gdpr-actions">
+    <button class="gdpr-btn gdpr-btn-reject" onclick="gdprChoice(false)" data-i18n="gdpr_reject">Rifiuta</button>
+    <button class="gdpr-btn gdpr-btn-accept" onclick="gdprChoice(true)" data-i18n="gdpr_accept">Accetta</button>
+  </div>
+</div>
+
 <script>
 // Sticky nav
 const nav = document.getElementById('nav');
@@ -1770,7 +1891,11 @@ const T = {
     "ho_eyebrow": "I Vostri Host", "ho_title": "Sempre <em>a vostra disposizione</em>",
     "ho_role": "Host",
     "ho_desc": "Siamo qui per rendere il vostro soggiorno perfetto. Conosciamo Juan-les-Pins come le nostre tasche e saremo felici di consigliarvi i ristoranti migliori, le spiagge più belle e i segreti della Côte d'Azur.",
-    "float": "Prenota ora"
+    "float": "Prenota ora",
+    "gdpr_title": "Rispettiamo la tua privacy",
+    "gdpr_text": "Usiamo Google Analytics per capire come gli ospiti scoprono questa pagina e migliorare la loro esperienza. Nessun cookie pubblicitario, nessun dato personale condiviso con terzi.",
+    "gdpr_accept": "Accetta",
+    "gdpr_reject": "Rifiuta"
   },
   "en": {
     "nav_apt": "The Apartment", "nav_gal": "Gallery", "nav_loc": "Location", "nav_rev": "Reviews", "nav_book": "Book",
@@ -1840,7 +1965,11 @@ const T = {
     "ho_eyebrow": "Your Hosts", "ho_title": "Always <em>at your service</em>",
     "ho_role": "Host",
     "ho_desc": "We're here to make your stay perfect. We know Juan-les-Pins like the back of our hand and will gladly recommend the best restaurants, finest beaches and secrets of the Côte d'Azur.",
-    "float": "Book now"
+    "float": "Book now",
+    "gdpr_title": "We respect your privacy",
+    "gdpr_text": "We use Google Analytics to understand how guests discover this page and improve their experience. No advertising cookies, no personal data shared with third parties.",
+    "gdpr_accept": "Accept",
+    "gdpr_reject": "Decline"
   },
   "fr": {
     "nav_apt": "L'appartement", "nav_gal": "Galerie", "nav_loc": "Localisation", "nav_rev": "Avis", "nav_book": "Réserver",
@@ -1910,7 +2039,11 @@ const T = {
     "ho_eyebrow": "Vos Hôtes", "ho_title": "Toujours <em>à votre disposition</em>",
     "ho_role": "Host",
     "ho_desc": "Nous sommes là pour rendre votre séjour parfait. Nous connaissons Juan-les-Pins comme notre poche et serons ravis de vous recommander les meilleurs restaurants, les plus belles plages et les secrets de la Côte d'Azur.",
-    "float": "Réserver"
+    "float": "Réserver",
+    "gdpr_title": "Nous respectons votre vie privée",
+    "gdpr_text": "Nous utilisons Google Analytics pour comprendre comment les voyageurs découvrent cette page et améliorer leur expérience. Aucun cookie publicitaire, aucune donnée personnelle partagée avec des tiers.",
+    "gdpr_accept": "Accepter",
+    "gdpr_reject": "Refuser"
   },
   "de": {
     "nav_apt": "Die Wohnung", "nav_gal": "Galerie", "nav_loc": "Lage", "nav_rev": "Bewertungen", "nav_book": "Buchen",
@@ -1980,7 +2113,11 @@ const T = {
     "ho_eyebrow": "Ihre Gastgeber", "ho_title": "Immer <em>für Sie da</em>",
     "ho_role": "Host",
     "ho_desc": "Wir sind hier, um Ihren Aufenthalt perfekt zu machen. Wir kennen Juan-les-Pins wie unsere Westentasche und empfehlen Ihnen gerne die besten Restaurants, schönsten Strände und Geheimnisse der Côte d'Azur.",
-    "float": "Jetzt buchen"
+    "float": "Jetzt buchen",
+    "gdpr_title": "Wir respektieren Ihre Privatsphäre",
+    "gdpr_text": "Wir verwenden Google Analytics, um zu verstehen, wie Gäste diese Seite entdecken, und ihr Erlebnis zu verbessern. Keine Werbe-Cookies, keine personenbezogenen Daten an Dritte weitergegeben.",
+    "gdpr_accept": "Akzeptieren",
+    "gdpr_reject": "Ablehnen"
   }
 };
 
@@ -2002,6 +2139,30 @@ function setLang(lang) {
   const browserLang = (saved || navigator.language || 'it').substring(0,2).toLowerCase();
   const supported = ['it','en','fr','de'];
   setLang(supported.includes(browserLang) ? browserLang : 'it');
+})();
+
+// ── GDPR Consent Banner ──────────────────────────────
+function gdprChoice(accepted) {
+  try { localStorage.setItem('gdpr_consent', accepted ? 'accepted' : 'rejected'); } catch(e) {}
+  if (accepted && typeof gtag === 'function') {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    });
+  }
+  const banner = document.getElementById('gdpr');
+  if (banner) banner.classList.remove('show');
+}
+
+(function() {
+  let choice = null;
+  try { choice = localStorage.getItem('gdpr_consent'); } catch(e) {}
+  if (!choice) {
+    const banner = document.getElementById('gdpr');
+    if (banner) setTimeout(() => banner.classList.add('show'), 800);
+  }
 })();
 
 // Track Airbnb booking button clicks
