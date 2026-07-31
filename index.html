@@ -106,7 +106,7 @@
   "checkinTime": "16:00",
   "checkoutTime": "10:00",
   "numberOfRooms": 2,
-  "petsAllowed": true,
+  "petsAllowed": false,
   "smokingAllowed": false,
   "starRating": {
     "@type": "Rating",
@@ -705,8 +705,8 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
 }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 36px;
   align-items: center;
 }
 .stat {
@@ -733,6 +733,7 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   letter-spacing: -.02em;
 }
 .stat-val em { font-style: italic; }
+.stat-val.text { font-size: clamp(24px, 2.4vw, 32px); }
 .stat-lbl {
   font-size: 10px;
   font-weight: 500;
@@ -741,9 +742,17 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   color: rgba(255,255,255,.6);
 }
 
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 36px 24px; }
+  .stat:nth-child(3)::after { display: none; }
+}
+
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
-  .stat:nth-child(2)::after { display: none; }
+  .stat:nth-child(2)::after,
+  .stat:nth-child(3)::after,
+  .stat:nth-child(4)::after { display: none; }
+  .stat:last-child { grid-column: 1 / -1; }
 }
 
 /* ════════════════════════════════════════════════════
@@ -1666,6 +1675,10 @@ footer {
         <div class="stat-val"><em>2°</em></div>
         <div class="stat-lbl" data-i18n="st_floor">Piano</div>
       </div>
+      <div class="stat">
+        <div class="stat-val text" data-i18n="st_parking_val"><em>Coperto</em></div>
+        <div class="stat-lbl" data-i18n="st_parking">Parcheggio privato</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1943,7 +1956,7 @@ footer {
         <ul>
           <li data-i18n="inf_2a">Silenzio dalle 23:00 alle 8:00</li>
           <li data-i18n="inf_2b">No fumo in appartamento (terrazza sì)</li>
-          <li data-i18n="inf_2c">Animali ammessi con avviso</li>
+          <li data-i18n="inf_2c">Animali non ammessi</li>
           <li data-i18n="inf_2d">Ospiti esterni con notifica</li>
         </ul>
       </div>
@@ -1952,7 +1965,7 @@ footer {
         <ul>
           <li data-i18n="inf_3a">Pulizia finale inclusa</li>
           <li data-i18n="inf_3b">Welcome kit inclusi</li>
-          <li data-i18n="inf_3c">Parcheggio privato incluso (#53)</li>
+          <li data-i18n="inf_3c">Parcheggio privato incluso</li>
         </ul>
       </div>
     </div>
@@ -2041,6 +2054,7 @@ const T = {
     "hero_badge_lbl": "Eccellenza",
     "scroll": "Scorri",
     "st_guests": "Ospiti", "st_rooms": "Camere", "st_beach": "Dalla spiaggia", "st_floor": "Piano",
+    "st_parking": "Parcheggio privato", "st_parking_val": "<em>Coperto</em>",
     "ab_eyebrow": "L'Appartamento",
     "ab_title": "Una <em>perla</em> sulla<br>Riviera Francese",
     "ab_p1": "Juan-les-Pins, scrigno luminoso della Costa Azzurra, custodisce eleganza intramontabile, sabbia dorata e l'eco del leggendario <strong>Jazz à Juan</strong>.",
@@ -2087,10 +2101,11 @@ const T = {
     "inf_h2": "Regole della casa",
     "inf_2a": "Silenzio dalle 23:00 alle 8:00",
     "inf_2b": "No fumo in appartamento (terrazza sì)",
-    "inf_2c": "Animali ammessi con avviso", "inf_2d": "Ospiti esterni con notifica",
+    "inf_2c": "Animali non ammessi", "inf_2d": "Ospiti esterni con notifica",
     "inf_h3": "Servizi inclusi",
     "inf_3a": "Pulizia finale inclusa", "inf_3b": "Welcome kit inclusi",
-    "inf_3c": "Parcheggio privato incluso (#53)",    "ho_eyebrow": "I Vostri Host", "ho_title": "Sempre <em>a vostra disposizione</em>",
+    "inf_3c": "Parcheggio privato incluso",
+    "ho_eyebrow": "I Vostri Host", "ho_title": "Sempre <em>a vostra disposizione</em>",
     "ho_role": "Host",
     "ho_desc": "Siamo qui per rendere il vostro soggiorno perfetto. Conosciamo Juan-les-Pins come le nostre tasche e saremo felici di consigliarvi i ristoranti migliori, le spiagge più belle e i segreti della Côte d'Azur.",
     "float": "Prenota ora",
@@ -2108,6 +2123,7 @@ const T = {
     "hero_badge_lbl": "Excellence",
     "scroll": "Scroll",
     "st_guests": "Guests", "st_rooms": "Bedrooms", "st_beach": "From beach", "st_floor": "Floor",
+    "st_parking": "Private parking", "st_parking_val": "<em>Covered</em>",
     "ab_eyebrow": "The Apartment",
     "ab_title": "A <em>jewel</em> on the<br>French Riviera",
     "ab_p1": "Juan-les-Pins, a luminous gem of the French Riviera, holds timeless elegance, golden sands and the echo of the legendary <strong>Jazz à Juan</strong>.",
@@ -2154,10 +2170,11 @@ const T = {
     "inf_h2": "House rules",
     "inf_2a": "Quiet hours: 11 PM – 8 AM",
     "inf_2b": "No smoking inside (terrace allowed)",
-    "inf_2c": "Pets allowed with notice", "inf_2d": "External guests with notification",
+    "inf_2c": "No pets allowed", "inf_2d": "External guests with notification",
     "inf_h3": "Included services",
     "inf_3a": "Final cleaning included", "inf_3b": "Welcome kit included",
-    "inf_3c": "Private parking included (#53)",    "ho_eyebrow": "Your Hosts", "ho_title": "Always <em>at your service</em>",
+    "inf_3c": "Private parking included",
+    "ho_eyebrow": "Your Hosts", "ho_title": "Always <em>at your service</em>",
     "ho_role": "Host",
     "ho_desc": "We're here to make your stay perfect. We know Juan-les-Pins like the back of our hand and will gladly recommend the best restaurants, finest beaches and secrets of the Côte d'Azur.",
     "float": "Book now",
@@ -2175,6 +2192,7 @@ const T = {
     "hero_badge_lbl": "Excellence",
     "scroll": "Défiler",
     "st_guests": "Voyageurs", "st_rooms": "Chambres", "st_beach": "De la plage", "st_floor": "Étage",
+    "st_parking": "Parking privé", "st_parking_val": "<em>Couvert</em>",
     "ab_eyebrow": "L'Appartement",
     "ab_title": "Un <em>joyau</em> sur la<br>Côte d'Azur",
     "ab_p1": "Juan-les-Pins, écrin lumineux de la Côte d'Azur, garde une élégance intemporelle, du sable doré et l'écho du légendaire <strong>Jazz à Juan</strong>.",
@@ -2221,10 +2239,11 @@ const T = {
     "inf_h2": "Règles de la maison",
     "inf_2a": "Silence de 23h à 8h",
     "inf_2b": "Non-fumeur en intérieur (terrasse autorisée)",
-    "inf_2c": "Animaux acceptés sur demande", "inf_2d": "Invités extérieurs avec notification",
+    "inf_2c": "Animaux non admis", "inf_2d": "Invités extérieurs avec notification",
     "inf_h3": "Services inclus",
     "inf_3a": "Nettoyage final inclus", "inf_3b": "Kit de bienvenue inclus",
-    "inf_3c": "Parking privé inclus (#53)",    "ho_eyebrow": "Vos Hôtes", "ho_title": "Toujours <em>à votre disposition</em>",
+    "inf_3c": "Parking privé inclus",
+    "ho_eyebrow": "Vos Hôtes", "ho_title": "Toujours <em>à votre disposition</em>",
     "ho_role": "Host",
     "ho_desc": "Nous sommes là pour rendre votre séjour parfait. Nous connaissons Juan-les-Pins comme notre poche et serons ravis de vous recommander les meilleurs restaurants, les plus belles plages et les secrets de la Côte d'Azur.",
     "float": "Réserver",
@@ -2242,6 +2261,7 @@ const T = {
     "hero_badge_lbl": "Exzellenz",
     "scroll": "Scrollen",
     "st_guests": "Gäste", "st_rooms": "Schlafzimmer", "st_beach": "Zum Strand", "st_floor": "Stock",
+    "st_parking": "Privatparkplatz", "st_parking_val": "<em>Überdacht</em>",
     "ab_eyebrow": "Die Wohnung",
     "ab_title": "Ein <em>Juwel</em> an der<br>Côte d'Azur",
     "ab_p1": "Juan-les-Pins, leuchtendes Schmuckstück der Côte d'Azur, bewahrt zeitlose Eleganz, goldenen Sand und den Widerhall des legendären <strong>Jazz à Juan</strong>.",
@@ -2288,10 +2308,11 @@ const T = {
     "inf_h2": "Hausregeln",
     "inf_2a": "Ruhezeit von 23:00 bis 8:00 Uhr",
     "inf_2b": "Kein Rauchen innen (Terrasse erlaubt)",
-    "inf_2c": "Haustiere mit Ankündigung erlaubt", "inf_2d": "Externe Gäste mit Benachrichtigung",
+    "inf_2c": "Keine Haustiere erlaubt", "inf_2d": "Externe Gäste mit Benachrichtigung",
     "inf_h3": "Inkludierte Leistungen",
     "inf_3a": "Endreinigung inklusive", "inf_3b": "Willkommenspaket inklusive",
-    "inf_3c": "Privater Parkplatz inklusive (#53)",    "ho_eyebrow": "Ihre Gastgeber", "ho_title": "Immer <em>für Sie da</em>",
+    "inf_3c": "Privater Parkplatz inklusive",
+    "ho_eyebrow": "Ihre Gastgeber", "ho_title": "Immer <em>für Sie da</em>",
     "ho_role": "Host",
     "ho_desc": "Wir sind hier, um Ihren Aufenthalt perfekt zu machen. Wir kennen Juan-les-Pins wie unsere Westentasche und empfehlen Ihnen gerne die besten Restaurants, schönsten Strände und Geheimnisse der Côte d'Azur.",
     "float": "Jetzt buchen",
