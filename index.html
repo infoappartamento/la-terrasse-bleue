@@ -1255,14 +1255,14 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
 }
 .info-card {
   background: var(--white);
-  padding: 50px 44px;
+  padding: 46px 34px;
   transition: background .3s;
 }
 .info-card:hover { background: var(--cream); }
@@ -1312,6 +1312,10 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   background: var(--gold);
 }
 .info-card li:last-child { border-bottom: 0; }
+
+@media (max-width: 968px) {
+  .info-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
 @media (max-width: 768px) {
   .info-grid { grid-template-columns: 1fr; }
@@ -1932,8 +1936,6 @@ footer {
         <ul>
           <li data-i18n="inf_1a">Check-in dalle ore 16:00</li>
           <li data-i18n="inf_1b">Check-out entro le ore 10:00</li>
-          <li data-i18n="inf_1c">Early check-in: €15/ora (su disponibilità)</li>
-          <li data-i18n="inf_1d">Late check-out: €15/ora (su disponibilità)</li>
         </ul>
       </div>
       <div class="info-card reveal">
@@ -1951,16 +1953,6 @@ footer {
           <li data-i18n="inf_3a">Pulizia finale inclusa</li>
           <li data-i18n="inf_3b">Welcome kit inclusi</li>
           <li data-i18n="inf_3c">Parcheggio privato incluso (#53)</li>
-          <li data-i18n="inf_3d">Pulizia aggiuntiva: €50</li>
-        </ul>
-      </div>
-      <div class="info-card reveal">
-        <h3><span class="num">IV</span> <span data-i18n="inf_h4">Accesso</span></h3>
-        <ul>
-          <li data-i18n="inf_4a">Chiavi in KeyBox (67 Chemin des Liserons)</li>
-          <li data-i18n="inf_4b">Appartamento al secondo piano</li>
-          <li data-i18n="inf_4c">Codice garage: 581</li>
-          <li data-i18n="inf_4d">WiFi: Freebox-32B57A</li>
         </ul>
       </div>
     </div>
@@ -2092,20 +2084,13 @@ const T = {
     "inf_title": "Tutto ciò che<br><em>dovete sapere</em>",
     "inf_h1": "Orari",
     "inf_1a": "Check-in dalle ore 16:00", "inf_1b": "Check-out entro le ore 10:00",
-    "inf_1c": "Early check-in: €15/ora (su disponibilità)",
-    "inf_1d": "Late check-out: €15/ora (su disponibilità)",
     "inf_h2": "Regole della casa",
     "inf_2a": "Silenzio dalle 23:00 alle 8:00",
     "inf_2b": "No fumo in appartamento (terrazza sì)",
     "inf_2c": "Animali ammessi con avviso", "inf_2d": "Ospiti esterni con notifica",
     "inf_h3": "Servizi inclusi",
     "inf_3a": "Pulizia finale inclusa", "inf_3b": "Welcome kit inclusi",
-    "inf_3c": "Parcheggio privato incluso (#53)", "inf_3d": "Pulizia aggiuntiva: €50",
-    "inf_h4": "Accesso",
-    "inf_4a": "Chiavi in KeyBox (67 Chemin des Liserons)",
-    "inf_4b": "Appartamento al secondo piano",
-    "inf_4c": "Codice garage: 581", "inf_4d": "WiFi: Freebox-32B57A",
-    "ho_eyebrow": "I Vostri Host", "ho_title": "Sempre <em>a vostra disposizione</em>",
+    "inf_3c": "Parcheggio privato incluso (#53)",    "ho_eyebrow": "I Vostri Host", "ho_title": "Sempre <em>a vostra disposizione</em>",
     "ho_role": "Host",
     "ho_desc": "Siamo qui per rendere il vostro soggiorno perfetto. Conosciamo Juan-les-Pins come le nostre tasche e saremo felici di consigliarvi i ristoranti migliori, le spiagge più belle e i segreti della Côte d'Azur.",
     "float": "Prenota ora",
@@ -2166,20 +2151,13 @@ const T = {
     "inf_title": "Everything you<br><em>need to know</em>",
     "inf_h1": "Hours",
     "inf_1a": "Check-in from 4:00 PM", "inf_1b": "Check-out by 10:00 AM",
-    "inf_1c": "Early check-in: €15/hr (subject to availability)",
-    "inf_1d": "Late check-out: €15/hr (subject to availability)",
     "inf_h2": "House rules",
     "inf_2a": "Quiet hours: 11 PM – 8 AM",
     "inf_2b": "No smoking inside (terrace allowed)",
     "inf_2c": "Pets allowed with notice", "inf_2d": "External guests with notification",
     "inf_h3": "Included services",
     "inf_3a": "Final cleaning included", "inf_3b": "Welcome kit included",
-    "inf_3c": "Private parking included (#53)", "inf_3d": "Additional cleaning: €50",
-    "inf_h4": "Access",
-    "inf_4a": "Keys in KeyBox (67 Chemin des Liserons)",
-    "inf_4b": "Apartment on the second floor",
-    "inf_4c": "Garage code: 581", "inf_4d": "WiFi: Freebox-32B57A",
-    "ho_eyebrow": "Your Hosts", "ho_title": "Always <em>at your service</em>",
+    "inf_3c": "Private parking included (#53)",    "ho_eyebrow": "Your Hosts", "ho_title": "Always <em>at your service</em>",
     "ho_role": "Host",
     "ho_desc": "We're here to make your stay perfect. We know Juan-les-Pins like the back of our hand and will gladly recommend the best restaurants, finest beaches and secrets of the Côte d'Azur.",
     "float": "Book now",
@@ -2240,20 +2218,13 @@ const T = {
     "inf_title": "Tout ce que vous<br><em>devez savoir</em>",
     "inf_h1": "Horaires",
     "inf_1a": "Arrivée à partir de 16h00", "inf_1b": "Départ avant 10h00",
-    "inf_1c": "Arrivée anticipée : 15€/h (selon disponibilité)",
-    "inf_1d": "Départ tardif : 15€/h (selon disponibilité)",
     "inf_h2": "Règles de la maison",
     "inf_2a": "Silence de 23h à 8h",
     "inf_2b": "Non-fumeur en intérieur (terrasse autorisée)",
     "inf_2c": "Animaux acceptés sur demande", "inf_2d": "Invités extérieurs avec notification",
     "inf_h3": "Services inclus",
     "inf_3a": "Nettoyage final inclus", "inf_3b": "Kit de bienvenue inclus",
-    "inf_3c": "Parking privé inclus (#53)", "inf_3d": "Nettoyage supplémentaire : 50€",
-    "inf_h4": "Accès",
-    "inf_4a": "Clés dans la KeyBox (67 Chemin des Liserons)",
-    "inf_4b": "Appartement au deuxième étage",
-    "inf_4c": "Code garage : 581", "inf_4d": "WiFi : Freebox-32B57A",
-    "ho_eyebrow": "Vos Hôtes", "ho_title": "Toujours <em>à votre disposition</em>",
+    "inf_3c": "Parking privé inclus (#53)",    "ho_eyebrow": "Vos Hôtes", "ho_title": "Toujours <em>à votre disposition</em>",
     "ho_role": "Host",
     "ho_desc": "Nous sommes là pour rendre votre séjour parfait. Nous connaissons Juan-les-Pins comme notre poche et serons ravis de vous recommander les meilleurs restaurants, les plus belles plages et les secrets de la Côte d'Azur.",
     "float": "Réserver",
@@ -2314,20 +2285,13 @@ const T = {
     "inf_title": "Alles was Sie<br><em>wissen müssen</em>",
     "inf_h1": "Zeiten",
     "inf_1a": "Check-in ab 16:00 Uhr", "inf_1b": "Check-out bis 10:00 Uhr",
-    "inf_1c": "Früher Check-in: 15€/Std. (nach Verfügbarkeit)",
-    "inf_1d": "Später Check-out: 15€/Std. (nach Verfügbarkeit)",
     "inf_h2": "Hausregeln",
     "inf_2a": "Ruhezeit von 23:00 bis 8:00 Uhr",
     "inf_2b": "Kein Rauchen innen (Terrasse erlaubt)",
     "inf_2c": "Haustiere mit Ankündigung erlaubt", "inf_2d": "Externe Gäste mit Benachrichtigung",
     "inf_h3": "Inkludierte Leistungen",
     "inf_3a": "Endreinigung inklusive", "inf_3b": "Willkommenspaket inklusive",
-    "inf_3c": "Privater Parkplatz inklusive (#53)", "inf_3d": "Zusätzliche Reinigung: 50€",
-    "inf_h4": "Zugang",
-    "inf_4a": "Schlüssel in der KeyBox (67 Chemin des Liserons)",
-    "inf_4b": "Wohnung im zweiten Stock",
-    "inf_4c": "Garagencode: 581", "inf_4d": "WLAN: Freebox-32B57A",
-    "ho_eyebrow": "Ihre Gastgeber", "ho_title": "Immer <em>für Sie da</em>",
+    "inf_3c": "Privater Parkplatz inklusive (#53)",    "ho_eyebrow": "Ihre Gastgeber", "ho_title": "Immer <em>für Sie da</em>",
     "ho_role": "Host",
     "ho_desc": "Wir sind hier, um Ihren Aufenthalt perfekt zu machen. Wir kennen Juan-les-Pins wie unsere Westentasche und empfehlen Ihnen gerne die besten Restaurants, schönsten Strände und Geheimnisse der Côte d'Azur.",
     "float": "Jetzt buchen",
