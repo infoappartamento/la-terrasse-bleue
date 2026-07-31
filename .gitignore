@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# guida ospiti: contiene codici di accesso, non va pubblicata
+guida.html
+landing-v2.html
+apps-script/
+.claude/

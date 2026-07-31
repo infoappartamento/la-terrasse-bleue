@@ -4,25 +4,93 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://laterrassebleue.com/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/"/>
-    <image:image>
-      <image:loc>https://laterrassebleue.com/images/terrazzo.jpg</image:loc>
-      <image:title>La Terrasse Bleue — terrazza privata</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://laterrassebleue.com/images/soggiorno.jpg</image:loc>
-      <image:title>Soggiorno La Terrasse Bleue</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://laterrassebleue.com/images/camera.jpg</image:loc>
-      <image:title>Camera da letto La Terrasse Bleue</image:title>
-    </image:image>
+    <image:image><image:loc>https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg</image:loc><image:title>Terrazza privata a Juan-les-Pins</image:title></image:image>
+    <image:image><image:loc>https://laterrassebleue.com/images/soggiorno-appartamento-juan-les-pins.jpg</image:loc><image:title>Soggiorno dell'appartamento</image:title></image:image>
+    <image:image><image:loc>https://laterrassebleue.com/images/camera-da-letto-juan-les-pins.jpg</image:loc><image:title>Camera da letto</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/en/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/fr/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/de/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/cosa-fare-juan-les-pins/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/things-to-do-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/que-faire-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/juan-les-pins-tipps/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/en/things-to-do-juan-les-pins/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/things-to-do-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/que-faire-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/juan-les-pins-tipps/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/fr/que-faire-juan-les-pins/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/things-to-do-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/que-faire-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/juan-les-pins-tipps/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+  </url>
+  <url>
+    <loc>https://laterrassebleue.com/de/juan-les-pins-tipps/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laterrassebleue.com/en/things-to-do-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laterrassebleue.com/fr/que-faire-juan-les-pins/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://laterrassebleue.com/de/juan-les-pins-tipps/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laterrassebleue.com/cosa-fare-juan-les-pins/"/>
   </url>
 </urlset>

@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block crawling of source files / backups
-Disallow: /landing-v2.html
-Disallow: /apps-script/
-
-# Sitemap location
 Sitemap: https://laterrassebleue.com/sitemap.xml

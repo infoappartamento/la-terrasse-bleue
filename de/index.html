@@ -36,8 +36,8 @@
 <meta content="La Terrasse Bleue — Ferienwohnung in Juan-les-Pins" property="og:title"/>
 <meta content="Eine private Terrasse zwei Minuten vom Meer, im Herzen der Côte d'Azur." property="og:description"/>
 <meta content="https://laterrassebleue.com/de/" property="og:url"/>
-<meta content="https://laterrassebleue.com/images/terrazzo.jpg" property="og:image"/>
-<meta content="https://laterrassebleue.com/images/terrazzo.jpg" property="og:image:secure_url"/>
+<meta content="https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg" property="og:image"/>
+<meta content="https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg" property="og:image:secure_url"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="800" property="og:image:height"/>
 <meta content="La Terrasse Bleue — terrazza privata con tenda a righe a Juan-les-Pins" property="og:image:alt"/>
@@ -49,10 +49,10 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="La Terrasse Bleue — Ferienwohnung in Juan-les-Pins" name="twitter:title"/>
 <meta content="Eine private Terrasse zwei Minuten vom Meer, im Herzen der Côte d'Azur." name="twitter:description"/>
-<meta content="https://laterrassebleue.com/images/terrazzo.jpg" name="twitter:image"/>
+<meta content="https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg" name="twitter:image"/>
 <meta content="Terrazza privata con vista palme a Juan-les-Pins" name="twitter:image:alt"/>
 <!-- Preload hero -->
-<link as="image" fetchpriority="high" href="/images/terrazzo.jpg" rel="preload"/>
+<link as="image" fetchpriority="high" href="/images/terrazza-privata-juan-les-pins.webp" rel="preload"/>
 <!-- ═══════════ SCHEMA.ORG — VacationRental (Local Business) ═══════════ -->
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -70,18 +70,18 @@
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Credit Card, Cash, Bank Transfer",
   "image": [
-    "https://laterrassebleue.com/images/terrazzo.jpg",
-    "https://laterrassebleue.com/images/terrazzo-2.jpg",
-    "https://laterrassebleue.com/images/terrazza-3.jpg",
-    "https://laterrassebleue.com/images/soggiorno.jpg",
-    "https://laterrassebleue.com/images/camera.jpg",
-    "https://laterrassebleue.com/images/divano-letto.jpg",
-    "https://laterrassebleue.com/images/soggiorno-2.jpg",
-    "https://laterrassebleue.com/images/bagno.jpg",
-    "https://laterrassebleue.com/images/vista-terrazzo.jpg",
-    "https://laterrassebleue.com/images/ingresso.jpg"
+    "https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/terrazza-tramonto-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/terrazza-appartamento-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/soggiorno-appartamento-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/camera-da-letto-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/divano-letto-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/zona-pranzo-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/bagno-appartamento-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/vista-mare-juan-les-pins.jpg",
+    "https://laterrassebleue.com/images/ingresso-appartamento-juan-les-pins.jpg"
   ],
-  "logo": "https://laterrassebleue.com/images/terrazzo.jpg",
+  "logo": "https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Boulevard Poincaré 93",
@@ -194,7 +194,7 @@
   "@id": "https://laterrassebleue.com/#organization",
   "name": "La Terrasse Bleue",
   "url": "https://laterrassebleue.com/de/",
-  "logo": "https://laterrassebleue.com/images/terrazzo.jpg",
+  "logo": "https://laterrassebleue.com/images/terrazza-privata-juan-les-pins.jpg",
   "contactPoint": [
     {
       "@type": "ContactPoint",
@@ -534,7 +534,7 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('/images/terrazzo.jpg') center 30% / cover no-repeat;
+  background: url('/images/terrazza-privata-juan-les-pins.webp') center 30% / cover no-repeat;
   z-index: 0;
 }
 .hero-bg::after {
@@ -700,30 +700,6 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   100% { top: 200%; }
 }
 
-.hero-badge {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
-  z-index: 2;
-  text-align: center;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(0,17,31,.55);
-  border: 1px solid var(--gold);
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-light);
-  font-family: var(--serif);
-  animation: rotateBadge 30s linear infinite;
-}
-.hero-badge .stars { font-size: 14px; color: var(--gold); letter-spacing: 3px; margin-bottom: 4px; padding-left: 3px; }
-.hero-badge .num { font-size: 36px; font-weight: 400; line-height: 1; }
-.hero-badge .lbl { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; margin-top: 6px; opacity: .8; padding-left: .3em; }
 @keyframes rotateBadge { 0%{} 100%{} }
 
 @media (max-width: 768px) {
@@ -733,13 +709,7 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   .hero-sub { margin-bottom: 40px; }
   .hero-cta-row { flex-direction: column; align-items: stretch; gap: 16px; }
   .btn-primary, .btn-ghost { justify-content: center; padding: 16px 28px; }
-  .hero-badge { width: 110px; height: 110px; right: 20px; top: 100px; transform: none; }
-  .hero-badge .stars { font-size: 10px; letter-spacing: 2px; padding-left: 2px; margin-bottom: 2px; }
-  .hero-badge .num { font-size: 24px; }
-  .hero-badge .lbl { font-size: 7px; letter-spacing: .15em; padding-left: .15em; margin-top: 4px; }
-  .hero-scroll { display: none; }
-}
-
+  
 /* ════════════════════════════════════════════════════
    STATS STRIP
 ═══════════════════════════════════════════════════════ */
@@ -974,7 +944,7 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
   min-height: 720px;
 }
 .terrace-img {
-  background: url('/images/terrazzo-2.jpg') center/cover no-repeat;
+  background: url('/images/terrazza-tramonto-juan-les-pins.webp') center/cover no-repeat;
   position: relative;
 }
 .terrace-img::after {
@@ -1142,7 +1112,7 @@ section { padding: clamp(80px, 12vw, 160px) 0; }
 .booking {
   background:
     linear-gradient(180deg, rgba(0,17,31,.65) 0%, rgba(0,32,62,.85) 100%),
-    url('/images/terrazza-3.jpg') center/cover no-repeat;
+    url('/images/terrazza-appartamento-juan-les-pins.webp') center/cover no-repeat;
   background-attachment: fixed;
   color: var(--white);
   text-align: center;
@@ -1561,6 +1531,7 @@ footer {
 <a data-i18n="nav_apt" href="#about">Die Wohnung</a>
 <a data-i18n="nav_gal" href="#gallery">Galerie</a>
 <a data-i18n="nav_loc" href="#location">Lage</a>
+<a data-i18n="nav_guide" href="/de/juan-les-pins-tipps/">Ausflugstipps</a>
 <div class="lang-bar">
 <a class="lang-btn" data-lang="it" href="/" hreflang="it" title="Italiano">🇮🇹</a>
 <a class="lang-btn" data-lang="en" href="/en/" hreflang="en" title="English">🇬🇧</a>
@@ -1573,11 +1544,6 @@ footer {
 <!-- ───────── HERO ───────── -->
 <section class="hero">
 <div class="hero-bg"></div>
-<div aria-hidden="true" class="hero-badge">
-<div class="stars">★★★★★</div>
-<div class="num">4.9</div>
-<div class="lbl" data-i18n="hero_badge_lbl">Exzellenz</div>
-</div>
 <div class="hero-content wrap">
 <div class="hero-meta" data-i18n="hero_meta">JUAN-LES-PINS · CÔTE D'AZUR</div>
 <h1 class="hero-title" data-i18n="hero_title">La <em>Terrasse</em><br/>Bleue</h1>
@@ -1628,8 +1594,8 @@ footer {
 <div class="about-grid">
 <div class="about-images reveal">
 <div class="about-mark">"</div>
-<img alt="Camera" class="about-img-1" decoding="async" loading="lazy" src="/images/camera.jpg"/>
-<img alt="Soggiorno" class="about-img-2" decoding="async" loading="lazy" src="/images/soggiorno.jpg"/>
+<img alt="Camera" class="about-img-1" decoding="async" loading="lazy" src="/images/camera-da-letto-juan-les-pins.webp"/>
+<img alt="Soggiorno" class="about-img-2" decoding="async" loading="lazy" src="/images/soggiorno-appartamento-juan-les-pins.webp"/>
 </div>
 <div class="about-body reveal">
 <span class="eyebrow" data-i18n="ab_eyebrow">Die Wohnung</span>
@@ -1719,16 +1685,16 @@ footer {
 </div>
 </div>
 <div class="gallery-grid">
-<div class="g-item g-1"><img alt="Terrazza" decoding="async" loading="lazy" src="/images/terrazza-3.jpg"/></div>
-<div class="g-item g-2"><img alt="Vista terrazzo" decoding="async" loading="lazy" src="/images/terrazzo.jpg"/></div>
-<div class="g-item g-3"><img alt="Soggiorno" decoding="async" loading="lazy" src="/images/soggiorno.jpg"/></div>
-<div class="g-item g-4"><img alt="Camera" decoding="async" loading="lazy" src="/images/camera.jpg"/></div>
-<div class="g-item g-5"><img alt="Divano letto" decoding="async" loading="lazy" src="/images/divano-letto.jpg"/></div>
-<div class="g-item g-6"><img alt="Soggiorno" decoding="async" loading="lazy" src="/images/soggiorno-2.jpg"/></div>
-<div class="g-item g-7"><img alt="Ingresso" decoding="async" loading="lazy" src="/images/ingresso.jpg"/></div>
-<div class="g-item g-8"><img alt="Bagno" decoding="async" loading="lazy" src="/images/bagno.jpg"/></div>
-<div class="g-item g-9"><img alt="Vista" decoding="async" loading="lazy" src="/images/vista-terrazzo.jpg"/></div>
-<div class="g-item g-10"><img alt="Terrazzo panoramico" decoding="async" loading="lazy" src="/images/terrazzo-2.jpg"/></div>
+<div class="g-item g-1"><img alt="Terrazza" decoding="async" loading="lazy" src="/images/terrazza-appartamento-juan-les-pins.webp"/></div>
+<div class="g-item g-2"><img alt="Vista terrazzo" decoding="async" loading="lazy" src="/images/terrazza-privata-juan-les-pins.webp"/></div>
+<div class="g-item g-3"><img alt="Soggiorno" decoding="async" loading="lazy" src="/images/soggiorno-appartamento-juan-les-pins.webp"/></div>
+<div class="g-item g-4"><img alt="Camera" decoding="async" loading="lazy" src="/images/camera-da-letto-juan-les-pins.webp"/></div>
+<div class="g-item g-5"><img alt="Divano letto" decoding="async" loading="lazy" src="/images/divano-letto-juan-les-pins.webp"/></div>
+<div class="g-item g-6"><img alt="Soggiorno" decoding="async" loading="lazy" src="/images/zona-pranzo-juan-les-pins.webp"/></div>
+<div class="g-item g-7"><img alt="Ingresso" decoding="async" loading="lazy" src="/images/ingresso-appartamento-juan-les-pins.webp"/></div>
+<div class="g-item g-8"><img alt="Bagno" decoding="async" loading="lazy" src="/images/bagno-appartamento-juan-les-pins.webp"/></div>
+<div class="g-item g-9"><img alt="Vista" decoding="async" loading="lazy" src="/images/vista-mare-juan-les-pins.webp"/></div>
+<div class="g-item g-10"><img alt="Terrazzo panoramico" decoding="async" loading="lazy" src="/images/terrazza-tramonto-juan-les-pins.webp"/></div>
 </div>
 </section>
 <!-- ───────── LOCATION ───────── -->
@@ -1881,6 +1847,7 @@ footer {
 <a data-i18n="nav_apt" href="#about">Die Wohnung</a>
 <a data-i18n="nav_gal" href="#gallery">Galerie</a>
 <a data-i18n="nav_loc" href="#location">Lage</a>
+<a data-i18n="nav_guide" href="/de/juan-les-pins-tipps/">Ausflugstipps</a>
 <a data-i18n="nav_book" href="https://www.booking.com/hotel/fr/la-terrasse-bleue-antibes.it.html" target="_blank">Buchen</a>
 </div>
 <div class="footer-divider"></div>
